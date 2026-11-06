@@ -280,6 +280,7 @@ The three exhaustive-analysis charts show:
 - The all-state analyses compute exact optimum costs. Full per-algorithm runtime/memory benchmarking is a separate optional, potentially expensive experiment (`--full-benchmark`) and is **not claimed as completed** here.
 - The project report, source code, generated results, and any required verbatim AI-assistance transcripts should be included in the final course submission.
 
+<<<<<<< HEAD
 ## 10. Documentation
 
 - [Original problem statement](docs/problem_original.md)
@@ -288,5 +289,8 @@ The three exhaustive-analysis charts show:
 - [Water/concrete model (Persian)](docs/water_extension_model_fa.md)
 - [Water runner guide (Persian)](README_WATER_FA.md)
 - [Submission checklist](docs/submission_checklist.md)
+=======
+
+>>>>>>> 1eabc84064fe724cbeababae7546eb016b8ed03f
 
 **Project repository:** https://github.com/PartowRoshani/Sandboxes-Search-Project
