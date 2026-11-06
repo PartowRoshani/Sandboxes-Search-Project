@@ -1,0 +1,299 @@
+{
+  "algorithm": "greedy",
+  "status": "found",
+  "total_cost": 38,
+  "initial_grid": [
+    [
+      0.5,
+      1.0
+    ],
+    [
+      1.0,
+      1.0
+    ],
+    [
+      0.5,
+      0.5
+    ],
+    [
+      0.0,
+      1.0
+    ],
+    [
+      1.0,
+      1.0
+    ]
+  ],
+  "steps": [
+    {
+      "number": 0,
+      "action": null,
+      "action_kind": null,
+      "step_cost": 0,
+      "total_cost": 0,
+      "grid": [
+        [
+          0.5,
+          1.0
+        ],
+        [
+          1.0,
+          1.0
+        ],
+        [
+          0.5,
+          0.5
+        ],
+        [
+          0.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0
+        ]
+      ],
+      "open_vertical_mask": 0
+    },
+    {
+      "number": 1,
+      "action": "Gate (1,1) ↓",
+      "action_kind": "down",
+      "step_cost": 3,
+      "total_cost": 3,
+      "grid": [
+        [
+          1.0,
+          1.0
+        ],
+        [
+          0.5,
+          1.0
+        ],
+        [
+          0.5,
+          0.5
+        ],
+        [
+          0.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0
+        ]
+      ],
+      "open_vertical_mask": 0
+    },
+    {
+      "number": 2,
+      "action": "Gate (2,1) ↓",
+      "action_kind": "down",
+      "step_cost": 3,
+      "total_cost": 6,
+      "grid": [
+        [
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0
+        ],
+        [
+          0.0,
+          0.5
+        ],
+        [
+          0.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0
+        ]
+      ],
+      "open_vertical_mask": 0
+    },
+    {
+      "number": 3,
+      "action": "Gate (3,1) ↓",
+      "action_kind": "down",
+      "step_cost": 9,
+      "total_cost": 15,
+      "grid": [
+        [
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0
+        ],
+        [
+          0.0,
+          0.5
+        ],
+        [
+          0.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0
+        ]
+      ],
+      "open_vertical_mask": 16
+    },
+    {
+      "number": 4,
+      "action": "Gate (4,1) ↓",
+      "action_kind": "down",
+      "step_cost": 9,
+      "total_cost": 24,
+      "grid": [
+        [
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          0.5
+        ],
+        [
+          0.0,
+          1.0
+        ],
+        [
+          0.0,
+          1.0
+        ]
+      ],
+      "open_vertical_mask": 64
+    },
+    {
+      "number": 5,
+      "action": "Gate (5,1) ↓",
+      "action_kind": "down",
+      "step_cost": 5,
+      "total_cost": 29,
+      "grid": [
+        [
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          0.5
+        ],
+        [
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0
+        ]
+      ],
+      "open_vertical_mask": 0
+    },
+    {
+      "number": 6,
+      "action": "Gate (3,2) ↓",
+      "action_kind": "down",
+      "step_cost": 3,
+      "total_cost": 32,
+      "grid": [
+        [
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          0.5
+        ],
+        [
+          1.0,
+          1.0
+        ]
+      ],
+      "open_vertical_mask": 0
+    },
+    {
+      "number": 7,
+      "action": "Gate (4,2) ↓",
+      "action_kind": "down",
+      "step_cost": 3,
+      "total_cost": 35,
+      "grid": [
+        [
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          0.5
+        ]
+      ],
+      "open_vertical_mask": 0
+    },
+    {
+      "number": 8,
+      "action": "Gate (5,2) ↓",
+      "action_kind": "down",
+      "step_cost": 3,
+      "total_cost": 38,
+      "grid": [
+        [
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0
+        ]
+      ],
+      "open_vertical_mask": 0
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "label": "professor",
+  "rows": 4,
+  "cols": 2,
+  "input_display_convention": "0=full, 0.5=half, 1=empty",
+  "initial_grid": [
+    [
+      0.0,
+      1.0
+    ],
+    [
+      1.0,
+      0.0
+    ],
+    [
+      1.0,
+      0.0
+    ],
+    [
+      0.0,
+      1.0
+    ]
+  ],
+  "initial_base3_code": 2000,
+  "limits": {
+    "max_seconds": 5.0,
+    "max_expansions": 100000,
+    "max_depth_ids": 30
+  }
+}

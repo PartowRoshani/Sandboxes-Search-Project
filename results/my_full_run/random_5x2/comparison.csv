@@ -1,0 +1,8 @@
+﻿example,algorithm,status,cost,optimality_gap,action_count,side_action_count,down_action_count,elapsed_sec,peak_python_kib,expanded,generated,max_frontier,goal_verified,animation_html
+random_5x2,greedy,found,38,4,8,0,8,0.001298,1.07,8,8,1,True,greedy.html
+random_5x2,dfs,found,46,12,16,1,15,0.006066,7.52,16,43,28,True,dfs.html
+random_5x2,bfs,found,38,4,8,0,8,0.18566,72.81,500,2008,157,True,bfs.html
+random_5x2,ids,timeout,,,,,,5.001675,13.13,3516,15115,23,,
+random_5x2,ucs,found,34,0,8,0,8,0.970961,60.84,585,2294,162,True,ucs.html
+random_5x2,astar,found,34,0,8,0,8,1.037744,61.79,456,1913,191,True,astar.html
+random_5x2,rbfs,timeout,,,,,,5.000241,8.02,4229,19248,14,,

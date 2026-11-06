@@ -1,0 +1,233 @@
+{
+  "algorithm": "bfs",
+  "status": "found",
+  "total_cost": 47,
+  "initial_grid": [
+    [
+      0.0,
+      1.0
+    ],
+    [
+      1.0,
+      0.0
+    ],
+    [
+      1.0,
+      0.0
+    ],
+    [
+      0.0,
+      1.0
+    ]
+  ],
+  "steps": [
+    {
+      "number": 0,
+      "action": null,
+      "action_kind": null,
+      "step_cost": 0,
+      "total_cost": 0,
+      "grid": [
+        [
+          0.0,
+          1.0
+        ],
+        [
+          1.0,
+          0.0
+        ],
+        [
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0
+        ]
+      ],
+      "open_vertical_mask": 0
+    },
+    {
+      "number": 1,
+      "action": "Gate (1,1) ↓",
+      "action_kind": "down",
+      "step_cost": 5,
+      "total_cost": 5,
+      "grid": [
+        [
+          1.0,
+          1.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0
+        ]
+      ],
+      "open_vertical_mask": 0
+    },
+    {
+      "number": 2,
+      "action": "Gate (2,1) ↓",
+      "action_kind": "down",
+      "step_cost": 5,
+      "total_cost": 10,
+      "grid": [
+        [
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0
+        ]
+      ],
+      "open_vertical_mask": 0
+    },
+    {
+      "number": 3,
+      "action": "Gate (2,2) ↓",
+      "action_kind": "down",
+      "step_cost": 9,
+      "total_cost": 19,
+      "grid": [
+        [
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0
+        ]
+      ],
+      "open_vertical_mask": 8
+    },
+    {
+      "number": 4,
+      "action": "Gate (3,1) ↓",
+      "action_kind": "down",
+      "step_cost": 9,
+      "total_cost": 28,
+      "grid": [
+        [
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0
+        ]
+      ],
+      "open_vertical_mask": 24
+    },
+    {
+      "number": 5,
+      "action": "Gate (3,2) ↓",
+      "action_kind": "down",
+      "step_cost": 9,
+      "total_cost": 37,
+      "grid": [
+        [
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "open_vertical_mask": 48
+    },
+    {
+      "number": 6,
+      "action": "Gate (4,1) ↓",
+      "action_kind": "down",
+      "step_cost": 5,
+      "total_cost": 42,
+      "grid": [
+        [
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          0.0
+        ],
+        [
+          1.0,
+          0.0
+        ]
+      ],
+      "open_vertical_mask": 32
+    },
+    {
+      "number": 7,
+      "action": "Gate (4,2) ↓",
+      "action_kind": "down",
+      "step_cost": 5,
+      "total_cost": 47,
+      "grid": [
+        [
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0
+        ]
+      ],
+      "open_vertical_mask": 0
+    }
+  ]
+}

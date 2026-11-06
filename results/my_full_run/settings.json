@@ -1,0 +1,14 @@
+{
+  "generated_utc": "2026-11-06T18:02:29.886238+00:00",
+  "python": "3.11.1",
+  "platform": "Windows-10-10.0.26300-SP0",
+  "random_seed": 42,
+  "sample_size": 30,
+  "seconds": 5.0,
+  "expansion_limit": 100000,
+  "ids_depth_limit": 30,
+  "exhaustive_skipped": false,
+  "exhaustive_reused": false,
+  "full_benchmark_requested": false,
+  "full_benchmark_count": 0
+}

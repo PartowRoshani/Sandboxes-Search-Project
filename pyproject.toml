@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sand-grid-search-project"
+version = "1.0.0"
+description = "Exact and heuristic search over a sand grid with persistent connections"
+requires-python = ">=3.10"
+dependencies = ["numpy>=1.24,<3", "matplotlib>=3.6,<4", "Pillow>=9,<13"]
+
+[project.optional-dependencies]
+test = ["pytest>=7,<10"]
+
+[project.scripts]
+sandgrid = "sandgrid.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["sandgrid*"]

@@ -1,0 +1,8 @@
+﻿example,algorithm,status,cost,optimality_gap,action_count,side_action_count,down_action_count,elapsed_sec,peak_python_kib,expanded,generated,max_frontier,goal_verified,animation_html
+professor,greedy,found,47,13,7,0,7,0.01378,0.98,7,7,1,True,greedy.html
+professor,dfs,found,64,30,24,4,20,0.011679,20.16,24,102,79,True,dfs.html
+professor,bfs,found,47,13,7,0,7,0.89729,580.68,1788,10312,1017,True,bfs.html
+professor,ids,timeout,,,,,,2.000405,17.64,3088,18710,30,,
+professor,ucs,found,34,0,10,3,7,1.560666,639.64,3709,20532,1400,True,ucs.html
+professor,astar,found,34,0,10,3,7,1.538397,541.03,2551,15381,1361,True,astar.html
+professor,rbfs,timeout,,,,,,2.001396,8.79,2382,17322,14,,
