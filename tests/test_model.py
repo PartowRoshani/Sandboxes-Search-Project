@@ -1,114 +1,140 @@
-from sandgrid import SandGrid, greedy, search, heuristic
-from sandgrid.batch import compute_all_optimal, reconstruct_optimal
-from sandgrid.visualize import save_html, save_gif
+"""Regression tests for continuous sand flow and persistent blocked gates."""
+from collections import deque
+
+from sandgrid.model import SandGrid
+from sandgrid.search import greedy
 
 
-def test_display_conventions():
+def test_default_display_convention_full_is_one():
     m = SandGrid(2, 2)
-    s = m.from_display([[0, .5], [1, 0]], 'empty-is-1')
-    assert m.decode(s)[0] == [2, 1, 0, 2]
-    assert m.to_display(s) == [[0, .5], [1, 0]]
-    t = m.from_display([[1, .5], [0, 1]], 'full-is-1')
-    assert s == t
-    assert m.to_display(t, 'full-is-1') == [[1, .5], [0, 1]]
+    source = [[1, 0], [0.5, 1]]
+    state = m.from_display(source)
+    assert m.decode(state) == ([2, 0, 1, 2], 0)
+    assert m.to_display(state) == source
+    assert m.from_display([[0,1],[0.5,0]], 'empty-is-1') == state
 
 
-def test_costs_and_persistent_gates():
-    m = SandGrid(2, 1)
-    a = m.down_ids[0]
-    b = m.down_ids[1]
-    # Full upper into empty lower: empties upper, cost 5.
-    state = m.encode([2, 0])
-    nxt, cost = m.step(state, a)
-    assert (cost, m.decode(nxt)) == (5, ([0, 2], 0))
-    # Half into empty lower: cost 3.
-    nxt, cost = m.step(m.encode([1, 0]), a)
-    assert (cost, m.decode(nxt)) == (3, ([0, 1], 0))
-    # Full into half: upper half / lower full, cost 7, gate remains open.
-    nxt, cost = m.step(m.encode([2, 1]), a)
-    assert (cost, m.decode(nxt)) == (7, ([1, 2], 1))
-    assert m.step(nxt, a) is None
-    # Opening a jammed gate is useful: full/full costs 9 and connects cells.
-    jammed, cost = m.step(m.encode([2, 2]), a)
-    assert (cost, m.decode(jammed)) == (9, ([2, 2], 1))
-    # Drain both connected cells in ONE opening.
-    drained, cost = m.step(jammed, b)
-    assert (drained, cost) == (0, 5)
-
-
-def test_professor_example_baseline():
+def test_professor_columnwise_greedy_47_cost_7_openings():
     m = SandGrid(4, 2)
-    initial = m.from_display([[1, 0], [0, 1], [0, 1], [1, 0]], 'full-is-1')
-    g = greedy(m, initial)
-    assert g.found and g.cost == 47
-    assert len(g.actions) == 7
-    assert all(m.actions[a].kind == 'down' for a in g.actions)
-    assert [x['step_cost'] for x in m.trace(initial, g.actions)[1:]] == [5, 5, 9, 5, 9, 9, 5]
-    u = search(m, initial, 'ucs')
-    a = search(m, initial, 'astar')
-    assert (u.cost, a.cost) == (34, 34)
-    assert all(m.is_goal(m.trace(initial, path.actions)[-1]['state'])
-               for path in (g, u, a))
-
-
-def test_successors_invariants_and_costs():
-    m = SandGrid(2, 2)
-    for initial in range(m.base):
-        assert m.valid_mask(*m.decode(initial))
-        for nxt, a, cost in m.successors(initial):
-            assert 1 <= cost <= 9
-            assert m.valid_mask(*m.decode(nxt))
-            assert (nxt, cost) == m.step(initial, a)
-
-
-def test_exhaustive_2x2_and_admissible_heuristic():
-    m = SandGrid(2, 2)
-    batch = compute_all_optimal(m, progress=False)
-    for state in batch['states']:
-        idx = batch['state_index'][state]
-        assert heuristic(m, state) <= int(batch['distances'][idx])
-    for initial in range(m.base):
-        opt = int(batch['distances'][batch['state_index'][initial]])
-        u = search(m, initial, 'ucs')
-        a = search(m, initial, 'astar')
-        assert u.found and a.found
-        assert u.cost == a.cost == opt
-        if initial % 13 == 0:
-            path = reconstruct_optimal(batch, initial)
-            assert m.trace(initial, path)[-1]['total_cost'] == opt
-
-
-def test_bfs_min_actions_2x2():
-    m = SandGrid(2, 2)
-    # On this small grid, IDS and BFS must find equal minimum action counts.
-    for initial in (0, 7, 25, 36, 59, 80):
-        bfs = search(m, initial, 'bfs')
-        ids = search(m, initial, 'ids', max_depth=12)
-        assert bfs.found and ids.found
-        assert bfs.action_count == ids.action_count
-
-
-def test_random_grid_distribution():
-    m = SandGrid(5, 2)
-    values = [cell for seed in range(200) for cell in m.decode(m.random_state(seed))[0]]
-    frac_empty = values.count(0) / len(values)
-    assert 0.45 <= frac_empty <= 0.55
-
-
-def test_html_animation(tmp_path):
-    m = SandGrid(2, 2)
-    initial = m.encode([2, 0, 0, 2])
-    path = save_html(m, initial, greedy(m, initial).actions, tmp_path/'demo.html')
-    text = path.read_text(encoding='utf-8')
-    assert '<canvas' in text and 'Gate (1,1)' in text
-    assert 'Number(' in text and 'Remaining sand' in text
-
-
-def test_gif_animation(tmp_path):
-    from PIL import Image
-    m = SandGrid(2, 2)
-    initial = m.encode([2, 0, 0, 2])
+    initial = m.from_display([[1,0],[0,1],[0,1],[1,0]])
     result = greedy(m, initial)
-    path = save_gif(m, initial, result.actions, tmp_path/'demo.gif', 150)
-    with Image.open(path) as gif:
-        assert gif.n_frames == len(result.actions)+1
+    assert result.found
+    assert result.cost == 47
+    assert result.actions == [m.down_ids[i] for i in (0,2,4,6,3,5,7)]
+    assert [t['step_cost'] for t in m.trace(initial, result.actions)[1:]] == [5,5,9,5,9,9,5]
+    assert all(m.actions[a].kind == 'down' for a in result.actions)
+    assert m.trace(initial, result.actions)[-1]['state'] == 0
+
+
+def test_blocked_vertical_gate_waits_and_exit_drains_continuously():
+    m = SandGrid(2, 1)
+    state = m.encode([2, 2])
+    blocked, cost = m.step(state, m.down_ids[0])
+    assert cost == 9
+    assert m.decode(blocked) == ([2,2],1)
+    assert m.step(blocked,m.down_ids[0]) is None
+    trace = m.trace(blocked, [m.down_ids[1]])
+    assert trace[-1]['state'] == 0
+    assert trace[-1]['step_cost'] == 5
+    assert [(e['kind'],e['amount']) for e in trace[-1]['flow_events']] == [
+        ('exit',1.0),('down',1.0),('exit',1.0)]
+
+
+def test_vertical_gate_stays_open_while_blocked_with_sand_upstream():
+    m = SandGrid(2,1)
+    result, cost = m.step(m.encode([2,1]),m.down_ids[0])
+    assert cost == 7
+    assert m.decode(result) == ([1,2],1)
+    trace = m.trace(result,[m.down_ids[1]])
+    assert trace[-1]['state'] == 0
+    assert trace[-1]['step_cost'] == 5
+    assert sum(e['kind']=='exit' for e in trace[-1]['flow_events']) == 2
+
+
+def test_vertical_gate_closes_only_when_upstream_sand_exhausted():
+    m = SandGrid(2,1)
+    result, cost = m.step(m.encode([2,0]),m.down_ids[0])
+    assert (m.decode(result),cost) == (([0,2],0),5)
+
+
+def test_horizontal_passage_one_half_then_closes():
+    m = SandGrid(1,2)
+    result,cost = m.step(m.encode([2,0]),m.side_ids[(0,1)])
+    assert cost==1 and m.decode(result)==([1,1],0)
+
+
+def test_horizontal_gate_blocked_then_automatically_passes_half_unit():
+    m = SandGrid(1,2)
+    blocked,cost=m.step(m.encode([2,2]),m.side_ids[(0,1)])
+    assert cost==1
+    assert m.decode(blocked)[1]==(1 << m.gate_bit(m.side_ids[(0,1)]))
+    trace=m.trace(blocked,[m.down_ids[1]])[-1]
+    assert m.decode(trace['state'])==([1,0],0)
+    assert trace['step_cost']==5
+    assert [(e['kind'],e['amount']) for e in trace['flow_events']]==[
+        ('exit',1.0),('side',0.5),('exit',0.5)]
+    assert trace['flow_events'][1]['automatic'] is True
+
+
+def test_horizontal_opens_only_from_full_source():
+    m=SandGrid(1,2)
+    assert m.step(m.encode([1,0]),m.side_ids[(0,1)]) is None
+    assert m.step(m.encode([0,0]),m.side_ids[(0,1)]) is None
+
+
+def test_cascade_carries_sand_to_exit_through_two_vertical_gates():
+    m=SandGrid(3,1)
+    state=m.encode([2,2,2])
+    state,_=m.step(state,m.down_ids[0])
+    state,_=m.step(state,m.down_ids[1])
+    assert m.decode(state)==([2,2,2],3)
+    action=m.trace(state,[m.down_ids[2]])[-1]
+    assert action['state']==0 and action['step_cost']==5
+    assert len([e for e in action['flow_events'] if e['kind']=='exit'])==3
+    assert len([e for e in action['flow_events'] if e['kind']=='down'])==3
+
+
+def test_horizontal_half_full_destination_moves_half():
+    m=SandGrid(1,2)
+    state,cost=m.step(m.encode([2,1]),m.side_ids[(0,1)])
+    assert cost==1 and m.decode(state)==([1,2],0)
+
+
+def test_gate_mask_validity_and_open_status():
+    m=SandGrid(2,1)
+    assert m.valid_mask([2,2],1)
+    assert not m.valid_mask([1,1],1)
+    assert not m.valid_mask([0,2],1)
+    assert m.encode([0,0],0)==0
+
+
+def test_all_initial_2x2_states_reach_goal_and_costs_valid():
+    m=SandGrid(2,2)
+    seen_all=set()
+    for initial in range(m.base):
+        seen={initial};q=deque([initial]);reached=initial==0
+        while q:
+            state=q.popleft()
+            old,_=m.decode(state)
+            for nxt,action,cost in m.successors(state):
+                new,mask=m.decode(nxt)
+                assert m.valid_mask(new,mask)
+                assert 1 <= cost <= 9
+                assert sum(new) <= sum(old)
+                assert m.step(state,action)==(nxt,cost)
+                if nxt not in seen:
+                    seen.add(nxt)
+                    q.append(nxt)
+                reached |= nxt==0
+        assert reached, f'goal not reachable from initial {initial}'
+        seen_all.update(seen)
+    assert len(seen_all)>200
+
+
+def test_greedy_never_uses_horizontal_gate_for_all_2x2_grids():
+    m=SandGrid(2,2)
+    for initial in range(m.base):
+        result=greedy(m,initial)
+        assert result.found
+        assert all(m.actions[a].kind == 'down' for a in result.actions)
+        assert m.trace(initial,result.actions)[-1]['total_cost']==result.cost

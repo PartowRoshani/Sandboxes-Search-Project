@@ -1,19 +1,25 @@
 #!/usr/bin/env python3
-"""Run the sand-grid assignment end-to-end and produce a comparable report.
+"""Reproduce experiments for the sand-only continuous-flow gate model.
+
+External display convention: 1=full, 0.5=half, 0=empty.
+Both vertical and horizontal gates may remain open when blocked. Internal
+downward gates close when their upstream supply is exhausted; bottom exits
+keep draining throughout their paid action. Horizontal gates transfer up to
+0.5 units per opening. The 5x2 exhaustive reverse-Dijkstra graph is too large for
+the current exact batch solver and is SKIPPED safely by its state cap.
 
 Examples:
-    python run_project.py
-    python run_project.py --sample-size 25 --seconds 2
-    python run_project.py --full-benchmark --seconds 0.5
-    python run_project.py --force-analysis --sample-size 10
+  python run_project.py --sample-size 5 --seconds 2 --gif
+  python run_project.py --analysis-rows 3 --analysis-cols 2 --sample-size 5
+  python run_project.py --skip-analysis --sample-size 5
 
-The optional --full-benchmark triggers 59,049 x 7 independent runs, which can
-be lengthy. Results are appended to a resumable CSV; no incomplete run is
-reported as a completed full benchmark.
+An optional --full-benchmark launches many individual capped searches; it is
+not the same as proving the exact optimum for all 59,049 input grids.
 """
 from __future__ import annotations
 
 import argparse
+import hashlib
 import csv
 import json
 from html import escape
@@ -29,7 +35,7 @@ import tracemalloc
 from sandgrid.model import SandGrid
 from sandgrid.search import greedy, search
 from sandgrid.visualize import save_html, save_gif
-from sandgrid.benchmark import ALGORITHMS, benchmark, summarize
+from sandgrid.benchmark import ALGORITHMS, benchmark, summarize, random_seed_for_state
 from sandgrid.reporting import make_dashboard, write_quality_comparison
 
 ROOT = Path(__file__).resolve().parent
@@ -59,16 +65,19 @@ def write_csv(path: Path, rows: list[dict], columns: tuple[str, ...]) -> None:
 
 
 def evaluate(model: SandGrid, initial: int, label: str, destination: Path,
-             seconds: float, expansions: int, depth: int, gif: bool) -> list[dict]:
+             seconds: float, expansions: int, depth: int, gif: bool,
+             random_seed: int = 42) -> list[dict]:
     """Use the SAME grid for all methods; failures stay visible in CSV."""
     destination.mkdir(parents=True, exist_ok=True)
     save_json(destination / 'initial.json', {
         'label': label, 'rows': model.rows, 'cols': model.cols,
-        'input_display_convention': '0=full, 0.5=half, 1=empty',
+        'input_display_convention': '1=full, 0.5=half, 0=empty',
         'initial_grid': model.to_display(initial),
         'initial_base3_code': initial,
         'limits': {'max_seconds': seconds, 'max_expansions': expansions,
                    'max_depth_ids': depth},
+        'random_algorithm_base_seed': random_seed,
+        'random_algorithm_action_seed': random_seed_for_state(random_seed, initial),
     })
     raw = []
     for algo in ALGORITHMS:
@@ -84,7 +93,8 @@ def evaluate(model: SandGrid, initial: int, label: str, destination: Path,
         else:
             result = search(model, initial, algo, max_seconds=seconds,
                             max_expansions=expansions, max_depth=depth,
-                            measure_memory=True)
+                            measure_memory=True,
+                            random_seed=random_seed_for_state(random_seed, initial))
         animation_path = ''
         side = sum(model.actions[a].kind == 'side' for a in result.actions)
         verified = False
@@ -97,7 +107,7 @@ def evaluate(model: SandGrid, initial: int, label: str, destination: Path,
             save_html(model, initial, result.actions, animation_file,
                       title=f'{label} — {algo.upper()}')
             animation_path = animation_file.name
-            if gif and algo in ('ucs', 'astar'):
+            if gif and algo in ('random', 'ucs', 'astar'):
                 save_gif(model, initial, result.actions, destination / f'{algo}.gif')
             save_json(destination / f'{algo}_steps.json', {
                 'algorithm': algo, 'status': result.status, 'total_cost': result.cost,
@@ -109,7 +119,13 @@ def evaluate(model: SandGrid, initial: int, label: str, destination: Path,
                                      if t['action'] is not None else None),
                      'step_cost': t['step_cost'], 'total_cost': t['total_cost'],
                      'grid': model.to_display(t['state']),
-                     'open_vertical_mask': model.decode(t['state'])[1]}
+                     'open_gate_mask': model.decode(t['state'])[1],
+                     'open_vertical_mask': (model.decode(t['state'])[1]
+                                            & model.vertical_gate_mask),
+                     'open_horizontal_mask': (model.decode(t['state'])[1]
+                                              >> model.vertical_edges),
+                     'flow_events': t.get('flow_events', []),
+                     'closed_gate_bits': t.get('closed_gate_bits', [])}
                     for n, t in enumerate(trace)
                 ],
             })
@@ -117,11 +133,11 @@ def evaluate(model: SandGrid, initial: int, label: str, destination: Path,
         info(f'  {label:10s} {algo:6s} {result.status:16s} '
              f'cost={str(result.cost):>4s} actions={result.action_count:>3} '
              f'time={result.elapsed_sec:.3f}s')
+    # Only a completed UCS run certifies the weighted optimum. A* alone is
+    # not used as a certificate until admissibility on the new state space
+    # has been established more broadly than the tested small grids.
     exact = next((res.cost for name, res, _, _, _ in raw
                   if name == 'ucs' and res.found), None)
-    if exact is None:
-        exact = next((res.cost for name, res, _, _, _ in raw
-                      if name == 'astar' and res.found), None)
     output = []
     for algo, result, side, verified, animation_path in raw:
         output.append(dict(
@@ -142,7 +158,7 @@ def evaluate(model: SandGrid, initial: int, label: str, destination: Path,
     write_csv(destination / 'comparison.csv', output, COMPARISON_FIELDS)
     save_json(destination / 'comparison.json', {
         'example': label, 'reference_optimal_cost': exact,
-        'reference_note': 'UCS/A* only if solved within resource limits',
+        'reference_note': 'UCS only, when completed within resource limits',
         'results': output,
     })
     return output
@@ -208,23 +224,138 @@ def plot_benchmark(csv_file: Path, directory: Path) -> None:
         plt.close(fig)
 
 
-def analyze_59049(directory: Path, force: bool) -> tuple[dict, bool]:
-    summary_file = directory / 'summary.json'
-    data_file = directory / 'all_states.csv'
-    plots = ['histogram_ratio.png', 'scatter_costs.png', 'scatter_actions.png']
-    existing = summary_file.exists() and data_file.exists() and all(
-        (directory / file).exists() for file in plots)
-    if existing and not force:
-        summary = json.loads(summary_file.read_text(encoding='utf-8'))
-        if (summary.get('grid_rows'), summary.get('grid_cols'),
-                summary.get('initial_state_count')) == (5, 2, 59049):
-            info('Reusing validated-shape 5×2 exhaustive output (use --force-analysis to recalculate).')
-            return summary, True
-    from sandgrid.batch import compute_all_optimal, write_full_analysis
-    info('Computing exact optimum for all 59,049 closed-gate initial states...')
-    data = compute_all_optimal(SandGrid(5, 2))
+
+def compare_sample_greedy_ucs(csv_file: Path, directory: Path) -> dict:
+    """Sample quality plots; use only solved UCS results as exact references.
+
+    A missing/timeout UCS result must never be treated as an optimum. The
+    denominator is the number of *jointly solved* pairs, not the entire sample.
+    """
+    from collections import defaultdict
+    import matplotlib
+    matplotlib.use('Agg')
+    import matplotlib.pyplot as plt
+    grouped = defaultdict(dict)
+    for name in ('sample_greedy_ratio_histogram.png', 'sample_greedy_vs_ucs_scatter.png'):
+        (directory/name).unlink(missing_ok=True)
+    with csv_file.open(newline='', encoding='utf-8-sig') as stream:
+        for entry in csv.DictReader(stream):
+            grouped[int(entry['initial_code'])][entry['algorithm']] = entry
+    matched = []
+    for code, entries in grouped.items():
+        g = entries.get('greedy')
+        u = entries.get('ucs')
+        if not g or not u or g['status'] != 'found' or u['status'] != 'found':
+            continue
+        greedy_cost, optimal_cost = int(g['cost']), int(u['cost'])
+        if greedy_cost < optimal_cost:
+            raise AssertionError('Greedy cost smaller than certified UCS optimum')
+        matched.append({
+            'initial_code': code, 'greedy_cost': greedy_cost,
+            'optimal_cost': optimal_cost,
+            'gap': greedy_cost - optimal_cost,
+            'ratio': round(greedy_cost/optimal_cost, 8) if optimal_cost else '',
+        })
+    write_csv(directory/'sample_greedy_vs_ucs.csv', matched,
+              ('initial_code', 'greedy_cost', 'optimal_cost', 'gap', 'ratio'))
+    nonzero = [r for r in matched if r['optimal_cost']]
+    info_data = {
+        'sample_initials': len(grouped), 'jointly_solved_pairs': len(matched),
+        'ratio_count': len(nonzero), 'excluded_zero_optimum': len(matched)-len(nonzero),
+        'mean_ratio': round(sum(float(r['ratio']) for r in nonzero)/len(nonzero), 6)
+                      if nonzero else None,
+        'max_gap': max((r['gap'] for r in matched), default=None),
+        'explanation': 'UCS provides the optimum only for completed, solved runs. '
+                       'The plots are SAMPLE results; they are not exhaustive for 5x2.',
+    }
+    save_json(directory/'sample_greedy_vs_ucs_summary.json', info_data)
+    if nonzero:
+        fig, ax = plt.subplots(figsize=(8,4.8))
+        ax.hist([float(row['ratio']) for row in nonzero], bins=min(25,len(nonzero)),
+                edgecolor='white', linewidth=.5)
+        ax.set(xlabel='Greedy cost / UCS optimal cost', ylabel='Number of solved initial grids',
+               title='Sample: column-wise Greedy vs exact UCS (solved pairs only)')
+        fig.tight_layout()
+        fig.savefig(directory/'sample_greedy_ratio_histogram.png', dpi=170)
+        plt.close(fig)
+        fig, ax = plt.subplots(figsize=(8,4.8))
+        ax.scatter([r['greedy_cost'] for r in matched],
+                   [r['optimal_cost'] for r in matched], s=35, alpha=.6)
+        bound=max(max(r['greedy_cost'],r['optimal_cost']) for r in matched)
+        ax.plot([0,bound],[0,bound],linestyle='--',linewidth=1)
+        ax.set(xlabel='Greedy baseline cost', ylabel='Exact UCS cost',
+               title='Sample: greedy and optimal cost (solved pairs only)')
+        fig.tight_layout()
+        fig.savefig(directory/'sample_greedy_vs_ucs_scatter.png', dpi=170)
+        plt.close(fig)
+    return info_data
+
+
+def analyze_grid(directory: Path, rows: int, cols: int,
+                 max_states: int) -> tuple[dict | None, str]:
+    """Compute revised exact costs or skip safely, without reusing old data.
+
+    A changed gate model invalidates the earlier 5x2 exact results. For this
+    reason we deliberately do not read or reuse existing analysis outputs.
+    """
+    from sandgrid.batch import BatchTooLarge, compute_all_optimal, write_full_analysis
+    directory.mkdir(parents=True, exist_ok=True)
+    try:
+        info(f'Analyzing revised {rows}x{cols} grid ({3 ** (rows * cols):,} initial grids) ...')
+        data = compute_all_optimal(SandGrid(rows, cols), max_states=max_states)
+    except BatchTooLarge as exc:
+        reason = str(exc)
+        info(f'Exact analysis safely skipped: {reason}')
+        save_json(directory / 'analysis_status.json', {
+            'status': 'skipped_resource_limit', 'rows': rows, 'cols': cols,
+            'model_version': SandGrid.MODEL_VERSION,
+            'reason': reason,
+        })
+        return None, reason
     summary = write_full_analysis(data, directory)
-    return summary, False
+    save_json(directory / 'analysis_status.json', {
+        'status': 'completed', 'rows': rows, 'cols': cols,
+        'model_version': SandGrid.MODEL_VERSION,
+        'valid_states': summary['valid_state_count'],
+    })
+    return summary, ''
+
+
+
+def annotate_dashboard(directory: Path, summary: dict | None, folder: str,
+                       skip_reason: str, user_skipped: bool) -> None:
+    """Add accurate links for revised exact analysis without editing reporting.py.
+
+    The legacy dashboard hardcodes the old exhaustive_5x2 directory. We pass
+    analyzed=False to it and instead insert a new, correctly named section.
+    """
+    path = directory / 'dashboard.html'
+    if not path.exists():
+        return
+    if summary is not None:
+        count = int(summary['initial_state_count'])
+        content = (
+            '<section><h2>Exact analysis: revised gate model</h2>'
+            f'<p>{summary["grid_rows"]}x{summary["grid_cols"]}: '
+            f'{count:,} initial grids; '
+            f'{int(summary["valid_state_count"]):,} augmented states.</p>'
+            f'<p><a href="{escape(folder)}/all_states.csv">Exact costs (CSV)</a> · '
+            f'<a href="{escape(folder)}/summary.json">Summary (JSON)</a></p>'
+            + ''.join(f'<img src="{escape(folder)}/{img}" alt="{img}">'
+                      for img in ('histogram_ratio.png', 'scatter_costs.png',
+                                  'scatter_actions.png'))
+            + '</section>'
+        )
+    else:
+        message = ('Exact analysis was intentionally skipped.' if user_skipped
+                   else ('Exact analysis was skipped safely because of the '
+                         'augmented state-space size: ' + skip_reason))
+        content = (f'<section><h2>Exact analysis</h2>'
+                   f'<p>{escape(message)}</p></section>')
+    html = path.read_text(encoding='utf-8')
+    if '</body>' not in html:
+        raise ValueError('dashboard HTML is missing closing body tag')
+    path.write_text(html.replace('</body>', content + '</body>', 1), encoding='utf-8')
 
 
 def benchmark_csv_count(filepath: Path) -> tuple[int, int]:
@@ -236,7 +367,7 @@ def benchmark_csv_count(filepath: Path) -> tuple[int, int]:
 
 
 def make_report(directory: Path, comparisons: list[dict], args,
-                exhaustive: dict | None, reused: bool, test_ok: bool,
+                exhaustive: dict | None, analysis_note: str, test_ok: bool,
                 sample_stats: list[dict] | None, full_stats: list[dict] | None,
                 full_rows: int) -> None:
     lines = [
@@ -244,20 +375,25 @@ def make_report(directory: Path, comparisons: list[dict], args,
         f'Generated (UTC): {datetime.now(timezone.utc).isoformat(timespec="seconds")}',
         f'Python: `{sys.version.split()[0]}`; OS: `{platform.system()} {platform.release()}`',
         '', '## Coverage and interpretation', '',
-        '- Initial grid: 0=full, 0.5=half, 1=empty; professor example uses reversed values.',
+        '- Input/display convention: 1=full, 0.5=half, 0=empty, including the professor example.',
         '- Down cost = 1 + 4 × (sand amount before + sand amount after). Side cost = 1.',
+        '- Random is a seeded randomized DFS over legal gate openings; full states are never revisited during exploration.',
+        f'- Random action-order base seed: {args.seed if args.random_seed is None else args.random_seed}; each grid derives a stable state-specific seed.',
         '- DFS/BFS/IDS/UCS are compulsory; A*/RBFS, animation and exhaustive plots are bonus.',
         '- BFS/IDS minimize action count, while UCS/A* minimize weighted cost.',
-        '- This code models connected, persistent vertical gates with immediate settling.',
+        '- Continuous-flow model: an internal vertical gate stays open while sand remains behind it; if blocked, it waits for the destination to free up.',
+        '- A bottom exit drains all sand arriving during the same paid action; no additional cost is charged for that uninterrupted cascade.',
+        '- The assignment Greedy approach is the column-wise, vertical-only baseline, NOT Greedy Best-First Search.',
+        '- A horizontal transfer moves at most 0.5 full-box units; triggered transfers are automatic.',
         '- Water/concrete extension is NOT implemented.',
-        f'- Automated test suite in this run: {"PASSED" if test_ok else "NOT RUN / FAILED"}.',
+        f'- Automated test suite in this run: {"PASSED" if test_ok else "NOT RUN (--skip-tests)"}.',
         '', '## Comparison on identical initial grids', '',
         '| Grid | Algorithm | Status | Cost | Actions | Side | Expanded | Seconds | Peak Python KiB |',
         '|---|---|---|---:|---:|---:|---:|---:|---:|',
     ]
     for row in comparisons:
         lines.append(f"| {row['example']} | {row['algorithm']} | {row['status']} | "
-                     f"{row['cost'] or '—'} | {row['action_count'] if row['action_count'] != '' else '—'} | "
+                     f"{row['cost'] if row['cost'] != '' else '—'} | {row['action_count'] if row['action_count'] != '' else '—'} | "
                      f"{row['side_action_count'] if row['side_action_count'] != '' else '—'} | "
                      f"{row['expanded']} | {row['elapsed_sec']:.4f} | "
                      f"{row['peak_python_kib']:.1f} |")
@@ -266,19 +402,26 @@ def make_report(directory: Path, comparisons: list[dict], args,
         'The action count is not the same as weighted cost.',
         'Memory uses `tracemalloc` (not operating-system RSS); timing includes profiling overhead.',
         'Per-step solutions and offline HTML animations are saved beside each comparison.',
-        '', '## Exhaustive evaluation (5×2 = 3^10 initial grids)', ''])
+        '', f'## Exact exhaustive evaluation ({args.analysis_rows}×{args.analysis_cols})', ''])
+    analysis_folder = f'exhaustive_{args.analysis_rows}x{args.analysis_cols}_revised'
     if exhaustive is None:
-        lines.append('Skipped by --skip-analysis; no 59,049-grid results were generated in this run.')
+        if args.skip_analysis:
+            lines.append('Not run: deliberately skipped with `--skip-analysis`.')
+        else:
+            lines.extend([
+                '**Not computed for the revised model:** the exact graph was too large',
+                'for the configured safety cap. No old-model optimum values were reused.',
+                '', f'Reason: {analysis_note}',
+            ])
     else:
         lines.extend([
-            f"- Initial states: {exhaustive['initial_state_count']:,}.",
-            f"- Distinct modeled states (including connected gates): {exhaustive['valid_state_count']:,}.",
+            f"- Initial grids: {exhaustive['initial_state_count']:,}.",
+            f"- Valid modeled states (including open gates): {exhaustive['valid_state_count']:,}.",
             f"- Mean Greedy / optimum (excluding zero/zero): {exhaustive['mean_greedy_opt_ratio']:.6f}.",
             f"- Fraction Greedy optimal: {exhaustive['fraction_greedy_optimal']:.4%}.",
-            '- Method: reverse Dijkstra; yields exact weighted optimum for all initial states.',
-            '- Charts: `exhaustive_5x2/histogram_ratio.png`, `exhaustive_5x2/scatter_costs.png`, `exhaustive_5x2/scatter_actions.png`.',
-            f'- Source of exhaustive files: {"previously computed, reused" if reused else "computed in this run"}.',
-            '- The all-states optimum analysis is NOT a per-algorithm time/memory benchmark.',
+            '- Method: exact reverse Dijkstra under the continuous-flow gate rules.',
+            f'- Files: `{analysis_folder}/all_states.csv` and its three analysis plots.',
+            '- This is not a per-algorithm time/memory benchmark.',
         ])
     lines.extend(['', '## Individual-algorithm benchmark on multiple grids', ''])
     if not sample_stats:
@@ -298,7 +441,18 @@ def make_report(directory: Path, comparisons: list[dict], args,
         lines.extend(['', 'Charts include success rate and medians for time, memory, expansions.',
                       'Median time/space include successful and resource-limited runs.',
                       'Do not compare these medians without checking success rates.',
-                      'If exhaustive analysis was enabled, benchmark_quality.csv also gives exact optimality gaps on the same sample.'])
+                      'Exact-optimality comparisons for this 5x2 sample require an exact 5x2 analysis.'])
+    sample_quality_file = directory/'sample_greedy_vs_ucs_summary.json'
+    if sample_stats and sample_quality_file.exists():
+        q = json.loads(sample_quality_file.read_text(encoding='utf-8'))
+        lines.extend(['', '## Sample Greedy / UCS quality analysis', '',
+                      f"Jointly solved grids: {q['jointly_solved_pairs']} / {q['sample_initials']}.",
+                      f"Ratios with positive optimal cost: {q['ratio_count']}.",
+                      'Only completed UCS results count as certified optima.',
+                      'This is a sample, not a 59,049-grid exhaustive result.',
+                      'Plots (when at least one nonempty pair is solved): '
+                      '`sample_greedy_ratio_histogram.png`, '
+                      '`sample_greedy_vs_ucs_scatter.png`.'])
     lines.extend(['', '## Optional full 59,049 × algorithm benchmark', ''])
     if args.full_benchmark:
         expected = 59049 * len(ALGORITHMS)
@@ -319,11 +473,13 @@ def make_report(directory: Path, comparisons: list[dict], args,
 
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description='Reproduce all required sand-grid outputs and compare algorithms.')
-    parser.add_argument('--output', type=Path, default=ROOT / 'results' / 'project_run',
+    parser.add_argument('--output', type=Path, default=ROOT / 'results' / 'project_run_revised',
                         help='Output directory for comparison/benchmark/report')
     parser.add_argument('--sample-size', type=int, default=12,
                         help='Number of 5×2 initial states in individual-algorithm benchmark')
     parser.add_argument('--seed', type=int, default=42)
+    parser.add_argument('--random-seed', type=int, default=None,
+                        help='Base seed for Random gate choices; defaults to --seed')
     parser.add_argument('--seconds', type=float, default=1.0,
                         help='Time limit per algorithm per initial grid (Greedy excluded)')
     parser.add_argument('--expansions', type=int, default=100000)
@@ -333,18 +489,40 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument('--reset-full-benchmark', action='store_true',
                         help='Clear earlier full-benchmark CSV and its configuration before starting again')
     parser.add_argument('--force-analysis', action='store_true',
-                        help='Recompute exact 59,049-grid optimum even if outputs exist')
+                        help='Compatibility option; revised exact results are always recomputed')
+    parser.add_argument('--analysis-rows', type=int, default=3,
+                        help='Rows for exact analysis (default 3; 5x2 may exceed memory cap)')
+    parser.add_argument('--analysis-cols', type=int, default=2,
+                        help='Columns for exact analysis (default 2)')
+    parser.add_argument('--max-analysis-states', type=int, default=250000,
+                        help='Safety cap on expanded state graph size (default 250000)')
     parser.add_argument('--skip-analysis', action='store_true',
-                        help='Skip 59,049 optimum calculation/plots')
+                        help='Skip exact optimum calculation/plots')
     parser.add_argument('--skip-benchmark', action='store_true',
                         help='Skip sample benchmark')
     parser.add_argument('--skip-tests', action='store_true')
     parser.add_argument('--gif', action='store_true',
                         help='Create extra GIF for successful UCS/A* demos (HTML always generated)')
     args = parser.parse_args(argv)
-    if args.sample_size < 1 or args.seconds <= 0 or args.expansions < 1 or args.depth < 0:
-        parser.error('sample-size, seconds, expansions must be positive; depth must be nonnegative')
+    if (args.sample_size < 1 or args.seconds <= 0 or args.expansions < 1 or args.depth < 0
+            or args.analysis_rows < 1 or args.analysis_cols < 1 or args.max_analysis_states < 1):
+        parser.error('sample-size, seconds, expansions, analysis sizes and cap must be positive; depth nonnegative')
     directory = args.output.resolve()
+    # An old run's CSV/graphs are not compatible with changed gate transitions.
+    # Never silently produce a mixed dashboard or reuse old comparison files.
+    current_model_hash = hashlib.sha256(
+        b''.join((ROOT/'sandgrid'/name).read_bytes()
+                 for name in ('model.py', 'search.py', 'benchmark.py'))
+    ).hexdigest()
+    previous_settings = directory / 'settings.json'
+    if previous_settings.exists():
+        try:
+            previous = json.loads(previous_settings.read_text(encoding='utf-8'))
+        except (OSError, ValueError) as exc:
+            parser.error(f'Cannot verify existing results/settings.json: {exc}; use a new --output')
+        if previous.get('model_sha256') != current_model_hash:
+            parser.error('Output directory contains results from a different or unknown model. '
+                         'Use --output results/a_new_directory to avoid mixing old and new results.')
     directory.mkdir(parents=True, exist_ok=True)
     info(f'Writing project results to {directory}')
     test_ok = False
@@ -358,46 +536,63 @@ def main(argv: list[str] | None = None) -> int:
     else:
         info('Tests skipped by explicit request.')
     prof_model = SandGrid(4, 2)
-    prof_state = prof_model.from_display(PROFESSOR, 'full-is-1')
-    gre = greedy(prof_model, prof_state)
-    if gre.cost != 47:
-        raise AssertionError(f'Professor Greedy example expected cost 47, got {gre.cost}')
-    info('Comparing algorithms on the professor example (Greedy=47)...')
+    prof_state = prof_model.from_display(PROFESSOR)
+    prof_baseline = greedy(prof_model, prof_state)
+    if (prof_baseline.cost, prof_baseline.action_count) != (47, 7):
+        raise AssertionError(f'Professor baseline regression: expected (47, 7), got '
+                             f'{(prof_baseline.cost, prof_baseline.action_count)}')
+    if any(prof_model.actions[a].kind == 'side' for a in prof_baseline.actions):
+        raise AssertionError('Professor baseline used a horizontal gate')
+    info('Comparing 8 algorithms on professor example (Greedy vertical-only: 47 / 7 actions)...')
+    action_seed = args.seed if args.random_seed is None else args.random_seed
     prof_rows = evaluate(prof_model, prof_state, 'professor', directory/'professor',
-                         args.seconds, args.expansions, args.depth, args.gif)
+                         args.seconds, args.expansions, args.depth, args.gif,
+                         random_seed=action_seed)
     random_model = SandGrid(5, 2)
     initial = random_model.random_state(args.seed)
     info(f'Comparing algorithms on reproducible random 5×2 grid (seed={args.seed})...')
     random_rows = evaluate(random_model, initial, 'random_5x2', directory/'random_5x2',
-                           args.seconds, args.expansions, args.depth, args.gif)
+                           args.seconds, args.expansions, args.depth, args.gif,
+                           random_seed=action_seed)
     all_rows = prof_rows + random_rows
     write_csv(directory/'algorithm_comparison.csv', all_rows, COMPARISON_FIELDS)
     plot_comparisons(all_rows, directory)
-    summary, reused = None, False
+    summary, analysis_note = None, ''
+    analysis_folder = f'exhaustive_{args.analysis_rows}x{args.analysis_cols}_revised'
+    analysis_directory = directory / analysis_folder
     if not args.skip_analysis:
-        summary, reused = analyze_59049(directory/'exhaustive_5x2', args.force_analysis)
+        summary, analysis_note = analyze_grid(
+            analysis_directory, args.analysis_rows, args.analysis_cols,
+            args.max_analysis_states)
     sample_summary = None
     if not args.skip_benchmark:
         filepath = directory/'benchmark_sample.csv'
         # Each invocation uses a fresh sample CSV to avoid mixing altered limits.
         if filepath.exists():
             filepath.unlink()
-        info(f'Benchmarking all 7 algorithms on {args.sample_size} shared initial grids...')
+        info(f'Benchmarking all {len(ALGORITHMS)} algorithms on {args.sample_size} shared initial grids...')
         benchmark(random_model, filepath, count=args.sample_size, seed=args.seed,
                   max_seconds=args.seconds, max_expansions=args.expansions,
-                  max_depth=args.depth, resume=False)
+                  max_depth=args.depth, resume=False,
+                  random_seed=action_seed)
         sample_summary = summarize(filepath, directory/'benchmark_sample_summary.csv')
         plot_benchmark(filepath, directory)
-        if summary is not None:
-            info('Joining sample runs to exact 59,049-grid optima for quality comparisons...')
-            write_quality_comparison(filepath, directory/'exhaustive_5x2'/'all_states.csv', directory)
+        sample_quality = compare_sample_greedy_ucs(filepath, directory)
+        info(f"Greedy/UCS sample: {sample_quality['jointly_solved_pairs']} "
+             f"solved pairs out of {sample_quality['sample_initials']} initial grids")
+        if summary is not None and (args.analysis_rows, args.analysis_cols) == (5, 2):
+            info('Joining sample runs to exact 5x2 optima for quality comparisons...')
+            write_quality_comparison(filepath, analysis_directory/'all_states.csv', directory)
     full_rows, full_summary = 0, None
     if args.full_benchmark:
         full_path = directory/'benchmark_all_59049.csv'
         config_path = directory/'benchmark_all_config.json'
+        # Prevent a resumed benchmark from silently mixing new and old model results.
+        model_hash = current_model_hash
         config = {'rows': 5, 'cols': 2, 'algorithms': list(ALGORITHMS),
+                  'random_seed': action_seed,
                   'max_seconds': args.seconds, 'max_expansions': args.expansions,
-                  'max_depth': args.depth}
+                  'max_depth': args.depth, 'model_sha256': model_hash}
         if args.reset_full_benchmark:
             full_path.unlink(missing_ok=True)
             config_path.unlink(missing_ok=True)
@@ -414,26 +609,51 @@ def main(argv: list[str] | None = None) -> int:
             save_json(config_path, config)
         info('Running resumable full per-algorithm benchmark on 59,049 initial grids...')
         benchmark(random_model, full_path, all_states=True, max_seconds=args.seconds,
-                  max_expansions=args.expansions, max_depth=args.depth, resume=True)
+                  max_expansions=args.expansions, max_depth=args.depth, resume=True,
+                  random_seed=action_seed)
         full_summary = summarize(full_path, directory/'benchmark_all_summary.csv')
         full_rows, _ = benchmark_csv_count(full_path)
         full_graphs_dir = directory/'benchmark_full'
         full_graphs_dir.mkdir(exist_ok=True)
         plot_benchmark(full_path, full_graphs_dir)
-        if summary is not None:
-            write_quality_comparison(full_path, directory/'exhaustive_5x2'/'all_states.csv',
+        if summary is not None and (args.analysis_rows, args.analysis_cols) == (5, 2):
+            write_quality_comparison(full_path, analysis_directory/'all_states.csv',
                                      full_graphs_dir)
-    make_report(directory, all_rows, args, summary, reused, test_ok,
+    make_report(directory, all_rows, args, summary, analysis_note, test_ok,
                 sample_summary, full_summary, full_rows)
-    make_dashboard(directory, all_rows, analyzed=summary is not None,
+    make_dashboard(directory, all_rows, analyzed=False,
                    sampled=sample_summary is not None, full_rows=full_rows)
+    annotate_dashboard(directory, summary, analysis_folder,
+                       analysis_note, args.skip_analysis)
+    sample_quality_file = directory/'sample_greedy_vs_ucs_summary.json'
+    if sample_summary is not None and sample_quality_file.exists():
+        q = json.loads(sample_quality_file.read_text(encoding='utf-8'))
+        extra = (f'<section><h2>Sample: Greedy vs UCS</h2>'
+                 f'<p>{q["jointly_solved_pairs"]} of {q["sample_initials"]} grids '
+                 f'have certified UCS optima. This is not exhaustive.</p>'
+                 '<p><a href="sample_greedy_vs_ucs.csv">Sample quality CSV</a></p>')
+        for name in ('sample_greedy_ratio_histogram.png',
+                     'sample_greedy_vs_ucs_scatter.png'):
+            if (directory/name).exists():
+                extra += f'<img src="{name}" alt="{name}">'
+        extra += '</section>'
+        html_path = directory/'dashboard.html'
+        html = html_path.read_text(encoding='utf-8')
+        html_path.write_text(html.replace('</body>', extra+'</body>', 1), encoding='utf-8')
     save_json(directory/'settings.json', {
         'generated_utc': datetime.now(timezone.utc).isoformat(),
         'python': sys.version.split()[0], 'platform': platform.platform(),
-        'random_seed': args.seed, 'sample_size': args.sample_size,
+        'random_seed': args.seed, 'random_algorithm_base_seed': action_seed,
+        'sample_size': args.sample_size,
         'seconds': args.seconds, 'expansion_limit': args.expansions,
         'ids_depth_limit': args.depth,
-        'exhaustive_skipped': args.skip_analysis, 'exhaustive_reused': reused,
+        'exhaustive_skipped': summary is None,
+        'exhaustive_skip_reason': (analysis_note if not args.skip_analysis else 'user-requested'),
+        'analysis_grid': [args.analysis_rows, args.analysis_cols],
+        'analysis_model_version': SandGrid.MODEL_VERSION,
+        'model_sha256': current_model_hash,
+        'analysis_dir': str(analysis_directory) if summary is not None else None,
+        'exhaustive_reused': False,
         'full_benchmark_requested': args.full_benchmark,
         'full_benchmark_count': full_rows,
     })

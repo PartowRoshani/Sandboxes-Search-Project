@@ -1,0 +1,6 @@
+﻿method,attempts,solved,comparable,optimal_count,mean_expanded,mean_seconds,std_seed_mean_seconds,mean_gap,median_python_peak_kib
+UCS,60,60,60,60,959.783,0.8031381,0.017154,0,30.0
+A* basic,60,60,60,60,876.883,0.7479135,0.0042726,0,30.0
+A* relax,60,60,60,60,626.533,0.5807665,0.0198617,0,28.59
+A* ML direct,60,60,60,53,14.783,0.267329,0.0413668,0.1167,93.96
+A* ML safe tie,60,60,60,60,559.15,7.189025,0.2123424,0,275.81

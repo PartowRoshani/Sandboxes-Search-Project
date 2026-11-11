@@ -1,0 +1,18 @@
+﻿Grid (1=full, 0.5=half, 0=empty):
+1 0
+0 1
+0 1
+1 0
+Algorithm=random, status=found, cost=51, actions=11, expanded=11
+ 1 Gate (4,1) ↓                     + 5 total=  5
+ 2 Gate (1,1) ↓                     + 5 total= 10
+ 3 Gate (2,2) ↓                     + 9 total= 19
+ 4 Gate (3,2) ↓                     + 9 total= 28
+ 5 Side (4,2) → (4,1)               + 1 total= 29
+ 6 Gate (4,1) ↓                     + 3 total= 32
+ 7 Gate (2,1) ↓                     + 5 total= 37
+ 8 Gate (3,1) ↓                     + 5 total= 42
+ 9 Side (4,1) → (4,2)               + 1 total= 43
+10 Gate (4,2) ↓                     + 5 total= 48
+11 Gate (4,1) ↓                     + 3 total= 51
+JSON saved: results\random_seeds\seed_26.json

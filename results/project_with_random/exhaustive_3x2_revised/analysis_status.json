@@ -1,0 +1,7 @@
+{
+  "status": "completed",
+  "rows": 3,
+  "cols": 2,
+  "model_version": "continuous-flow-v2-full-is-1",
+  "valid_states": 11242
+}

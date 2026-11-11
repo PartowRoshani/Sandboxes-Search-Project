@@ -1,0 +1,8 @@
+﻿algorithm,runs,solved,timeout,other_limit,median_elapsed_sec,max_elapsed_sec,median_python_memory_kib,max_python_memory_kib,median_expanded
+greedy,5,5,0,0,0.004618,0.006977,1.17,1.23,9
+dfs,5,5,0,0,0.033911,0.07989,14.58,29.09,9
+bfs,5,2,3,0,5.001102,5.004918,300.62,330.71,609
+ids,5,2,3,0,5.000616,5.001047,5.38,7.64,830
+ucs,5,1,4,0,5.002416,5.010518,604.28,729.81,884
+astar,5,2,3,0,5.003371,5.007389,534.32,670.3,782
+rbfs,5,0,5,0,5.001574,5.003392,7.53,10.84,1081

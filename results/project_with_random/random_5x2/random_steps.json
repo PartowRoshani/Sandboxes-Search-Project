@@ -1,0 +1,580 @@
+{
+  "algorithm": "random",
+  "status": "found",
+  "total_cost": 41,
+  "initial_grid": [
+    [
+      0.5,
+      0.0
+    ],
+    [
+      0.0,
+      0.0
+    ],
+    [
+      0.5,
+      0.5
+    ],
+    [
+      1.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.0
+    ]
+  ],
+  "steps": [
+    {
+      "number": 0,
+      "action": null,
+      "action_kind": null,
+      "step_cost": 0,
+      "total_cost": 0,
+      "grid": [
+        [
+          0.5,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.5,
+          0.5
+        ],
+        [
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "open_gate_mask": 0,
+      "open_vertical_mask": 0,
+      "open_horizontal_mask": 0,
+      "flow_events": [],
+      "closed_gate_bits": []
+    },
+    {
+      "number": 1,
+      "action": "Gate (3,1) ↓",
+      "action_kind": "down",
+      "step_cost": 5,
+      "total_cost": 5,
+      "grid": [
+        [
+          0.5,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.5,
+          0.5
+        ],
+        [
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "open_gate_mask": 16,
+      "open_vertical_mask": 16,
+      "open_horizontal_mask": 0,
+      "flow_events": [],
+      "closed_gate_bits": []
+    },
+    {
+      "number": 2,
+      "action": "Gate (4,1) ↓",
+      "action_kind": "down",
+      "step_cost": 7,
+      "total_cost": 12,
+      "grid": [
+        [
+          0.5,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.5
+        ],
+        [
+          0.5,
+          0.0
+        ],
+        [
+          1.0,
+          0.0
+        ]
+      ],
+      "open_gate_mask": 64,
+      "open_vertical_mask": 64,
+      "open_horizontal_mask": 0,
+      "flow_events": [
+        {
+          "kind": "down",
+          "src": 6,
+          "dst": 8,
+          "amount": 1.0,
+          "gate_bit": 6,
+          "gate_closed": false,
+          "automatic": false
+        },
+        {
+          "kind": "down",
+          "src": 4,
+          "dst": 6,
+          "amount": 0.5,
+          "gate_bit": 4,
+          "gate_closed": false,
+          "automatic": true
+        }
+      ],
+      "closed_gate_bits": [
+        4
+      ]
+    },
+    {
+      "number": 3,
+      "action": "Gate (1,1) ↓",
+      "action_kind": "down",
+      "step_cost": 3,
+      "total_cost": 15,
+      "grid": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.5,
+          0.0
+        ],
+        [
+          0.0,
+          0.5
+        ],
+        [
+          0.5,
+          0.0
+        ],
+        [
+          1.0,
+          0.0
+        ]
+      ],
+      "open_gate_mask": 64,
+      "open_vertical_mask": 64,
+      "open_horizontal_mask": 0,
+      "flow_events": [
+        {
+          "kind": "down",
+          "src": 0,
+          "dst": 2,
+          "amount": 0.5,
+          "gate_bit": 0,
+          "gate_closed": false,
+          "automatic": false
+        }
+      ],
+      "closed_gate_bits": [
+        0
+      ]
+    },
+    {
+      "number": 4,
+      "action": "Gate (2,1) ↓",
+      "action_kind": "down",
+      "step_cost": 3,
+      "total_cost": 18,
+      "grid": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.0
+        ],
+        [
+          1.0,
+          0.0
+        ]
+      ],
+      "open_gate_mask": 64,
+      "open_vertical_mask": 64,
+      "open_horizontal_mask": 0,
+      "flow_events": [
+        {
+          "kind": "down",
+          "src": 2,
+          "dst": 4,
+          "amount": 0.5,
+          "gate_bit": 2,
+          "gate_closed": false,
+          "automatic": false
+        }
+      ],
+      "closed_gate_bits": [
+        2
+      ]
+    },
+    {
+      "number": 5,
+      "action": "Gate (5,1) ↓",
+      "action_kind": "down",
+      "step_cost": 5,
+      "total_cost": 23,
+      "grid": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.5,
+          0.5
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "open_gate_mask": 0,
+      "open_vertical_mask": 0,
+      "open_horizontal_mask": 0,
+      "flow_events": [
+        {
+          "kind": "exit",
+          "src": 8,
+          "dst": null,
+          "amount": 1.0,
+          "gate_bit": null,
+          "gate_closed": false,
+          "automatic": false
+        },
+        {
+          "kind": "down",
+          "src": 6,
+          "dst": 8,
+          "amount": 0.5,
+          "gate_bit": 6,
+          "gate_closed": false,
+          "automatic": true
+        },
+        {
+          "kind": "exit",
+          "src": 8,
+          "dst": null,
+          "amount": 0.5,
+          "gate_bit": null,
+          "gate_closed": false,
+          "automatic": true
+        }
+      ],
+      "closed_gate_bits": [
+        6
+      ]
+    },
+    {
+      "number": 6,
+      "action": "Gate (3,1) ↓",
+      "action_kind": "down",
+      "step_cost": 3,
+      "total_cost": 26,
+      "grid": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.5
+        ],
+        [
+          0.5,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "open_gate_mask": 0,
+      "open_vertical_mask": 0,
+      "open_horizontal_mask": 0,
+      "flow_events": [
+        {
+          "kind": "down",
+          "src": 4,
+          "dst": 6,
+          "amount": 0.5,
+          "gate_bit": 4,
+          "gate_closed": false,
+          "automatic": false
+        }
+      ],
+      "closed_gate_bits": [
+        4
+      ]
+    },
+    {
+      "number": 7,
+      "action": "Gate (4,1) ↓",
+      "action_kind": "down",
+      "step_cost": 3,
+      "total_cost": 29,
+      "grid": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.5
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.5,
+          0.0
+        ]
+      ],
+      "open_gate_mask": 0,
+      "open_vertical_mask": 0,
+      "open_horizontal_mask": 0,
+      "flow_events": [
+        {
+          "kind": "down",
+          "src": 6,
+          "dst": 8,
+          "amount": 0.5,
+          "gate_bit": 6,
+          "gate_closed": false,
+          "automatic": false
+        }
+      ],
+      "closed_gate_bits": [
+        6
+      ]
+    },
+    {
+      "number": 8,
+      "action": "Gate (5,1) ↓",
+      "action_kind": "down",
+      "step_cost": 3,
+      "total_cost": 32,
+      "grid": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.5
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "open_gate_mask": 0,
+      "open_vertical_mask": 0,
+      "open_horizontal_mask": 0,
+      "flow_events": [
+        {
+          "kind": "exit",
+          "src": 8,
+          "dst": null,
+          "amount": 0.5,
+          "gate_bit": null,
+          "gate_closed": false,
+          "automatic": false
+        }
+      ],
+      "closed_gate_bits": []
+    },
+    {
+      "number": 9,
+      "action": "Gate (3,2) ↓",
+      "action_kind": "down",
+      "step_cost": 3,
+      "total_cost": 35,
+      "grid": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.5
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "open_gate_mask": 0,
+      "open_vertical_mask": 0,
+      "open_horizontal_mask": 0,
+      "flow_events": [
+        {
+          "kind": "down",
+          "src": 5,
+          "dst": 7,
+          "amount": 0.5,
+          "gate_bit": 5,
+          "gate_closed": false,
+          "automatic": false
+        }
+      ],
+      "closed_gate_bits": [
+        5
+      ]
+    },
+    {
+      "number": 10,
+      "action": "Gate (4,2) ↓",
+      "action_kind": "down",
+      "step_cost": 3,
+      "total_cost": 38,
+      "grid": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.5
+        ]
+      ],
+      "open_gate_mask": 0,
+      "open_vertical_mask": 0,
+      "open_horizontal_mask": 0,
+      "flow_events": [
+        {
+          "kind": "down",
+          "src": 7,
+          "dst": 9,
+          "amount": 0.5,
+          "gate_bit": 7,
+          "gate_closed": false,
+          "automatic": false
+        }
+      ],
+      "closed_gate_bits": [
+        7
+      ]
+    },
+    {
+      "number": 11,
+      "action": "Gate (5,2) ↓",
+      "action_kind": "down",
+      "step_cost": 3,
+      "total_cost": 41,
+      "grid": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "open_gate_mask": 0,
+      "open_vertical_mask": 0,
+      "open_horizontal_mask": 0,
+      "flow_events": [
+        {
+          "kind": "exit",
+          "src": 9,
+          "dst": null,
+          "amount": 0.5,
+          "gate_bit": null,
+          "gate_closed": false,
+          "automatic": false
+        }
+      ],
+      "closed_gate_bits": []
+    }
+  ]
+}

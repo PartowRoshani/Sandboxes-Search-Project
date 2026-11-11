@@ -1,0 +1,22 @@
+{
+  "generated_utc": "2026-11-11T10:27:23.805368+00:00",
+  "python": "3.11.1",
+  "platform": "Windows-10-10.0.26300-SP0",
+  "random_seed": 42,
+  "sample_size": 5,
+  "seconds": 2.0,
+  "expansion_limit": 100000,
+  "ids_depth_limit": 20,
+  "exhaustive_skipped": false,
+  "exhaustive_skip_reason": "",
+  "analysis_grid": [
+    3,
+    2
+  ],
+  "analysis_model_version": "one-shot-vertical-and-horizontal-gates",
+  "model_sha256": "379ef46b6f87e414c560b69ba18a25c178bcc61f4870ad70869a7004af0c2f8e",
+  "analysis_dir": "C:\\Users\\User\\Desktop\\university\\Uni_S5\\AI\\Sand_Project\\results\\run_revised\\exhaustive_3x2_revised",
+  "exhaustive_reused": false,
+  "full_benchmark_requested": false,
+  "full_benchmark_count": 0
+}

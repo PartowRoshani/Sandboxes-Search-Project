@@ -1,8 +1,9 @@
-"""One reverse Dijkstra computes exact optimum for ALL 3**(rows*cols)
-initial grids (closed gates) simultaneously, not 59049 separate UCS calls.
+"""Exact reverse-Dijkstra analysis for the continuous-flow sand gate model.
 
-The state graph also includes legal persistent-gate states. This batch routine
-is designed for at most 10 boxes, with 5x2 as its main 59,049-state example.
+Both blocked vertical and blocked directed horizontal gates are part of a
+state. A full stable-state graph for 5x2 can be much larger than the 59,049
+closed-gate initial states, so computation is guarded by a preflight size cap.
+A small grid (2x2 or 3x2) is useful for exhaustive correctness analysis.
 """
 from __future__ import annotations
 
@@ -24,56 +25,116 @@ class BatchTooLarge(ValueError):
     pass
 
 
-def compute_all_optimal(model: SandGrid, progress: bool = True) -> dict:
-    if model.n > 10:
-        raise BatchTooLarge('batch solver is restricted to at most 10 boxes')
-    started = perf_counter()
-    states = array('I')
-    # Include every occupancy combined with EVERY valid subset of open gates.
+def _eligible_open_mask(model: SandGrid, occ: list[int]) -> int:
+    """Bits that MAY be open in a stable state, according to valid_mask.
+
+    A stable open gate retains upstream sand but has a fully occupied
+    destination; otherwise it would already have transferred or closed.
+    """
+    mask = 0
+    for bit in range(model.vertical_edges):
+        if occ[bit] > 0 and occ[bit + model.cols] == 2:
+            mask |= 1 << bit
+    for action in model.actions[model.n:]:
+        bit = model.gate_bit(action.id)
+        assert bit is not None and action.dst is not None
+        if occ[action.src] > 0 and occ[action.dst] == 2:
+            mask |= 1 << bit
+    return mask
+
+
+def estimate_valid_states(model: SandGrid) -> int:
+    """Count stable encoded states without allocating the graph.
+
+    All-empty occupancy has just one canonical state (state 0), irrespective
+    of formerly-open gates.
+    """
+    count = 0
     for code in range(model.base):
+        if code == 0:
+            count += 1
+            continue
         work = code
         occ = []
         for _ in range(model.n):
             work, digit = divmod(work, 3)
             occ.append(digit)
-        eligible = 0
-        for i in range(model.vertical_edges):
-            if occ[i] > 0 and occ[i + model.cols] == 2:
-                eligible |= 1 << i
+        count += 1 << _eligible_open_mask(model, occ).bit_count()
+    return count
+
+
+def compute_all_optimal(model: SandGrid, progress: bool = True,
+                        max_states: int = 250_000) -> dict:
+    """Return exact optimal costs from every stable state to the empty grid.
+
+    The graph is enumerated only if preflight estimation fits the state cap.
+    Large models should use bounded per-initial-state search rather than
+    treating 3**(rows*cols) as the entire augmented state space.
+    """
+    if max_states < 1:
+        raise ValueError('max_states must be positive')
+    if model.n > 10:
+        raise BatchTooLarge('exhaustive analysis is restricted to at most 10 cells')
+    estimated = estimate_valid_states(model)
+    if estimated > max_states:
+        raise BatchTooLarge(
+            f'{model.rows}x{model.cols} has {model.base:,} closed-gate initial grids, '
+            f'but {estimated:,} modeled stable states with persistent vertical '
+            f'AND horizontal gates. This exceeds max_states={max_states:,}. '
+            'Do not reuse old 5x2 reverse-Dijkstra results; '
+            'run a 2x2 or 3x2 exact analysis, or use --skip-analysis '
+            'for the project runner until a scalable solver is implemented.'
+        )
+    from array import array
+    started = perf_counter()
+    states = array('Q')  # Masked state IDs can exceed 32-bit on larger grids.
+    for code in range(model.base):
+        if code == 0:
+            states.append(0)
+            continue
+        work = code
+        occ = []
+        for _ in range(model.n):
+            work, digit = divmod(work, 3)
+            occ.append(digit)
+        eligible = _eligible_open_mask(model, occ)
         submask = eligible
         while True:
             states.append(code + model.base * submask)
             if submask == 0:
                 break
             submask = (submask - 1) & eligible
+    if len(states) != estimated:
+        raise AssertionError('stable-state enumeration count disagrees with preflight')
     state_index = {s: idx for idx, s in enumerate(states)}
     n = len(states)
     if progress:
-        print(f'Enumerated {n:,} physically valid states, {model.base:,} initial states.', flush=True)
+        print(f'Enumerated {n:,} stable states from {model.base:,} initial grids.', flush=True)
     source = array('I')
     target = array('I')
     weights = array('B')
     action_ids = array('B')
     for idx, state in enumerate(states):
         for nxt, action, cost in model.successors(state):
+            if nxt not in state_index:
+                raise AssertionError(f'generated successor not in stable graph: {state} -> {nxt}')
             source.append(idx)
             target.append(state_index[nxt])
             weights.append(cost)
             action_ids.append(action)
-        if progress and (idx + 1) % 100000 == 0:
+        if progress and (idx + 1) % 50000 == 0:
             print(f'  Built edges for {idx+1:,}/{n:,} states', flush=True)
     edges = len(target)
     if progress:
-        print(f'Graph has {edges:,} directed weighted transitions.', flush=True)
+        print(f'Graph has {edges:,} weighted transitions.', flush=True)
 
     src_np = np.frombuffer(source, dtype=np.uint32)
     target_np = np.frombuffer(target, dtype=np.uint32)
     cost_np = np.frombuffer(weights, dtype=np.uint8)
     action_np = np.frombuffer(action_ids, dtype=np.uint8)
-    # Reverse adjacency CSR sorted by forward target.
     permutation = np.argsort(target_np, kind='stable')
     counts = np.bincount(target_np, minlength=n)
-    offsets = np.empty(n+1, dtype=np.int64)
+    offsets = np.empty(n + 1, dtype=np.int64)
     offsets[0] = 0
     np.cumsum(counts, out=offsets[1:])
     rev_sources = src_np[permutation]
@@ -101,8 +162,7 @@ def compute_all_optimal(model: SandGrid, progress: bool = True) -> dict:
             action_count[node] = action_count[nxt] + 1
             side_count[node] = side_count[nxt] + (
                 model.actions[int(policy_action[node])].kind == 'side')
-        start, end = int(offsets[node]), int(offsets[node+1])
-        for j in range(start, end):
+        for j in range(int(offsets[node]), int(offsets[node + 1])):
             pred = int(rev_sources[j])
             nd = d + int(rev_costs[j])
             if nd < int(distance[pred]):
@@ -110,12 +170,12 @@ def compute_all_optimal(model: SandGrid, progress: bool = True) -> dict:
                 policy_next[pred] = node
                 policy_action[pred] = int(rev_actions[j])
                 heappush(heap, (nd, pred))
-        if progress and settled % 100000 == 0:
+        if progress and settled % 50000 == 0:
             print(f'  Reverse Dijkstra settled {settled:,}/{n:,} states', flush=True)
     if settled != n:
-        raise AssertionError(f'{n-settled} states cannot reach the empty goal')
+        raise AssertionError(f'{n - settled} modeled stable states cannot reach the empty goal')
     if progress:
-        print(f'All optima done after {perf_counter()-started:.2f}s.', flush=True)
+        print(f'Exact optima computed in {perf_counter()-started:.2f}s.', flush=True)
     return dict(model=model, states=states, state_index=state_index,
                 distances=distance, action_count=action_count,
                 side_count=side_count, policy_action=policy_action,
@@ -203,8 +263,9 @@ def write_full_analysis(batch: dict, destination: str | Path,
         'mean_greedy_cost': round(float(np.mean(greedy_cost)), 5),
         'ratio_histogram_counts': ratio_hist.tolist(),
         'ratio_histogram_bin_edges': [round(float(x), 5) for x in ratio_edges],
+        'model_version': m.MODEL_VERSION,
         'plot2_definition': 'Optimal policy tie-break via reverse Dijkstra: x=all actions, y=side actions',
-        'display_convention': '0=full, 0.5=half, 1=empty; internal 2=full, 1=half, 0=empty',
+        'display_convention': '1=full, 0.5=half, 0=empty; internal 2=full, 1=half, 0=empty',
     }
     (output/'summary.json').write_text(json.dumps(summary, indent=2, ensure_ascii=False), encoding='utf-8')
     if make_plots:

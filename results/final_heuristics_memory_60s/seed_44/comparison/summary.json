@@ -1,0 +1,62 @@
+[
+  {
+    "method": "UCS",
+    "attempts": 20,
+    "solved": 20,
+    "comparable": 20,
+    "optimal_fraction_of_comparable": 1.0,
+    "mean_expanded_all_runs": 1057.3,
+    "mean_seconds_all_runs": 0.78536,
+    "median_seconds_all_runs": 0.150074,
+    "mean_cost_gap_solved": 0,
+    "median_memory_kib": 30.01
+  },
+  {
+    "method": "A* basic",
+    "attempts": 20,
+    "solved": 20,
+    "comparable": 20,
+    "optimal_fraction_of_comparable": 1.0,
+    "mean_expanded_all_runs": 953.7,
+    "mean_seconds_all_runs": 0.750399,
+    "median_seconds_all_runs": 0.135252,
+    "mean_cost_gap_solved": 0,
+    "median_memory_kib": 29.93
+  },
+  {
+    "method": "A* relax",
+    "attempts": 20,
+    "solved": 20,
+    "comparable": 20,
+    "optimal_fraction_of_comparable": 1.0,
+    "mean_expanded_all_runs": 672.2,
+    "mean_seconds_all_runs": 0.566956,
+    "median_seconds_all_runs": 0.099487,
+    "mean_cost_gap_solved": 0,
+    "median_memory_kib": 28.62
+  },
+  {
+    "method": "A* ML direct",
+    "attempts": 20,
+    "solved": 20,
+    "comparable": 20,
+    "optimal_fraction_of_comparable": 0.8,
+    "mean_expanded_all_runs": 19.05,
+    "mean_seconds_all_runs": 0.315802,
+    "median_seconds_all_runs": 0.20405,
+    "mean_cost_gap_solved": 0.2,
+    "median_memory_kib": 108.76
+  },
+  {
+    "method": "A* ML safe tie",
+    "attempts": 20,
+    "solved": 20,
+    "comparable": 20,
+    "optimal_fraction_of_comparable": 1.0,
+    "mean_expanded_all_runs": 600.2,
+    "mean_seconds_all_runs": 7.385162,
+    "median_seconds_all_runs": 1.795988,
+    "mean_cost_gap_solved": 0,
+    "median_memory_kib": 277.03
+  }
+]

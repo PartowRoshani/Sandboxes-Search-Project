@@ -1,0 +1,966 @@
+{
+  "algorithm": "dfs",
+  "status": "found",
+  "total_cost": 64,
+  "initial_grid": [
+    [
+      1.0,
+      0.0
+    ],
+    [
+      0.0,
+      1.0
+    ],
+    [
+      0.0,
+      1.0
+    ],
+    [
+      1.0,
+      0.0
+    ]
+  ],
+  "steps": [
+    {
+      "number": 0,
+      "action": null,
+      "action_kind": null,
+      "step_cost": 0,
+      "total_cost": 0,
+      "grid": [
+        [
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0
+        ],
+        [
+          0.0,
+          1.0
+        ],
+        [
+          1.0,
+          0.0
+        ]
+      ],
+      "open_gate_mask": 0,
+      "open_vertical_mask": 0,
+      "open_horizontal_mask": 0,
+      "flow_events": []
+    },
+    {
+      "number": 1,
+      "action": "Side (4,1) → (4,2)",
+      "action_kind": "side",
+      "step_cost": 1,
+      "total_cost": 1,
+      "grid": [
+        [
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0
+        ],
+        [
+          0.0,
+          1.0
+        ],
+        [
+          0.5,
+          0.5
+        ]
+      ],
+      "open_gate_mask": 0,
+      "open_vertical_mask": 0,
+      "open_horizontal_mask": 0,
+      "flow_events": [
+        {
+          "kind": "side",
+          "src": 6,
+          "dst": 7,
+          "amount": 0.5,
+          "gate_bit": 12,
+          "automatic": false
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "action": "Side (3,2) → (3,1)",
+      "action_kind": "side",
+      "step_cost": 1,
+      "total_cost": 2,
+      "grid": [
+        [
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0
+        ],
+        [
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.5
+        ]
+      ],
+      "open_gate_mask": 0,
+      "open_vertical_mask": 0,
+      "open_horizontal_mask": 0,
+      "flow_events": [
+        {
+          "kind": "side",
+          "src": 5,
+          "dst": 4,
+          "amount": 0.5,
+          "gate_bit": 11,
+          "automatic": false
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "action": "Side (2,2) → (2,1)",
+      "action_kind": "side",
+      "step_cost": 1,
+      "total_cost": 3,
+      "grid": [
+        [
+          1.0,
+          0.0
+        ],
+        [
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.5
+        ]
+      ],
+      "open_gate_mask": 0,
+      "open_vertical_mask": 0,
+      "open_horizontal_mask": 0,
+      "flow_events": [
+        {
+          "kind": "side",
+          "src": 3,
+          "dst": 2,
+          "amount": 0.5,
+          "gate_bit": 9,
+          "automatic": false
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "action": "Side (1,1) → (1,2)",
+      "action_kind": "side",
+      "step_cost": 1,
+      "total_cost": 4,
+      "grid": [
+        [
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.5
+        ]
+      ],
+      "open_gate_mask": 0,
+      "open_vertical_mask": 0,
+      "open_horizontal_mask": 0,
+      "flow_events": [
+        {
+          "kind": "side",
+          "src": 0,
+          "dst": 1,
+          "amount": 0.5,
+          "gate_bit": 6,
+          "automatic": false
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "action": "Gate (4,2) ↓",
+      "action_kind": "down",
+      "step_cost": 3,
+      "total_cost": 7,
+      "grid": [
+        [
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.0
+        ]
+      ],
+      "open_gate_mask": 0,
+      "open_vertical_mask": 0,
+      "open_horizontal_mask": 0,
+      "flow_events": [
+        {
+          "kind": "exit",
+          "src": 7,
+          "dst": null,
+          "amount": 0.5,
+          "gate_bit": null,
+          "automatic": false
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "action": "Gate (4,1) ↓",
+      "action_kind": "down",
+      "step_cost": 3,
+      "total_cost": 10,
+      "grid": [
+        [
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.5
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "open_gate_mask": 0,
+      "open_vertical_mask": 0,
+      "open_horizontal_mask": 0,
+      "flow_events": [
+        {
+          "kind": "exit",
+          "src": 6,
+          "dst": null,
+          "amount": 0.5,
+          "gate_bit": null,
+          "automatic": false
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "action": "Gate (3,2) ↓",
+      "action_kind": "down",
+      "step_cost": 3,
+      "total_cost": 13,
+      "grid": [
+        [
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.0
+        ],
+        [
+          0.0,
+          0.5
+        ]
+      ],
+      "open_gate_mask": 0,
+      "open_vertical_mask": 0,
+      "open_horizontal_mask": 0,
+      "flow_events": [
+        {
+          "kind": "down",
+          "src": 5,
+          "dst": 7,
+          "amount": 0.5,
+          "gate_bit": 5,
+          "automatic": false
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "action": "Gate (4,2) ↓",
+      "action_kind": "down",
+      "step_cost": 3,
+      "total_cost": 16,
+      "grid": [
+        [
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "open_gate_mask": 0,
+      "open_vertical_mask": 0,
+      "open_horizontal_mask": 0,
+      "flow_events": [
+        {
+          "kind": "exit",
+          "src": 7,
+          "dst": null,
+          "amount": 0.5,
+          "gate_bit": null,
+          "automatic": false
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "action": "Gate (3,1) ↓",
+      "action_kind": "down",
+      "step_cost": 3,
+      "total_cost": 19,
+      "grid": [
+        [
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.5
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.5,
+          0.0
+        ]
+      ],
+      "open_gate_mask": 0,
+      "open_vertical_mask": 0,
+      "open_horizontal_mask": 0,
+      "flow_events": [
+        {
+          "kind": "down",
+          "src": 4,
+          "dst": 6,
+          "amount": 0.5,
+          "gate_bit": 4,
+          "automatic": false
+        }
+      ]
+    },
+    {
+      "number": 10,
+      "action": "Gate (4,1) ↓",
+      "action_kind": "down",
+      "step_cost": 3,
+      "total_cost": 22,
+      "grid": [
+        [
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.5
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "open_gate_mask": 0,
+      "open_vertical_mask": 0,
+      "open_horizontal_mask": 0,
+      "flow_events": [
+        {
+          "kind": "exit",
+          "src": 6,
+          "dst": null,
+          "amount": 0.5,
+          "gate_bit": null,
+          "automatic": false
+        }
+      ]
+    },
+    {
+      "number": 11,
+      "action": "Gate (2,2) ↓",
+      "action_kind": "down",
+      "step_cost": 3,
+      "total_cost": 25,
+      "grid": [
+        [
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.0
+        ],
+        [
+          0.0,
+          0.5
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "open_gate_mask": 0,
+      "open_vertical_mask": 0,
+      "open_horizontal_mask": 0,
+      "flow_events": [
+        {
+          "kind": "down",
+          "src": 3,
+          "dst": 5,
+          "amount": 0.5,
+          "gate_bit": 3,
+          "automatic": false
+        }
+      ]
+    },
+    {
+      "number": 12,
+      "action": "Gate (3,2) ↓",
+      "action_kind": "down",
+      "step_cost": 3,
+      "total_cost": 28,
+      "grid": [
+        [
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.5
+        ]
+      ],
+      "open_gate_mask": 0,
+      "open_vertical_mask": 0,
+      "open_horizontal_mask": 0,
+      "flow_events": [
+        {
+          "kind": "down",
+          "src": 5,
+          "dst": 7,
+          "amount": 0.5,
+          "gate_bit": 5,
+          "automatic": false
+        }
+      ]
+    },
+    {
+      "number": 13,
+      "action": "Gate (4,2) ↓",
+      "action_kind": "down",
+      "step_cost": 3,
+      "total_cost": 31,
+      "grid": [
+        [
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "open_gate_mask": 0,
+      "open_vertical_mask": 0,
+      "open_horizontal_mask": 0,
+      "flow_events": [
+        {
+          "kind": "exit",
+          "src": 7,
+          "dst": null,
+          "amount": 0.5,
+          "gate_bit": null,
+          "automatic": false
+        }
+      ]
+    },
+    {
+      "number": 14,
+      "action": "Gate (2,1) ↓",
+      "action_kind": "down",
+      "step_cost": 3,
+      "total_cost": 34,
+      "grid": [
+        [
+          0.5,
+          0.5
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.5,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "open_gate_mask": 0,
+      "open_vertical_mask": 0,
+      "open_horizontal_mask": 0,
+      "flow_events": [
+        {
+          "kind": "down",
+          "src": 2,
+          "dst": 4,
+          "amount": 0.5,
+          "gate_bit": 2,
+          "automatic": false
+        }
+      ]
+    },
+    {
+      "number": 15,
+      "action": "Gate (3,1) ↓",
+      "action_kind": "down",
+      "step_cost": 3,
+      "total_cost": 37,
+      "grid": [
+        [
+          0.5,
+          0.5
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.5,
+          0.0
+        ]
+      ],
+      "open_gate_mask": 0,
+      "open_vertical_mask": 0,
+      "open_horizontal_mask": 0,
+      "flow_events": [
+        {
+          "kind": "down",
+          "src": 4,
+          "dst": 6,
+          "amount": 0.5,
+          "gate_bit": 4,
+          "automatic": false
+        }
+      ]
+    },
+    {
+      "number": 16,
+      "action": "Gate (4,1) ↓",
+      "action_kind": "down",
+      "step_cost": 3,
+      "total_cost": 40,
+      "grid": [
+        [
+          0.5,
+          0.5
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "open_gate_mask": 0,
+      "open_vertical_mask": 0,
+      "open_horizontal_mask": 0,
+      "flow_events": [
+        {
+          "kind": "exit",
+          "src": 6,
+          "dst": null,
+          "amount": 0.5,
+          "gate_bit": null,
+          "automatic": false
+        }
+      ]
+    },
+    {
+      "number": 17,
+      "action": "Gate (1,2) ↓",
+      "action_kind": "down",
+      "step_cost": 3,
+      "total_cost": 43,
+      "grid": [
+        [
+          0.5,
+          0.0
+        ],
+        [
+          0.0,
+          0.5
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "open_gate_mask": 0,
+      "open_vertical_mask": 0,
+      "open_horizontal_mask": 0,
+      "flow_events": [
+        {
+          "kind": "down",
+          "src": 1,
+          "dst": 3,
+          "amount": 0.5,
+          "gate_bit": 1,
+          "automatic": false
+        }
+      ]
+    },
+    {
+      "number": 18,
+      "action": "Gate (2,2) ↓",
+      "action_kind": "down",
+      "step_cost": 3,
+      "total_cost": 46,
+      "grid": [
+        [
+          0.5,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.5
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "open_gate_mask": 0,
+      "open_vertical_mask": 0,
+      "open_horizontal_mask": 0,
+      "flow_events": [
+        {
+          "kind": "down",
+          "src": 3,
+          "dst": 5,
+          "amount": 0.5,
+          "gate_bit": 3,
+          "automatic": false
+        }
+      ]
+    },
+    {
+      "number": 19,
+      "action": "Gate (3,2) ↓",
+      "action_kind": "down",
+      "step_cost": 3,
+      "total_cost": 49,
+      "grid": [
+        [
+          0.5,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.5
+        ]
+      ],
+      "open_gate_mask": 0,
+      "open_vertical_mask": 0,
+      "open_horizontal_mask": 0,
+      "flow_events": [
+        {
+          "kind": "down",
+          "src": 5,
+          "dst": 7,
+          "amount": 0.5,
+          "gate_bit": 5,
+          "automatic": false
+        }
+      ]
+    },
+    {
+      "number": 20,
+      "action": "Gate (4,2) ↓",
+      "action_kind": "down",
+      "step_cost": 3,
+      "total_cost": 52,
+      "grid": [
+        [
+          0.5,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "open_gate_mask": 0,
+      "open_vertical_mask": 0,
+      "open_horizontal_mask": 0,
+      "flow_events": [
+        {
+          "kind": "exit",
+          "src": 7,
+          "dst": null,
+          "amount": 0.5,
+          "gate_bit": null,
+          "automatic": false
+        }
+      ]
+    },
+    {
+      "number": 21,
+      "action": "Gate (1,1) ↓",
+      "action_kind": "down",
+      "step_cost": 3,
+      "total_cost": 55,
+      "grid": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.5,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "open_gate_mask": 0,
+      "open_vertical_mask": 0,
+      "open_horizontal_mask": 0,
+      "flow_events": [
+        {
+          "kind": "down",
+          "src": 0,
+          "dst": 2,
+          "amount": 0.5,
+          "gate_bit": 0,
+          "automatic": false
+        }
+      ]
+    },
+    {
+      "number": 22,
+      "action": "Gate (2,1) ↓",
+      "action_kind": "down",
+      "step_cost": 3,
+      "total_cost": 58,
+      "grid": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.5,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "open_gate_mask": 0,
+      "open_vertical_mask": 0,
+      "open_horizontal_mask": 0,
+      "flow_events": [
+        {
+          "kind": "down",
+          "src": 2,
+          "dst": 4,
+          "amount": 0.5,
+          "gate_bit": 2,
+          "automatic": false
+        }
+      ]
+    },
+    {
+      "number": 23,
+      "action": "Gate (3,1) ↓",
+      "action_kind": "down",
+      "step_cost": 3,
+      "total_cost": 61,
+      "grid": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.5,
+          0.0
+        ]
+      ],
+      "open_gate_mask": 0,
+      "open_vertical_mask": 0,
+      "open_horizontal_mask": 0,
+      "flow_events": [
+        {
+          "kind": "down",
+          "src": 4,
+          "dst": 6,
+          "amount": 0.5,
+          "gate_bit": 4,
+          "automatic": false
+        }
+      ]
+    },
+    {
+      "number": 24,
+      "action": "Gate (4,1) ↓",
+      "action_kind": "down",
+      "step_cost": 3,
+      "total_cost": 64,
+      "grid": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "open_gate_mask": 0,
+      "open_vertical_mask": 0,
+      "open_horizontal_mask": 0,
+      "flow_events": [
+        {
+          "kind": "exit",
+          "src": 6,
+          "dst": null,
+          "amount": 0.5,
+          "gate_bit": null,
+          "automatic": false
+        }
+      ]
+    }
+  ]
+}

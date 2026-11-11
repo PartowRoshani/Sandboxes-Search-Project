@@ -1,0 +1,101 @@
+repeat,initial_code,heldout_initial,method,algorithm,heuristic,status,cost,ucs_optimal_cost,optimality_gap,expanded,elapsed_sec,peak_python_bytes,action_count
+1,308,True,UCS,ucs,basic,found,26,26,0,535,0.131018,61160,8
+1,308,True,A* basic,astar,basic,found,26,26,0,489,0.119925,61136,8
+1,308,True,A* relax,astar,relax,found,26,26,0,309,0.091004,61576,8
+1,308,True,A* ML direct,astar,ml,found,26,26,0,9,0.065892,84401,8
+1,308,True,A* ML safe tie,astar,ml-tie,found,26,26,0,260,1.391192,335801,8
+1,312,True,UCS,ucs,basic,found,25,25,0,524,0.152313,61532,5
+1,312,True,A* basic,astar,basic,found,25,25,0,456,0.12563,61532,5
+1,312,True,A* relax,astar,relax,found,25,25,0,255,0.073116,62028,5
+1,312,True,A* ML direct,astar,ml,found,25,25,0,6,0.04193,57824,5
+1,312,True,A* ML safe tie,astar,ml-tie,found,25,25,0,212,2.924619,347260,5
+1,418,True,UCS,ucs,basic,found,23,23,0,287,0.18472,30868,7
+1,418,True,A* basic,astar,basic,found,23,23,0,255,0.140129,30868,7
+1,418,True,A* relax,astar,relax,found,23,23,0,156,0.10285,29240,7
+1,418,True,A* ML direct,astar,ml,found,23,23,0,7,0.149178,67621,7
+1,418,True,A* ML safe tie,astar,ml-tie,found,23,23,0,133,2.025339,270483,7
+1,245,True,UCS,ucs,basic,found,18,18,0,37,0.012865,4240,4
+1,245,True,A* basic,astar,basic,found,18,18,0,34,0.011156,4240,4
+1,245,True,A* relax,astar,relax,found,18,18,0,17,0.00798,4144,4
+1,245,True,A* ML direct,astar,ml,found,18,18,0,4,0.067272,39100,4
+1,245,True,A* ML safe tie,astar,ml-tie,found,18,18,0,11,0.214973,85675,4
+1,485,True,UCS,ucs,basic,found,34,34,0,5574,6.41071,1261880,8
+1,485,True,A* basic,astar,basic,found,34,34,0,4969,5.51303,1261052,8
+1,485,True,A* relax,astar,relax,found,34,34,0,3636,4.429747,678824,8
+1,485,True,A* ML direct,astar,ml,found,35,34,1,28,0.526894,240912,9
+1,485,True,A* ML safe tie,astar,ml-tie,timeout,,34,,1103,20.00806,756619,
+1,636,True,UCS,ucs,basic,found,27,27,0,1329,1.237801,140552,7
+1,636,True,A* basic,astar,basic,found,27,27,0,1218,1.030561,140552,7
+1,636,True,A* relax,astar,relax,found,27,27,0,895,0.767324,129780,7
+1,636,True,A* ML direct,astar,ml,found,27,27,0,14,0.321318,133604,7
+1,636,True,A* ML safe tie,astar,ml-tie,found,27,27,0,789,8.891006,513714,7
+1,241,True,UCS,ucs,basic,found,32,32,0,2673,0.955354,319196,10
+1,241,True,A* basic,astar,basic,found,32,32,0,2503,0.857508,319196,10
+1,241,True,A* relax,astar,relax,found,32,32,0,1832,0.676247,282992,10
+1,241,True,A* ML direct,astar,ml,found,32,32,0,10,0.083738,104057,10
+1,241,True,A* ML safe tie,astar,ml-tie,found,32,32,0,1652,8.311856,708580,10
+1,190,True,UCS,ucs,basic,found,19,19,0,50,0.00688,7224,5
+1,190,True,A* basic,astar,basic,found,19,19,0,47,0.008323,7224,5
+1,190,True,A* relax,astar,relax,found,19,19,0,42,0.006668,7256,5
+1,190,True,A* ML direct,astar,ml,found,19,19,0,9,0.059373,71850,5
+1,190,True,A* ML safe tie,astar,ml-tie,found,19,19,0,34,0.140845,112645,5
+1,562,True,UCS,ucs,basic,found,29,29,0,1117,0.310186,135284,7
+1,562,True,A* basic,astar,basic,found,29,29,0,1044,0.303454,135284,7
+1,562,True,A* relax,astar,relax,found,29,29,0,759,0.243152,130244,7
+1,562,True,A* ML direct,astar,ml,found,29,29,0,38,0.257996,189637,9
+1,562,True,A* ML safe tie,astar,ml-tie,found,29,29,0,674,3.281249,506680,7
+1,297,True,UCS,ucs,basic,found,12,12,0,19,0.002654,3488,2
+1,297,True,A* basic,astar,basic,found,12,12,0,13,0.00171,2944,2
+1,297,True,A* relax,astar,relax,found,12,12,0,5,0.000933,2760,2
+1,297,True,A* ML direct,astar,ml,found,12,12,0,2,0.027446,30888,2
+1,297,True,A* ML safe tie,astar,ml-tie,found,12,12,0,3,0.028569,38860,2
+1,549,True,UCS,ucs,basic,found,18,18,0,90,0.016938,14776,6
+1,549,True,A* basic,astar,basic,found,18,18,0,77,0.015885,14776,6
+1,549,True,A* relax,astar,relax,found,18,18,0,59,0.012816,14704,6
+1,549,True,A* ML direct,astar,ml,found,18,18,0,6,0.040928,56005,6
+1,549,True,A* ML safe tie,astar,ml-tie,found,18,18,0,41,0.245932,198537,6
+1,123,True,UCS,ucs,basic,found,26,26,0,253,0.053577,28056,8
+1,123,True,A* basic,astar,basic,found,26,26,0,244,0.048306,28056,8
+1,123,True,A* relax,astar,relax,found,26,26,0,190,0.040432,28152,8
+1,123,True,A* ML direct,astar,ml,found,26,26,0,12,0.082916,76420,8
+1,123,True,A* ML safe tie,astar,ml-tie,found,26,26,0,159,0.828777,284526,8
+1,9,True,UCS,ucs,basic,found,6,6,0,2,0.000224,1648,2
+1,9,True,A* basic,astar,basic,found,6,6,0,2,0.000169,1648,2
+1,9,True,A* relax,astar,relax,found,6,6,0,2,0.000172,1648,2
+1,9,True,A* ML direct,astar,ml,found,6,6,0,2,0.014047,22615,2
+1,9,True,A* ML safe tie,astar,ml-tie,found,6,6,0,2,0.015843,22500,2
+1,67,True,UCS,ucs,basic,found,25,25,0,286,0.058963,29268,7
+1,67,True,A* basic,astar,basic,found,25,25,0,260,0.056805,29268,7
+1,67,True,A* relax,astar,relax,found,25,25,0,158,0.036666,28856,7
+1,67,True,A* ML direct,astar,ml,found,25,25,0,7,0.049098,66043,7
+1,67,True,A* ML safe tie,astar,ml-tie,found,25,25,0,121,0.766854,280231,7
+1,331,True,UCS,ucs,basic,found,26,26,0,215,0.043121,27992,8
+1,331,True,A* basic,astar,basic,found,26,26,0,203,0.043736,27992,8
+1,331,True,A* relax,astar,relax,found,26,26,0,151,0.032668,28344,8
+1,331,True,A* ML direct,astar,ml,found,26,26,0,9,0.061216,81569,8
+1,331,True,A* ML safe tie,astar,ml-tie,found,26,26,0,127,0.636427,274151,8
+1,88,True,UCS,ucs,basic,found,25,25,0,120,0.021656,13456,7
+1,88,True,A* basic,astar,basic,found,25,25,0,114,0.018149,13456,7
+1,88,True,A* relax,astar,relax,found,25,25,0,82,0.014932,13488,7
+1,88,True,A* ML direct,astar,ml,found,25,25,0,8,0.056048,72625,7
+1,88,True,A* ML safe tie,astar,ml-tie,found,25,25,0,61,0.358612,241169,7
+1,559,True,UCS,ucs,basic,found,25,25,0,399,0.099173,64316,7
+1,559,True,A* basic,astar,basic,found,25,25,0,365,0.094073,64316,7
+1,559,True,A* relax,astar,relax,found,25,25,0,259,0.072713,61124,7
+1,559,True,A* ML direct,astar,ml,found,25,25,0,8,0.064277,83659,7
+1,559,True,A* ML safe tie,astar,ml-tie,found,25,25,0,238,1.210499,312066,7
+1,446,True,UCS,ucs,basic,found,29,29,0,1616,0.478623,260544,7
+1,446,True,A* basic,astar,basic,found,29,29,0,1511,0.452922,260544,7
+1,446,True,A* relax,astar,relax,found,29,29,0,1114,0.368965,248064,7
+1,446,True,A* ML direct,astar,ml,found,29,29,0,10,0.075163,78174,7
+1,446,True,A* ML safe tie,astar,ml-tie,found,29,29,0,991,4.811147,658258,7
+1,482,True,UCS,ucs,basic,found,32,32,0,3390,1.203097,581740,8
+1,482,True,A* basic,astar,basic,found,32,32,0,3107,1.134916,581740,8
+1,482,True,A* relax,astar,relax,found,32,32,0,2255,0.885719,550492,8
+1,482,True,A* ML direct,astar,ml,found,32,32,0,19,0.141795,183736,8
+1,482,True,A* ML safe tie,astar,ml-tie,found,32,32,0,2048,10.000652,1005287,8
+1,94,True,UCS,ucs,basic,found,24,24,0,99,0.014539,13616,6
+1,94,True,A* basic,astar,basic,found,24,24,0,95,0.016073,13616,6
+1,94,True,A* relax,astar,relax,found,24,24,0,79,0.013045,13808,6
+1,94,True,A* ML direct,astar,ml,found,24,24,0,12,0.081345,104102,6
+1,94,True,A* ML safe tie,astar,ml-tie,found,24,24,0,69,0.343858,242758,6

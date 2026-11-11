@@ -1,0 +1,9 @@
+{
+  "sample_initials": 5,
+  "jointly_solved_pairs": 2,
+  "ratio_count": 2,
+  "excluded_zero_optimum": 0,
+  "mean_ratio": 1.140625,
+  "max_gap": 9,
+  "explanation": "UCS provides the optimum only for completed, solved runs. The plots are SAMPLE results; they are not exhaustive for 5x2."
+}

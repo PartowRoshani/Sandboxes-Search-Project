@@ -1,0 +1,17 @@
+{
+  "model_version": "continuous-flow-v2-full-is-1",
+  "rows": 3,
+  "cols": 2,
+  "seed": 44,
+  "all_stable_states": 11242,
+  "train_states": 8090,
+  "test_states": 3152,
+  "train_occupancy_groups": 583,
+  "test_occupancy_groups": 146,
+  "mae": 1.170137,
+  "rmse": 1.571597,
+  "r2": 0.938871,
+  "overestimate_fraction": 0.42703,
+  "max_overestimate": 6.7,
+  "note": "Direct use in A* is NOT guaranteed admissible. ml-tie uses admissible relaxation as the primary A* key."
+}

@@ -1,0 +1,15 @@
+﻿example,algorithm,status,cost,optimality_gap,action_count,side_action_count,down_action_count,elapsed_sec,peak_python_kib,expanded,generated,max_frontier,goal_verified,animation_html
+professor,greedy,found,47,13,7,0,7,0.002795,1.05,7,7,1,True,greedy.html
+professor,dfs,found,47,13,7,0,7,0.023116,14.03,7,46,40,True,dfs.html
+professor,bfs,found,47,13,7,0,7,3.351631,620.54,2473,14949,1440,True,bfs.html
+professor,ids,found,47,13,7,0,7,28.354908,7.25,26514,165390,8,True,ids.html
+professor,ucs,found,34,0,10,3,7,4.765358,1320.7,5661,32075,2141,True,ucs.html
+professor,astar,found,34,0,10,3,7,4.749114,1264.58,5326,30718,2141,True,astar.html
+professor,rbfs,timeout,,,,,,60.003288,9.47,34637,258010,9,,
+random_5x2,greedy,found,38,4,8,0,8,0.010657,1.14,8,8,1,True,greedy.html
+random_5x2,dfs,found,38,4,8,0,8,0.033319,11.41,8,32,23,True,dfs.html
+random_5x2,bfs,found,38,4,8,0,8,0.919545,77.87,530,2149,167,True,bfs.html
+random_5x2,ids,found,38,4,8,0,8,15.364121,7.64,16238,68259,9,True,ids.html
+random_5x2,ucs,found,34,0,8,0,8,1.880549,63.0,644,2523,174,True,ucs.html
+random_5x2,astar,found,34,0,8,0,8,1.689793,62.97,620,2462,174,True,astar.html
+random_5x2,rbfs,timeout,,,,,,60.000952,9.73,35089,159050,11,,

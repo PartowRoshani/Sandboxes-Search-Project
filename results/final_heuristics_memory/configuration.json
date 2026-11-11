@@ -1,0 +1,14 @@
+{
+  "seeds": [
+    42,
+    43,
+    44
+  ],
+  "count": 20,
+  "repeats": 1,
+  "trees": 30,
+  "seconds": 20.0,
+  "expansions": 100000,
+  "measure_memory": true,
+  "model_version": "continuous-flow-v2-full-is-1"
+}

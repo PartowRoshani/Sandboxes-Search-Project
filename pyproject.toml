@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "sand-grid-search-project"
-version = "1.0.0"
-description = "Exact and heuristic search over a sand grid with persistent connections"
+version = "2.0.0"
+description = "Sand-grid search with continuous-flow persistent gates"
 requires-python = ">=3.10"
 dependencies = ["numpy>=1.24,<3", "matplotlib>=3.6,<4", "Pillow>=9,<13"]
 
