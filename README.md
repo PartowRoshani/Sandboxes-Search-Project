@@ -368,14 +368,6 @@ Sandboxes-Search-Project/
 
 The instructor requests the following submission items. Before submitting, **verify that all required files are actually committed to the public repository**, rather than existing only on a local computer:
 
-| Required item | Where to find it / what to include |
-| --- | --- |
-| Complete source, installation and run scripts | `sandgrid/`, `main.py`, `run_project.py`, `scripts/`, requirements files |
-| Environment simulator and A* | `sandgrid/model.py`, `sandgrid/search.py` |
-| Relaxation proof or ML training | `sandgrid/heuristics.py`, this README, Week 2 report; optionally ML scripts |
-| Cost/time/memory and b* evaluation | benchmark scripts, `scripts/calc_effective_branching.py`, CSV outputs |
-| Three required Greedy/optimal plots | `histogram_ratio.png`, `scatter_costs.png`, `scatter_actions.png` from revised 3 × 2 analysis |
-| Experimental report | Commit the compiled Week 2 PDF and editable LaTeX source, including figure assets |
-| **Full AI conversations** | **Export and include complete prompts and responses** for all project-related chats; summaries alone do not satisfy this requirement |
+
 
 
