@@ -366,7 +366,6 @@ Sandboxes-Search-Project/
 └── results/                          # generated experiment data (may be ignored by Git)
 ```
 
-The instructor requests the following submission items. Before submitting, **verify that all required files are actually committed to the public repository**, rather than existing only on a local computer:
 
 
 
