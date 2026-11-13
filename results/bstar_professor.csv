@@ -1,0 +1,7 @@
+﻿example_or_code,method,status,depth,expanded,generated,bstar_expanded,bstar_generated
+professor,greedy,found,7,7,7,1.000000,1.000000
+professor,random,found,21,21,100,1.000000,1.126699
+professor,dfs,found,7,7,46,1.000000,1.486804
+professor,bfs,found,7,2473,14949,2.872331,3.778378
+professor,ucs,found,10,5661,32075,2.236482,2.694480
+professor,astar,found,10,5326,30718,2.221686,2.682128

@@ -1,0 +1,6 @@
+﻿method,solved_count,mean_bstar_expanded,median_bstar_expanded
+UCS,60,2.251997,2.135234
+A* basic,60,2.177144,2.089080
+A* relax,60,1.954546,1.905267
+A* ML direct,60,1.179810,1.144830
+A* ML safe tie,60,1.870109,1.811528
