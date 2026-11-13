@@ -378,4 +378,3 @@ The instructor requests the following submission items. Before submitting, **ver
 | Experimental report | Commit the compiled Week 2 PDF and editable LaTeX source, including figure assets |
 | **Full AI conversations** | **Export and include complete prompts and responses** for all project-related chats; summaries alone do not satisfy this requirement |
 
-**Important:** The public GitHub URL is an acceptable single submission link only if the repository actually contains **all** requested deliverables, including the report, plots and full AI-chat transcripts.
