@@ -31,7 +31,7 @@ def _add_initial(parser):
     parser.add_argument('--seed', type=int, default=42,
                         help='Random initial-grid seed, if --grid not supplied')
     parser.add_argument('--random-seed', type=int, default=None,
-                        help='Seed for Random algorithm action ordering (defaults to --seed)')
+                        help='Seed for Random and local-search algorithms (defaults to --seed)')
     parser.add_argument('--grid', help='JSON matrix, e.g. [[1,0],[0.5,1]]')
     parser.add_argument('--convention', choices=['full-is-1','empty-is-1'],
                         default='full-is-1',
@@ -54,7 +54,7 @@ def main(argv: list[str] | None = None) -> int:
     solve.add_argument('--limit-seconds', type=float, default=30)
     solve.add_argument('--limit-expansions', type=int, default=500000)
     solve.add_argument('--max-depth', type=int, default=30)
-    compare = cmds.add_parser('compare', help='Compare all eight algorithms on identical grid')
+    compare = cmds.add_parser('compare', help='Compare available algorithms on identical grid')
     _add_initial(compare)
     compare.add_argument('--heuristic', choices=['basic','relax','ml','ml-tie'], default='basic')
     compare.add_argument('--ml-model', help='Trained ML model for A*')
@@ -165,7 +165,7 @@ def main(argv: list[str] | None = None) -> int:
                     initial_grid=model.to_display(initial), algorithm=result.algorithm,
                     heuristic=(args.heuristic if args.algorithm in ('astar', 'rbfs') else None),
                     random_seed=((args.random_seed if args.random_seed is not None else args.seed)
-                                 if args.algorithm == 'random' else None),
+                                 if args.algorithm in ('random', 'hillclimb', 'anneal', 'genetic') else None),
                     cost=result.cost, actions=[model.actions[a].label for a in result.actions],
                     steps=[dict(step=k, grid=model.to_display(t['state']),
                                 open_gate_mask=model.decode(t['state'])[1],

@@ -1,0 +1,510 @@
+{
+  "model_version": "continuous-flow-v2-full-is-1",
+  "initial_code": 2000,
+  "initial_grid": [
+    [
+      1.0,
+      0.0
+    ],
+    [
+      0.0,
+      1.0
+    ],
+    [
+      0.0,
+      1.0
+    ],
+    [
+      1.0,
+      0.0
+    ]
+  ],
+  "rows": 4,
+  "cols": 2,
+  "algorithm": "genetic",
+  "configuration": {
+    "population_size": 50,
+    "chromosome_length": 50,
+    "generations": 1000,
+    "crossover_rate": 0.85,
+    "mutation_rate": 0.3,
+    "elitism": 2,
+    "immigrant_fraction": 0.1,
+    "crossover_method": "one_point",
+    "mutation_method": "replace",
+    "cost_transform": "log",
+    "conflict_mode": "occupied",
+    "seed": 42,
+    "max_seconds": null,
+    "target_cost": null
+  },
+  "status": "found",
+  "found": true,
+  "cost": 37,
+  "fitness": 100215.6294170196,
+  "min_conflict": 0,
+  "cost_at_min_conflict": 37,
+  "generations_completed": 1000,
+  "evaluations": 50050,
+  "chromosome": [
+    13,
+    4,
+    0,
+    2,
+    11,
+    6,
+    3,
+    5,
+    7,
+    2,
+    0,
+    14,
+    1,
+    2,
+    10,
+    4,
+    14,
+    12,
+    5,
+    4,
+    14,
+    8,
+    2,
+    0,
+    6,
+    9,
+    14,
+    7,
+    7,
+    1,
+    10,
+    5,
+    0,
+    3,
+    0,
+    5,
+    6,
+    7,
+    5,
+    10,
+    1,
+    9,
+    12,
+    4,
+    14,
+    1,
+    4,
+    7,
+    2,
+    1
+  ],
+  "executed_action_ids": [
+    13,
+    4,
+    0,
+    2,
+    11,
+    6,
+    3,
+    5,
+    7
+  ],
+  "executed_actions": [
+    "Side (3,2) → (3,1)",
+    "Gate (3,1) ↓",
+    "Gate (1,1) ↓",
+    "Gate (2,1) ↓",
+    "Side (2,2) → (2,1)",
+    "Gate (4,1) ↓",
+    "Gate (2,2) ↓",
+    "Gate (3,2) ↓",
+    "Gate (4,2) ↓"
+  ],
+  "steps": [
+    {
+      "step": 0,
+      "grid": [
+        [
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0
+        ],
+        [
+          0.0,
+          1.0
+        ],
+        [
+          1.0,
+          0.0
+        ]
+      ],
+      "open_gate_mask": 0,
+      "cost": 0,
+      "total": 0,
+      "action": null,
+      "flow_events": []
+    },
+    {
+      "step": 1,
+      "grid": [
+        [
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0
+        ],
+        [
+          0.5,
+          0.5
+        ],
+        [
+          1.0,
+          0.0
+        ]
+      ],
+      "open_gate_mask": 0,
+      "cost": 1,
+      "total": 1,
+      "action": 13,
+      "flow_events": [
+        {
+          "kind": "side",
+          "src": 5,
+          "dst": 4,
+          "amount": 0.5,
+          "gate_bit": 11,
+          "gate_closed": true,
+          "automatic": false
+        }
+      ]
+    },
+    {
+      "step": 2,
+      "grid": [
+        [
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0
+        ],
+        [
+          0.5,
+          0.5
+        ],
+        [
+          1.0,
+          0.0
+        ]
+      ],
+      "open_gate_mask": 16,
+      "cost": 5,
+      "total": 6,
+      "action": 4,
+      "flow_events": []
+    },
+    {
+      "step": 3,
+      "grid": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          1.0,
+          1.0
+        ],
+        [
+          0.5,
+          0.5
+        ],
+        [
+          1.0,
+          0.0
+        ]
+      ],
+      "open_gate_mask": 16,
+      "cost": 5,
+      "total": 11,
+      "action": 0,
+      "flow_events": [
+        {
+          "kind": "down",
+          "src": 0,
+          "dst": 2,
+          "amount": 1.0,
+          "gate_bit": 0,
+          "gate_closed": false,
+          "automatic": false
+        }
+      ]
+    },
+    {
+      "step": 4,
+      "grid": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.5,
+          1.0
+        ],
+        [
+          1.0,
+          0.5
+        ],
+        [
+          1.0,
+          0.0
+        ]
+      ],
+      "open_gate_mask": 20,
+      "cost": 7,
+      "total": 18,
+      "action": 2,
+      "flow_events": [
+        {
+          "kind": "down",
+          "src": 2,
+          "dst": 4,
+          "amount": 0.5,
+          "gate_bit": 2,
+          "gate_closed": false,
+          "automatic": false
+        }
+      ]
+    },
+    {
+      "step": 5,
+      "grid": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          1.0,
+          0.5
+        ],
+        [
+          1.0,
+          0.5
+        ],
+        [
+          1.0,
+          0.0
+        ]
+      ],
+      "open_gate_mask": 20,
+      "cost": 1,
+      "total": 19,
+      "action": 11,
+      "flow_events": [
+        {
+          "kind": "side",
+          "src": 3,
+          "dst": 2,
+          "amount": 0.5,
+          "gate_bit": 9,
+          "gate_closed": true,
+          "automatic": false
+        }
+      ]
+    },
+    {
+      "step": 6,
+      "grid": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.5
+        ],
+        [
+          0.0,
+          0.5
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "open_gate_mask": 0,
+      "cost": 5,
+      "total": 24,
+      "action": 6,
+      "flow_events": [
+        {
+          "kind": "exit",
+          "src": 6,
+          "dst": null,
+          "amount": 1.0,
+          "gate_bit": null,
+          "gate_closed": false,
+          "automatic": false
+        },
+        {
+          "kind": "down",
+          "src": 4,
+          "dst": 6,
+          "amount": 1.0,
+          "gate_bit": 4,
+          "gate_closed": false,
+          "automatic": true
+        },
+        {
+          "kind": "exit",
+          "src": 6,
+          "dst": null,
+          "amount": 1.0,
+          "gate_bit": null,
+          "gate_closed": false,
+          "automatic": true
+        },
+        {
+          "kind": "down",
+          "src": 2,
+          "dst": 4,
+          "amount": 1.0,
+          "gate_bit": 2,
+          "gate_closed": false,
+          "automatic": true
+        },
+        {
+          "kind": "down",
+          "src": 4,
+          "dst": 6,
+          "amount": 1.0,
+          "gate_bit": 4,
+          "gate_closed": false,
+          "automatic": true
+        },
+        {
+          "kind": "exit",
+          "src": 6,
+          "dst": null,
+          "amount": 1.0,
+          "gate_bit": null,
+          "gate_closed": false,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "step": 7,
+      "grid": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "open_gate_mask": 0,
+      "cost": 3,
+      "total": 27,
+      "action": 3,
+      "flow_events": [
+        {
+          "kind": "down",
+          "src": 3,
+          "dst": 5,
+          "amount": 0.5,
+          "gate_bit": 3,
+          "gate_closed": false,
+          "automatic": false
+        }
+      ]
+    },
+    {
+      "step": 8,
+      "grid": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0
+        ]
+      ],
+      "open_gate_mask": 0,
+      "cost": 5,
+      "total": 32,
+      "action": 5,
+      "flow_events": [
+        {
+          "kind": "down",
+          "src": 5,
+          "dst": 7,
+          "amount": 1.0,
+          "gate_bit": 5,
+          "gate_closed": false,
+          "automatic": false
+        }
+      ]
+    },
+    {
+      "step": 9,
+      "grid": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "open_gate_mask": 0,
+      "cost": 5,
+      "total": 37,
+      "action": 7,
+      "flow_events": [
+        {
+          "kind": "exit",
+          "src": 7,
+          "dst": null,
+          "amount": 1.0,
+          "gate_bit": null,
+          "gate_closed": false,
+          "automatic": false
+        }
+      ]
+    }
+  ]
+}

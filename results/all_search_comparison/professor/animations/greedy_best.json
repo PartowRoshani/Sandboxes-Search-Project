@@ -1,0 +1,323 @@
+{
+  "algorithm": "greedy",
+  "seed": 42,
+  "found": true,
+  "status": "found",
+  "cost": 47,
+  "executed_action_ids": [
+    0,
+    2,
+    4,
+    6,
+    3,
+    5,
+    7
+  ],
+  "executed_action_labels": [
+    "Gate (1,1) ↓",
+    "Gate (2,1) ↓",
+    "Gate (3,1) ↓",
+    "Gate (4,1) ↓",
+    "Gate (2,2) ↓",
+    "Gate (3,2) ↓",
+    "Gate (4,2) ↓"
+  ],
+  "trace": [
+    {
+      "step": 0,
+      "grid": [
+        [
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0
+        ],
+        [
+          0.0,
+          1.0
+        ],
+        [
+          1.0,
+          0.0
+        ]
+      ],
+      "total_cost": 0,
+      "action_id": null,
+      "step_cost": 0,
+      "flow_events": []
+    },
+    {
+      "step": 1,
+      "grid": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          1.0,
+          1.0
+        ],
+        [
+          0.0,
+          1.0
+        ],
+        [
+          1.0,
+          0.0
+        ]
+      ],
+      "total_cost": 5,
+      "action_id": 0,
+      "step_cost": 5,
+      "flow_events": [
+        {
+          "kind": "down",
+          "src": 0,
+          "dst": 2,
+          "amount": 1.0,
+          "gate_bit": 0,
+          "gate_closed": false,
+          "automatic": false
+        }
+      ]
+    },
+    {
+      "step": 2,
+      "grid": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          0.0
+        ]
+      ],
+      "total_cost": 10,
+      "action_id": 2,
+      "step_cost": 5,
+      "flow_events": [
+        {
+          "kind": "down",
+          "src": 2,
+          "dst": 4,
+          "amount": 1.0,
+          "gate_bit": 2,
+          "gate_closed": false,
+          "automatic": false
+        }
+      ]
+    },
+    {
+      "step": 3,
+      "grid": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          0.0
+        ]
+      ],
+      "total_cost": 19,
+      "action_id": 4,
+      "step_cost": 9,
+      "flow_events": []
+    },
+    {
+      "step": 4,
+      "grid": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0
+        ],
+        [
+          0.0,
+          1.0
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "total_cost": 24,
+      "action_id": 6,
+      "step_cost": 5,
+      "flow_events": [
+        {
+          "kind": "exit",
+          "src": 6,
+          "dst": null,
+          "amount": 1.0,
+          "gate_bit": null,
+          "gate_closed": false,
+          "automatic": false
+        },
+        {
+          "kind": "down",
+          "src": 4,
+          "dst": 6,
+          "amount": 1.0,
+          "gate_bit": 4,
+          "gate_closed": false,
+          "automatic": true
+        },
+        {
+          "kind": "exit",
+          "src": 6,
+          "dst": null,
+          "amount": 1.0,
+          "gate_bit": null,
+          "gate_closed": false,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "step": 5,
+      "grid": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0
+        ],
+        [
+          0.0,
+          1.0
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "total_cost": 33,
+      "action_id": 3,
+      "step_cost": 9,
+      "flow_events": []
+    },
+    {
+      "step": 6,
+      "grid": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0
+        ],
+        [
+          0.0,
+          1.0
+        ]
+      ],
+      "total_cost": 42,
+      "action_id": 5,
+      "step_cost": 9,
+      "flow_events": [
+        {
+          "kind": "down",
+          "src": 5,
+          "dst": 7,
+          "amount": 1.0,
+          "gate_bit": 5,
+          "gate_closed": false,
+          "automatic": false
+        },
+        {
+          "kind": "down",
+          "src": 3,
+          "dst": 5,
+          "amount": 1.0,
+          "gate_bit": 3,
+          "gate_closed": false,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "step": 7,
+      "grid": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "total_cost": 47,
+      "action_id": 7,
+      "step_cost": 5,
+      "flow_events": [
+        {
+          "kind": "exit",
+          "src": 7,
+          "dst": null,
+          "amount": 1.0,
+          "gate_bit": null,
+          "gate_closed": false,
+          "automatic": false
+        },
+        {
+          "kind": "down",
+          "src": 5,
+          "dst": 7,
+          "amount": 1.0,
+          "gate_bit": 5,
+          "gate_closed": false,
+          "automatic": true
+        },
+        {
+          "kind": "exit",
+          "src": 7,
+          "dst": null,
+          "amount": 1.0,
+          "gate_bit": null,
+          "gate_closed": false,
+          "automatic": true
+        }
+      ]
+    }
+  ],
+  "local_path_data": {}
+}

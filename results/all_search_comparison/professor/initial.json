@@ -1,0 +1,55 @@
+{
+  "label": "professor",
+  "rows": 4,
+  "cols": 2,
+  "initial_code": 2000,
+  "initial_grid": [
+    [
+      1.0,
+      0.0
+    ],
+    [
+      0.0,
+      1.0
+    ],
+    [
+      0.0,
+      1.0
+    ],
+    [
+      1.0,
+      0.0
+    ]
+  ],
+  "model_version": "continuous-flow-v2-full-is-1",
+  "display_convention": "1=full; 0.5=half; 0=empty",
+  "random_grid_seed": null,
+  "random_search_first_seed": 42,
+  "local_path_length": [
+    30,
+    35
+  ],
+  "algorithms": [
+    "greedy",
+    "random",
+    "dfs",
+    "bfs",
+    "ids",
+    "ucs",
+    "astar",
+    "rbfs",
+    "hillclimb",
+    "anneal",
+    "genetic"
+  ],
+  "trials_per_randomized_algorithm": 5,
+  "graph_limits": {
+    "seconds": 8.0,
+    "expansions": 100000,
+    "max_depth": 20
+  },
+  "local_limits": {
+    "seconds": 10,
+    "evaluations": 2500
+  }
+}

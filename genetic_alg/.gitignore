@@ -1,0 +1,6 @@
+__pycache__/
+.pytest_cache/
+*.pyc
+# Keep final experiments and HTML dashboards under results/ so the instructor
+# can inspect them in GitHub. Use _scratch for untracked local experiments.
+results/_scratch/

@@ -1,0 +1,37 @@
+{
+  "algorithm": "rbfs",
+  "seed": 42,
+  "found": false,
+  "status": "timeout",
+  "cost": null,
+  "executed_action_ids": [],
+  "executed_action_labels": [],
+  "trace": [
+    {
+      "step": 0,
+      "grid": [
+        [
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0
+        ],
+        [
+          0.0,
+          1.0
+        ],
+        [
+          1.0,
+          0.0
+        ]
+      ],
+      "total_cost": 0,
+      "action_id": null,
+      "step_cost": 0,
+      "flow_events": []
+    }
+  ],
+  "local_path_data": {}
+}

@@ -104,6 +104,13 @@ def search(model: SandGrid, initial: int, algorithm: str = 'astar',
            random_seed: int = 42) -> SearchResult:
     aliases = {'a*': 'astar', 'a-star': 'astar'}
     algo = aliases.get(algorithm.lower(), algorithm.lower())
+    if algo in ('hillclimb', 'anneal', 'genetic'):
+        from .local_search import local_search
+        return local_search(model, initial, algorithm=algo,
+                            max_expansions=max_expansions,
+                            max_seconds=max_seconds,
+                            random_seed=random_seed,
+                            measure_memory=measure_memory)
     if algo not in ('random', 'dfs', 'bfs', 'ids', 'ucs', 'astar', 'rbfs'):
         raise ValueError(f'unknown algorithm: {algorithm}')
     if max_seconds is not None and max_seconds <= 0:

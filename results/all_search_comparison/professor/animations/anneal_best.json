@@ -1,0 +1,503 @@
+{
+  "algorithm": "anneal",
+  "seed": 45,
+  "found": true,
+  "status": "found",
+  "cost": 34,
+  "executed_action_ids": [
+    13,
+    0,
+    4,
+    2,
+    11,
+    3,
+    13,
+    6,
+    5,
+    7
+  ],
+  "executed_action_labels": [
+    "Side (3,2) → (3,1)",
+    "Gate (1,1) ↓",
+    "Gate (3,1) ↓",
+    "Gate (2,1) ↓",
+    "Side (2,2) → (2,1)",
+    "Gate (2,2) ↓",
+    "Side (3,2) → (3,1)",
+    "Gate (4,1) ↓",
+    "Gate (3,2) ↓",
+    "Gate (4,2) ↓"
+  ],
+  "trace": [
+    {
+      "step": 0,
+      "grid": [
+        [
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0
+        ],
+        [
+          0.0,
+          1.0
+        ],
+        [
+          1.0,
+          0.0
+        ]
+      ],
+      "total_cost": 0,
+      "action_id": null,
+      "step_cost": 0,
+      "flow_events": []
+    },
+    {
+      "step": 1,
+      "grid": [
+        [
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0
+        ],
+        [
+          0.5,
+          0.5
+        ],
+        [
+          1.0,
+          0.0
+        ]
+      ],
+      "total_cost": 1,
+      "action_id": 13,
+      "step_cost": 1,
+      "flow_events": [
+        {
+          "kind": "side",
+          "src": 5,
+          "dst": 4,
+          "amount": 0.5,
+          "gate_bit": 11,
+          "gate_closed": true,
+          "automatic": false
+        }
+      ]
+    },
+    {
+      "step": 2,
+      "grid": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          1.0,
+          1.0
+        ],
+        [
+          0.5,
+          0.5
+        ],
+        [
+          1.0,
+          0.0
+        ]
+      ],
+      "total_cost": 6,
+      "action_id": 0,
+      "step_cost": 5,
+      "flow_events": [
+        {
+          "kind": "down",
+          "src": 0,
+          "dst": 2,
+          "amount": 1.0,
+          "gate_bit": 0,
+          "gate_closed": false,
+          "automatic": false
+        }
+      ]
+    },
+    {
+      "step": 3,
+      "grid": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          1.0,
+          1.0
+        ],
+        [
+          0.5,
+          0.5
+        ],
+        [
+          1.0,
+          0.0
+        ]
+      ],
+      "total_cost": 11,
+      "action_id": 4,
+      "step_cost": 5,
+      "flow_events": []
+    },
+    {
+      "step": 4,
+      "grid": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.5,
+          1.0
+        ],
+        [
+          1.0,
+          0.5
+        ],
+        [
+          1.0,
+          0.0
+        ]
+      ],
+      "total_cost": 18,
+      "action_id": 2,
+      "step_cost": 7,
+      "flow_events": [
+        {
+          "kind": "down",
+          "src": 2,
+          "dst": 4,
+          "amount": 0.5,
+          "gate_bit": 2,
+          "gate_closed": false,
+          "automatic": false
+        }
+      ]
+    },
+    {
+      "step": 5,
+      "grid": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          1.0,
+          0.5
+        ],
+        [
+          1.0,
+          0.5
+        ],
+        [
+          1.0,
+          0.0
+        ]
+      ],
+      "total_cost": 19,
+      "action_id": 11,
+      "step_cost": 1,
+      "flow_events": [
+        {
+          "kind": "side",
+          "src": 3,
+          "dst": 2,
+          "amount": 0.5,
+          "gate_bit": 9,
+          "gate_closed": true,
+          "automatic": false
+        }
+      ]
+    },
+    {
+      "step": 6,
+      "grid": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          1.0,
+          0.0
+        ],
+        [
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          0.0
+        ]
+      ],
+      "total_cost": 22,
+      "action_id": 3,
+      "step_cost": 3,
+      "flow_events": [
+        {
+          "kind": "down",
+          "src": 3,
+          "dst": 5,
+          "amount": 0.5,
+          "gate_bit": 3,
+          "gate_closed": false,
+          "automatic": false
+        }
+      ]
+    },
+    {
+      "step": 7,
+      "grid": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          1.0,
+          0.0
+        ],
+        [
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          0.0
+        ]
+      ],
+      "total_cost": 23,
+      "action_id": 13,
+      "step_cost": 1,
+      "flow_events": []
+    },
+    {
+      "step": 8,
+      "grid": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.5
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "total_cost": 28,
+      "action_id": 6,
+      "step_cost": 5,
+      "flow_events": [
+        {
+          "kind": "exit",
+          "src": 6,
+          "dst": null,
+          "amount": 1.0,
+          "gate_bit": null,
+          "gate_closed": false,
+          "automatic": false
+        },
+        {
+          "kind": "down",
+          "src": 4,
+          "dst": 6,
+          "amount": 1.0,
+          "gate_bit": 4,
+          "gate_closed": false,
+          "automatic": true
+        },
+        {
+          "kind": "exit",
+          "src": 6,
+          "dst": null,
+          "amount": 1.0,
+          "gate_bit": null,
+          "gate_closed": false,
+          "automatic": true
+        },
+        {
+          "kind": "down",
+          "src": 2,
+          "dst": 4,
+          "amount": 1.0,
+          "gate_bit": 2,
+          "gate_closed": false,
+          "automatic": true
+        },
+        {
+          "kind": "down",
+          "src": 4,
+          "dst": 6,
+          "amount": 1.0,
+          "gate_bit": 4,
+          "gate_closed": false,
+          "automatic": true
+        },
+        {
+          "kind": "exit",
+          "src": 6,
+          "dst": null,
+          "amount": 1.0,
+          "gate_bit": null,
+          "gate_closed": false,
+          "automatic": true
+        },
+        {
+          "kind": "side",
+          "src": 5,
+          "dst": 4,
+          "amount": 0.5,
+          "gate_bit": 11,
+          "gate_closed": true,
+          "automatic": true
+        },
+        {
+          "kind": "down",
+          "src": 4,
+          "dst": 6,
+          "amount": 0.5,
+          "gate_bit": 4,
+          "gate_closed": false,
+          "automatic": true
+        },
+        {
+          "kind": "exit",
+          "src": 6,
+          "dst": null,
+          "amount": 0.5,
+          "gate_bit": null,
+          "gate_closed": false,
+          "automatic": true
+        }
+      ]
+    },
+    {
+      "step": 9,
+      "grid": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.5
+        ]
+      ],
+      "total_cost": 31,
+      "action_id": 5,
+      "step_cost": 3,
+      "flow_events": [
+        {
+          "kind": "down",
+          "src": 5,
+          "dst": 7,
+          "amount": 0.5,
+          "gate_bit": 5,
+          "gate_closed": false,
+          "automatic": false
+        }
+      ]
+    },
+    {
+      "step": 10,
+      "grid": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "total_cost": 34,
+      "action_id": 7,
+      "step_cost": 3,
+      "flow_events": [
+        {
+          "kind": "exit",
+          "src": 7,
+          "dst": null,
+          "amount": 0.5,
+          "gate_bit": null,
+          "gate_closed": false,
+          "automatic": false
+        }
+      ]
+    }
+  ],
+  "local_path_data": {
+    "score": 28571.428571428572,
+    "chromosome": [
+      13,
+      0,
+      4,
+      2,
+      8,
+      11,
+      3,
+      13,
+      0,
+      15,
+      6,
+      11,
+      6,
+      5,
+      15,
+      7,
+      5,
+      13,
+      9,
+      5,
+      6,
+      15,
+      7,
+      8,
+      3,
+      11,
+      7,
+      14,
+      6,
+      10,
+      5
+    ],
+    "chromosome_length": 31,
+    "goal_index_0based": 15,
+    "goal_step": 16,
+    "valid_actions": 10,
+    "invalid_attempts": 6,
+    "remaining_half_units": 0,
+    "attempted_path_cost": 34
+  }
+}

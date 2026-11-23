@@ -1,0 +1,2 @@
+﻿model_version,rows,cols,initial_code,algorithm,run_id,seed,status,found,cost,action_count,side_action_count,elapsed_sec,expanded,generated,max_frontier,peak_python_bytes,ga_fitness,ga_min_conflict,ga_cost_at_min_conflict,ga_generations_completed,ga_evaluations,ga_unique_evaluations,chromosome_length,population_size,cost_transform,conflict_mode,time_limit_sec,max_expansions,max_depth
+continuous-flow-v2-full-is-1,4,2,2000,genetic,0,42,found,1,37,9,2,203.688199,,,,27583144,100215.629417,0,37,1000,50050,33716,50,50,log,occupied,,,

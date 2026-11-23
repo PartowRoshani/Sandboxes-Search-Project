@@ -1,0 +1,27 @@
+<!doctype html><html lang="en"><head><meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Sand Grid — All Search Comparison</title>
+<style>body{font-family:system-ui,-apple-system,sans-serif;background:#f5f7fb;color:#233344;margin:auto;max-width:1240px;padding:24px}
+h1{font-size:1.7rem}h2{font-size:1.2rem;margin-top:28px}.meta{display:flex;gap:12px;flex-wrap:wrap}
+.meta span{background:white;padding:10px 14px;border-radius:8px;border:1px solid #dce4ed}.panel{background:white;padding:15px;border:1px solid #dce4ed;border-radius:11px;margin-top:18px}
+img{max-width:100%;height:auto}.charts{display:grid;grid-template-columns:repeat(auto-fit,minmax(350px,1fr));gap:12px}
+.table-wrap{overflow-x:auto}table{border-collapse:collapse;width:100%}th,td{border-bottom:1px solid #e5eaf1;padding:10px;text-align:left;white-space:nowrap}th{background:#eff4f9}
+a{color:#275c9a}.note{color:#617184;font-size:.9rem;line-height:1.7}</style></head><body>
+<h1>Sand Grid — Search Algorithm Comparison</h1>
+<div class="meta"><span>Initial: professor</span><span>Grid: 4 × 2</span>
+<span>Initial code: 2000</span><span>Goal: completely empty</span></div>
+<p class="note">All algorithms start from the exact same initial state. Failed or timed-out methods are marked as unsolved, not assigned cost 0.
+Local Search uses random 30–35-gene paths. Graph expansions and evaluated path candidates are different work units and must not be directly equated.</p>
+<div class="panel"><h2>Initial state</h2><img src="initial.png" style="max-width:360px" alt="Initial grid"/>
+<pre>[[1.0, 0.0], [0.0, 1.0], [0.0, 1.0], [1.0, 0.0]]</pre></div>
+<h2>Comparison</h2><div class="panel table-wrap"><table><thead><tr><th>Algorithm</th><th>Successes</th><th>Best cost</th>
+<th>Median solved cost</th><th>Median time (s)</th><th>Median work</th><th>Work unit</th><th>Best seed</th><th>Interactive</th><th>GIF</th></tr></thead>
+<tbody><tr><td><strong>greedy</strong></td><td>1/1</td><td>47</td><td>47</td><td>0.0004</td><td>7</td><td>expanded_nodes</td><td>42</td><td><a href="animations/greedy.html">View interactive path</a></td><td><a href="animations/greedy.gif">GIF</a></td></tr><tr><td><strong>random</strong></td><td>5/5</td><td>45</td><td>61</td><td>0.0033</td><td>21</td><td>expanded_nodes</td><td>42</td><td><a href="animations/random.html">View interactive path</a></td><td><a href="animations/random.gif">GIF</a></td></tr><tr><td><strong>dfs</strong></td><td>1/1</td><td>47</td><td>47</td><td>0.0010</td><td>7</td><td>expanded_nodes</td><td>42</td><td><a href="animations/dfs.html">View interactive path</a></td><td><a href="animations/dfs.gif">GIF</a></td></tr><tr><td><strong>bfs</strong></td><td>1/1</td><td>47</td><td>47</td><td>0.2671</td><td>2473</td><td>expanded_nodes</td><td>42</td><td><a href="animations/bfs.html">View interactive path</a></td><td><a href="animations/bfs.gif">GIF</a></td></tr><tr><td><strong>ids</strong></td><td>1/1</td><td>47</td><td>47</td><td>2.9312</td><td>26514</td><td>expanded_nodes</td><td>42</td><td><a href="animations/ids.html">View interactive path</a></td><td><a href="animations/ids.gif">GIF</a></td></tr><tr><td><strong>ucs</strong></td><td>1/1</td><td>34</td><td>34</td><td>0.5846</td><td>5661</td><td>expanded_nodes</td><td>42</td><td><a href="animations/ucs.html">View interactive path</a></td><td><a href="animations/ucs.gif">GIF</a></td></tr><tr><td><strong>astar</strong></td><td>1/1</td><td>34</td><td>34</td><td>0.5424</td><td>5326</td><td>expanded_nodes</td><td>42</td><td><a href="animations/astar.html">View interactive path</a></td><td><a href="animations/astar.gif">GIF</a></td></tr><tr><td><strong>rbfs</strong></td><td>0/1</td><td>—</td><td>—</td><td>8.0006</td><td>41082</td><td>expanded_nodes</td><td>42</td><td>—</td><td>—</td></tr><tr><td><strong>hillclimb</strong></td><td>5/5</td><td>34</td><td>37</td><td>0.7093</td><td>2500</td><td>path_evaluations</td><td>46</td><td><a href="animations/hillclimb.html">View interactive path</a></td><td><a href="animations/hillclimb.gif">GIF</a></td></tr><tr><td><strong>anneal</strong></td><td>5/5</td><td>34</td><td>36</td><td>0.2908</td><td>1075</td><td>path_evaluations</td><td>45</td><td><a href="animations/anneal.html">View interactive path</a></td><td><a href="animations/anneal.gif">GIF</a></td></tr><tr><td><strong>genetic</strong></td><td>5/5</td><td>38</td><td>39</td><td>0.7908</td><td>2500</td><td>path_evaluations</td><td>44</td><td><a href="animations/genetic.html">View interactive path</a></td><td><a href="animations/genetic.gif">GIF</a></td></tr></tbody></table></div>
+<div class="charts"><div class="panel"><img src="cost_comparison.png" alt="Cost comparison"/></div>
+<div class="panel"><img src="time_comparison.png" alt="Time comparison"/></div>
+<div class="panel"><img src="success_rate.png" alt="Success rates"/></div></div>
+<p class="note">For randomized algorithms, best cost is the minimum among successful trials; median solved cost includes only successful trials.
+The success rate uses all attempted trials. Timing includes algorithm execution, not chart creation.
+HTML shows the flow within each action; GIF shows one frame per valid action. Paths that did not reach Goal are labeled partial.</p>
+<div class="panel"><a href="comparison.csv">Download aggregated CSV</a> · <a href="trials.csv">All trials CSV</a> ·
+<a href="comparison.json">Detailed JSON</a> · <a href="initial.json">Initial state JSON</a></div></body></html>

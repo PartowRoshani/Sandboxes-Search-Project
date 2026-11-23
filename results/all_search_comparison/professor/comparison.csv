@@ -1,0 +1,12 @@
+﻿algorithm,runs,solved,success_rate_percent,best_cost,median_success_cost,median_time_sec,median_work_units,work_unit,best_seed,best_status,best_actions,best_score,animation_html,animation_gif,result_json,gap_vs_ucs
+greedy,1,1,100.0,47,47,0.000358,7,expanded_nodes,42,found,7,,animations\greedy.html,animations\greedy.gif,animations\greedy_best.json,13
+random,5,5,100.0,45,61,0.003291,21,expanded_nodes,42,found,11,,animations\random.html,animations\random.gif,animations\random_best.json,11
+dfs,1,1,100.0,47,47,0.000987,7,expanded_nodes,42,found,7,,animations\dfs.html,animations\dfs.gif,animations\dfs_best.json,13
+bfs,1,1,100.0,47,47,0.267105,2473,expanded_nodes,42,found,7,,animations\bfs.html,animations\bfs.gif,animations\bfs_best.json,13
+ids,1,1,100.0,47,47,2.931159,26514,expanded_nodes,42,found,7,,animations\ids.html,animations\ids.gif,animations\ids_best.json,13
+ucs,1,1,100.0,34,34,0.584567,5661,expanded_nodes,42,found,10,,animations\ucs.html,animations\ucs.gif,animations\ucs_best.json,0
+astar,1,1,100.0,34,34,0.542443,5326,expanded_nodes,42,found,10,,animations\astar.html,animations\astar.gif,animations\astar_best.json,0
+rbfs,1,0,0.0,,,8.000593,41082,expanded_nodes,42,timeout,0,,,,animations\rbfs_best.json,
+hillclimb,5,5,100.0,34,37,0.709346,2500,path_evaluations,46,found,10,28571.428571428572,animations\hillclimb.html,animations\hillclimb.gif,animations\hillclimb_best.json,0
+anneal,5,5,100.0,34,36,0.290841,1075,path_evaluations,45,found,10,28571.428571428572,animations\anneal.html,animations\anneal.gif,animations\anneal_best.json,0
+genetic,5,5,100.0,38,39,0.790834,2500,path_evaluations,44,found,10,25641.02564102564,animations\genetic.html,animations\genetic.gif,animations\genetic_best.json,4

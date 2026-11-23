@@ -10,7 +10,7 @@ from statistics import median
 from .model import SandGrid
 from .search import greedy, search
 
-ALGORITHMS = ('greedy', 'random', 'dfs', 'bfs', 'ids', 'ucs', 'astar', 'rbfs')
+ALGORITHMS = ('greedy', 'random', 'dfs', 'bfs', 'ids', 'ucs', 'astar', 'rbfs', 'hillclimb', 'anneal', 'genetic')
 FIELDS = ('initial_code', 'algorithm', 'status', 'found', 'cost', 'action_count',
           'side_action_count', 'elapsed_sec', 'expanded', 'generated',
           'max_frontier', 'peak_python_bytes')
