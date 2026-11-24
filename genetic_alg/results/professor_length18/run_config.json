@@ -1,0 +1,40 @@
+{
+  "model_version": "continuous-flow-v2-full-is-1",
+  "initial_code": 2000,
+  "initial_grid": [
+    [
+      1.0,
+      0.0
+    ],
+    [
+      0.0,
+      1.0
+    ],
+    [
+      0.0,
+      1.0
+    ],
+    [
+      1.0,
+      0.0
+    ]
+  ],
+  "config": {
+    "population_size": 50,
+    "chromosome_length": 18,
+    "generations": 100,
+    "crossover_rate": 0.85,
+    "mutation_rate": 0.3,
+    "elitism": 2,
+    "immigrant_fraction": 0.1,
+    "crossover_method": "one_point",
+    "mutation_method": "replace",
+    "cost_transform": "log",
+    "conflict_mode": "occupied",
+    "seed": 42,
+    "max_seconds": 30.0,
+    "target_cost": null
+  },
+  "comparison_rows": 17,
+  "history_rows": 505
+}

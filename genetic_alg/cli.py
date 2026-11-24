@@ -65,7 +65,8 @@ def _save_and_report(model, initial, comparison, history, best, output,
 def solve_command(args):
     model, initial = model_and_initial(args)
     config = config_from_args(args)
-    row, hist, best = ga_run(model, initial, config)
+    row, hist, best = ga_run(model, initial, config,
+                             measure_memory=args.measure_memory)
     _save_and_report(model, initial, [row], hist, best, args.output)
     print("Executed action IDs:", best.actions)
     if best.found:
@@ -103,7 +104,8 @@ def compare_command(args):
         model, initial, cfg, repeats=args.repeats,
         include_baselines=not args.no_baselines,
         baseline_seconds=args.baseline_seconds,
-        max_expansions=args.max_expansions, max_depth=args.max_depth)
+        max_expansions=args.max_expansions, max_depth=args.max_depth,
+        measure_memory=args.measure_memory)
     old_rows.extend(_import_baselines(args, model, initial))
     _save_and_report(model, initial, old_rows, history, best, args.output)
 
@@ -122,7 +124,8 @@ def benchmark_command(args):
             model, initial, cfg, repeats=args.repeats,
             include_baselines=not args.no_baselines,
             baseline_seconds=args.baseline_seconds,
-            max_expansions=args.max_expansions, max_depth=args.max_depth)
+            max_expansions=args.max_expansions, max_depth=args.max_depth,
+            measure_memory=args.measure_memory)
         all_rows.extend(comparison)
         all_hist.extend(history)
         print(f"Grid {idx}/{len(codes)} (code {initial}): "
@@ -150,7 +153,8 @@ def study_command(args):
         for i in range(args.repeats):
             # Identical seed across transforms to make comparison paired.
             config = config_from_args(args, seed=args.seed + i, transform=mode)
-            row, hist, result = ga_run(model, initial, config, run_id=i)
+            row, hist, result = ga_run(model, initial, config, run_id=i,
+                                       measure_memory=args.measure_memory)
             rows.append(row)
             history.extend(hist)
             # Fitness magnitudes use different cost transforms: compare the
@@ -194,6 +198,8 @@ def _add_ga(parser):
     parser.add_argument("--cost-transform", choices=("log", "linear", "sqrt", "none"), default="log")
     parser.add_argument("--conflict", choices=("occupied", "half_units"), default="occupied")
     parser.add_argument("--ga-seconds", type=float, default=None, help="Optional GA wall-time cap")
+    parser.add_argument("--measure-memory", action="store_true",
+                        help="Optional second, traced run for peak Python allocation; timed run stays untraced")
     parser.add_argument("--target-cost", type=int, default=None,
                         help="Known target cost, if available; does not imply a proven bound")
     parser.add_argument("--output", default="genetic_alg/results/latest")

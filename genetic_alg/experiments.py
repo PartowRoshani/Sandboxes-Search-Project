@@ -36,11 +36,20 @@ def read_rows(path: str | Path) -> list[dict[str, str]]:
         return list(csv.DictReader(file))
 
 
-def _memory_call(func):
-    # Equivalent Python-tracked memory convention, NOT operating-system RAM.
+def _memory_call(func, *, measure_memory: bool = False):
+    """Time the real algorithm without tracing; optionally profile a *second* run.
+
+    The returned algorithm result (and its own elapsed_sec) always comes from
+    the uninstrumented execution. Python-tracked peak memory, when requested,
+    comes from a separate repeat and MUST NOT be interpreted as RAM usage of
+    the timed execution. Runs with time caps can take different paths.
+    """
+    result = func()
+    if not measure_memory:
+        return result, ""  # Missing measurement, not zero bytes.
     tracemalloc.start()
     try:
-        result = func()
+        func()  # Separate profile run: not used for result/elapsed_sec.
         peak = tracemalloc.get_traced_memory()[1]
     finally:
         tracemalloc.stop()
@@ -48,18 +57,21 @@ def _memory_call(func):
 
 
 def baseline_run(model, initial: int, algorithm: str, seed: int, run_id: int,
-                 *, max_seconds: float, max_expansions: int, max_depth: int) -> dict:
+                 *, max_seconds: float, max_expansions: int, max_depth: int,
+                 measure_memory: bool = False) -> dict:
     from sandgrid.search import search, greedy
     if algorithm not in ALGORITHMS:
         raise ValueError(f"unknown baseline algorithm: {algorithm}")
     # Reuse the actual search implementations. Do not reimplement their rules.
     if algorithm == "greedy":
-        result, peak = _memory_call(lambda: greedy(model, initial))
+        result, peak = _memory_call(lambda: greedy(model, initial),
+                                    measure_memory=measure_memory)
     else:
         result, peak = _memory_call(lambda: search(
             model, initial, algorithm,
             max_seconds=max_seconds, max_expansions=max_expansions,
-            max_depth=max_depth, random_seed=seed, measure_memory=False))
+            max_depth=max_depth, random_seed=seed, measure_memory=False),
+            measure_memory=measure_memory)
     return {
         "model_version": model.MODEL_VERSION, "rows": model.rows, "cols": model.cols,
         "initial_code": initial, "algorithm": algorithm, "run_id": run_id,
@@ -77,8 +89,10 @@ def baseline_run(model, initial: int, algorithm: str, seed: int, run_id: int,
     }
 
 
-def ga_run(model, initial: int, config: GAConfig, run_id: int = 0) -> tuple[dict, list[dict], GAResult]:
-    result, peak = _memory_call(lambda: GeneticAlgorithm(model, initial, config).run())
+def ga_run(model, initial: int, config: GAConfig, run_id: int = 0,
+           *, measure_memory: bool = False) -> tuple[dict, list[dict], GAResult]:
+    result, peak = _memory_call(lambda: GeneticAlgorithm(model, initial, config).run(),
+                                measure_memory=measure_memory)
     row = {
         "model_version": model.MODEL_VERSION, "rows": model.rows, "cols": model.cols,
         "initial_code": initial, "algorithm": "genetic", "run_id": run_id,
@@ -144,7 +158,8 @@ def write_solution(model, initial: int, result: GAResult,
 def compare_one(model, initial: int, config: GAConfig, *, repeats: int = 3,
                 include_baselines: bool = True, baseline_seconds: float = 5.0,
                 max_expansions: int = 100000, max_depth: int = 30,
-                baseline_algorithms: tuple[str, ...] = ALGORITHMS) -> tuple[list[dict], list[dict], GAResult]:
+                baseline_algorithms: tuple[str, ...] = ALGORITHMS,
+                measure_memory: bool = False) -> tuple[list[dict], list[dict], GAResult]:
     """All algorithms see exactly the same initial state and model version."""
     if repeats < 1:
         raise ValueError("repeats must be >=1")
@@ -158,11 +173,12 @@ def compare_one(model, initial: int, config: GAConfig, *, repeats: int = 3,
                 comparison.append(baseline_run(
                     model, initial, algorithm, trial_seed, run_id,
                     max_seconds=baseline_seconds, max_expansions=max_expansions,
-                    max_depth=max_depth))
+                    max_depth=max_depth, measure_memory=measure_memory))
     best: GAResult | None = None
     for run_id in range(repeats):
         trial_cfg = replace(config, seed=config.seed + run_id)
-        row, rows_history, result = ga_run(model, initial, trial_cfg, run_id)
+        row, rows_history, result = ga_run(model, initial, trial_cfg, run_id,
+                                           measure_memory=measure_memory)
         comparison.append(row)
         history.extend(rows_history)
         if best is None or result.fitness > best.fitness:

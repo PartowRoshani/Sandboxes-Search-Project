@@ -58,8 +58,14 @@ def evaluate_sequence(model, initial_state: int, sequence: Sequence[int], *,
     minimum conflict seen over the WHOLE prefix and the path cost to its first
     occurrence (which is also the cheapest occurrence for positive costs).
 
-    Non-goal: score_scale / ((1 + min_conflict)*(1 + p(cost_at_min)))
+    Non-goal: score_scale / (1 + min_conflict + q(cost_at_min))
+              where q(cost) = p(cost) / (1 + p(cost)) is in [0, 1).
     Goal:     goal_bonus + score_scale / (1 + p(total_goal_cost))
+
+    Because 0 <= q(cost) < 1, a smaller integer min_conflict always
+    outranks a larger min_conflict, regardless of nonnegative path cost.
+    Within one conflict tier, a lower cost scores higher (except when the
+    selected transform is 'none', which deliberately ignores cost).
     With score_scale < goal_bonus, every goal outranks every non-goal.
     """
     if goal_bonus <= score_scale or score_scale <= 0:
@@ -97,8 +103,9 @@ def evaluate_sequence(model, initial_state: int, sequence: Sequence[int], *,
             return Evaluation(fitness, True, True, tuple(performed), 0,
                               total_cost, total_cost, len(performed), None, state)
 
-    fitness = score_scale / ((1.0 + best_conflict) *
-                             (1.0 + cost_penalty(best_cost, cost_transform)))
+    penalty = cost_penalty(best_cost, cost_transform)
+    bounded_penalty = penalty / (1.0 + penalty)
+    fitness = score_scale / (1.0 + best_conflict + bounded_penalty)
     return Evaluation(fitness, False, True, best_prefix, best_conflict,
                       best_cost, total_cost, len(performed), None, state)
 

@@ -1,0 +1,40 @@
+{
+  "model_version": "continuous-flow-v2-full-is-1",
+  "grid_codes": [
+    10727801,
+    1867825,
+    419610
+  ],
+  "rows": 5,
+  "cols": 3,
+  "repeats": 3,
+  "config": {
+    "command": "benchmark",
+    "example": null,
+    "rows": 5,
+    "cols": 3,
+    "grid": null,
+    "seed": 42,
+    "population": 50,
+    "length": 50,
+    "generations": 100,
+    "crossover_rate": 0.85,
+    "mutation_rate": 0.3,
+    "elitism": 2,
+    "immigrants": 0.1,
+    "crossover": "one_point",
+    "mutation": "replace",
+    "cost_transform": "log",
+    "conflict": "occupied",
+    "ga_seconds": 10.0,
+    "measure_memory": false,
+    "target_cost": null,
+    "output": "genetic_alg/results/benchmark_5x3",
+    "repeats": 3,
+    "no_baselines": false,
+    "baseline_seconds": 10.0,
+    "max_expansions": 100000,
+    "max_depth": 30,
+    "count": 3
+  }
+}
