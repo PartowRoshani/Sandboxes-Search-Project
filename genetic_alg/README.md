@@ -1,185 +1,164 @@
-# Genetic Algorithm — Sandboxes Search Project
+# Sandboxes Search Project – Genetic Algorithm
 
-## هدف تکلیف
+## Exercise 3 – Local Search
 
-در این بخش الگوریتم ژنتیک (Genetic Algorithm) را برای **نسخهٔ sand-only** پروژه پیاده‌سازی کرده‌ام. هدف، پیدا کردن **دنباله‌ای از اکشن‌های مجاز برای خالی کردن کامل شبکه** و سپس کاهش هزینهٔ وزنی این مسیر است. بر خلاف الگوریتم‌های Graph Search، کروموزوم ژنتیک یک وضعیت نهایی نیست؛ هر کروموزوم نمایندهٔ مسیر طی‌شده از یک وضعیت اولیهٔ ثابت است.
+In this exercise, I implemented a Genetic Algorithm (GA) to solve the Sandboxes problem. The goal is to find a valid sequence of actions that empties all sandboxes while minimizing the total path cost.
 
-تمام کدهای این تکلیف در پوشهٔ `genetic_alg/` قرار دارند. فایل‌های `sandgrid/`، `main.py` و `run_project.py` تغییر نمی‌کنند. برای رعایت قوانین مسئله، فقط از API مدل اصلی (`SandGrid.step`, `successors`, `decode`, `is_goal` و `trace`) استفاده کرده‌ام. مدل اصلی نسخهٔ `continuous-flow-v2-full-is-1` است. به‌خصوص، هزینهٔ دروازه‌ها، جریان پیوسته و وضعیت دروازه‌های باز دوباره پیاده‌سازی نشده‌اند.
+The implementation uses the same SandGrid model and rules from the previous exercises, without water and concrete.
 
-## ساختار فایل‌ها
+## Problem Representation
+
+Unlike the previous search algorithms, each candidate solution represents a sequence of actions instead of just the current grid state.
+
+Each chromosome has a fixed length. All chromosomes are evaluated from the same initial state. If the goal is reached before the end of the sequence, the remaining actions are ignored.
+
+## Fitness Function
+
+The fitness function evaluates each chromosome based on:
+
+- Whether the goal is reached.
+- The minimum conflict number observed during the sequence.
+- The path cost required to reach that minimum conflict.
+- The validity of the executed actions.
+
+The conflict number represents the number of sandboxes that still contain sand.
+
+Invalid action sequences receive a fitness of zero. Complete solutions receive a large fitness value, and cheaper solutions receive higher scores.
+
+I used a logarithmic transformation of the path cost to control its effect on the fitness function. The implementation also supports linear and square root transformations for further experiments.
+
+## Genetic Algorithm
+
+The algorithm follows the Darwinian approach discussed in class.
+
+The main steps are:
+
+1. Generate a random initial population using legal actions.
+2. Evaluate the fitness of each chromosome.
+3. Select parents using Roulette Wheel Selection.
+4. Generate children using crossover.
+5. Apply random mutations.
+6. Transfer the two best chromosomes directly to the next generation.
+7. Add new random individuals to maintain population diversity.
+8. Repeat until the stopping condition is reached.
+
+Both single-point and two-point crossover are supported. Mutation can replace a random action or swap two actions.
+
+Invalid offspring are not repaired.
+
+## Experimental Results
+
+I initially tested chromosomes with a length of 50. For the instructor's example, I later reduced the chromosome length to 18.
+
+The instructor's initial grid is:
 
 ```text
-genetic_alg/
-├── __init__.py           # توابع قابل import
-├── __main__.py           # python -m genetic_alg
-├── core.py               # Population، حلقهٔ نسل‌ها، Elitism، ثبت تاریخچه
-├── fitness.py            # Goal test، Conflict، Fitness، هزینهٔ هر دنباله
-├── operators.py          # Roulette selection، Crossover، Mutation
-├── experiments.py        # اجرای آزمایش روی مدل قبلی، CSV و ذخیرهٔ مسیر
-├── dashboard.py          # داشبورد HTML تعاملی و آفلاین
-├── cli.py                # دستورات solve / compare / benchmark / study / dashboard
-├── tests/
-│   ├── test_genetic.py   # تست واحد با مدل کوچک مستقل
-│   └── test_repository.py # تست یکپارچه روی مدل اصلی، در صورت دسترسی
-├── requirements.txt      # Plotly برای داشبورد
-├── run_all.sh            # اجرای سریع آزمایش‌ها در Git Bash
-├── run_all.ps1           # اجرای سریع آزمایش‌ها در PowerShell
-└── results/              # خروجی‌های واقعی قابل ثبت در Git همراه با داشبورد
+1 0
+0 1
+0 1
+1 0
 ```
 
-**پوشه باید در ریشهٔ ریپازیتوری قرار بگیرد**، کنار `sandgrid/` و `main.py`. اجرای آن از ریشهٔ ریپازیتوری انجام می‌شود. این جداسازی در سطح کد برقرار است، اما برای استفاده از *قوانین یکسان مسئله* به پکیج `sandgrid` موجود وابسته است.
+The Genetic Algorithm was compared with all eight algorithms implemented in the previous exercises.
 
-## نصب و تست
+| Algorithm | Best Cost | Median Cost | Median Time (s) | Successful Runs |
+|---|---:|---:|---:|---:|
+| Greedy | 47 | 47 | 0.0002 | 1/1 |
+| Random | 45 | 61 | 0.0018 | 5/5 |
+| DFS | 47 | 47 | 0.0011 | 1/1 |
+| BFS | 47 | 47 | 0.2322 | 1/1 |
+| IDS | 47 | 47 | 4.5483 | 1/1 |
+| UCS | 34 | 34 | 2.0326 | 1/1 |
+| A* | 34 | 34 | 2.3712 | 1/1 |
+| RBFS | — | — | 27.5154 | 0/1 |
+| Genetic Algorithm | 37 | 41 | 1.2679 | 5/5 |
 
-دستورات زیر را از ریشهٔ ریپازیتوری اجرا می‌کنم:
+The Genetic Algorithm found a valid solution in all five runs with chromosome length 18.
+
+Its best cost was 37, compared with the optimal cost of 34 found by UCS and A*. Although GA did not reach the optimal cost, it found better solutions than several previous algorithms.
+
+## Harder Benchmark
+
+I also tested the Genetic Algorithm on a harder initial grid, where reaching the goal was more difficult.
+
+In this experiment, the conflict number was useful for evaluating chromosomes that could not completely empty the grid.
+
+I also compared the full Genetic Algorithm with a version without crossover to investigate the effect of crossover on solution quality and success rate.
+
+## Project Structure
+
+| File | Description |
+|---|---|
+| `core.py` | Main Genetic Algorithm |
+| `fitness.py` | Fitness, goal test and conflict number |
+| `operators.py` | Selection, crossover and mutation |
+| `experiments.py` | Experimental evaluation |
+| `dashboard.py` | Interactive result visualization |
+| `cli.py` | Command-line interface |
+| `tests/` | Unit and integration tests |
+| `results/` | Experimental results and dashboards |
+
+## Installation
+
+Run the following commands from the root directory of the repository:
 
 ```bash
 python -m pip install -r requirements.txt
 python -m pip install -r genetic_alg/requirements.txt
+```
+
+## Running the Algorithm
+
+Run the Genetic Algorithm on the instructor's example:
+
+```bash
+python -m genetic_alg solve --example professor --population 50 --length 18 --generations 100 --seed 42
+```
+
+Compare GA with the previous search algorithms:
+
+```bash
+python -m genetic_alg compare --example professor --population 50 --length 18 --generations 100 --repeats 5 --seed 42 --ga-seconds 30 --baseline-seconds 30 --output genetic_alg/results/professor_length18
+```
+
+Compare different cost transformations:
+
+```bash
+python -m genetic_alg study --example professor --transforms log linear sqrt --population 50 --length 18 --generations 100 --repeats 5 --seed 42
+```
+
+Run the tests:
+
+```bash
 python -m unittest discover -s genetic_alg/tests -v
 ```
 
-تست‌های `test_genetic.py` بدون وابستگی به مدل قبلی قابل اجرا هستند. تست `test_repository.py` وقتی مدل اصلی در دسترس باشد، سناریوی معروف استاد (۴×۲) را با همان منطق پروژه بررسی می‌کند.
+## Dashboards and Results
 
-## نمایش جواب روی جدول استاد
+The experiments generate interactive HTML dashboards containing:
 
-جدول مورد آزمایش:
+- Solution cost comparison
+- Execution time comparison
+- Success rates
+- Fitness convergence
+- Conflict number
+- Valid and invalid chromosomes
+- Population diversity
 
-```text
-1 0
-0 1
-0 1
-1 0
-```
+The results are also saved as CSV and JSON files. The HTML dashboards can be opened directly in a browser without an internet connection.
 
-طبق نسخهٔ فعلی README پروژه، **هزینهٔ Greedy برابر ۴۷ و هزینهٔ بهینهٔ UCS/A* برابر ۳۴** است. هدف GA پیدا کردن مسیر معتبر و کاهش هزینه است؛ رسیدن به مقدار ۳۴ در هر Seed تضمین نمی‌شود.
+All source code and experimental results for Exercise 3 are available in the [genetic_alg directory](https://github.com/PartowRoshani/Sandboxes-Search-Project/tree/main/genetic_alg).
 
-فقط Genetic Algorithm:
+## Conclusion
 
-```bash
-python -m genetic_alg solve --example professor --population 50 --length 50 --generations 1000 --seed 42 --output genetic_alg/results/professor_ga
-```
+The Genetic Algorithm successfully finds valid action sequences and improves their cost over successive generations.
 
-مقایسهٔ Genetic و هشت الگوریتم قبلی، با محدودیت زمانی یکسان ۵ ثانیه برای الگوریتم‌های دارای محدودیت زمان و برای GA (Greedy بدون محدودیت است):
+The experiments showed that chromosome length, fitness design, selection, crossover and mutation affect the final results. However, unlike UCS and A*, the Genetic Algorithm does not guarantee an optimal solution.
 
-```bash
-python -m genetic_alg compare --example professor --population 50 --length 50 --generations 1000 --repeats 5 --ga-seconds 5 --baseline-seconds 5 --seed 42 --output genetic_alg/results/professor_compare
-```
+## Project Information
 
-برای توقف زودهنگام با رسیدن به مسیر دارای هزینهٔ حداکثر ۳۴ (فقط برای همین جدول، با ارجاع به هزینهٔ بهینهٔ شناخته‌شده):
-
-```bash
-python -m genetic_alg solve --example professor --target-cost 34 --generations 1000 --output genetic_alg/results/professor_target
-```
-
-اگر هدف بررسی همهٔ ۱۰۰۰ نسل باشد، از `--target-cost` استفاده نمی‌کنم. `--ga-seconds` نیز اگر تعیین نشود، محدودیت زمانی وجود ندارد.
-
-## تعریف کروموزوم و ارزیابی
-
-طول هر کروموزوم به‌صورت پیش‌فرض `n=50` است و می‌توان آن را با `--length 100` تغییر داد:
-
-```text
-chromosome = (action_id_1, action_id_2, ..., action_id_n)
-```
-
-هر `action_id` به یکی از اکشن‌های واقعی `SandGrid.actions` اشاره دارد. ابتدا برای تولید جمعیت اولیه، **Random Rollout** انجام می‌شود؛ یعنی اکشن‌های مجاز از `successors` با نمونه‌گیری تصادفی انتخاب می‌شوند. در صورت رسیدن به Goal پیش از پایان طول کروموزوم، بقیهٔ ژن‌ها صرفاً Padding هستند و **اجرا یا محاسبه نمی‌شوند**.
-
-برای هر کروموزوم، مدل از **همان initial state** شروع می‌کند. اگر قبل از Goal به اکشن غیرمجاز برسیم، `fitness=0` می‌شود. اگر کروموزوم به Goal برسد، همان Prefix واقعی مسیر، هزینه و تعداد اکشن آن ثبت می‌شود. هیچ اکشن اضافی بعد از Goal اجرا نمی‌شود.
-
-`goal_test(model, initial_state, sequence)` مستقیماً دنبالهٔ اکشن‌ها را بررسی می‌کند. `conflict_number` نیز دو حالت دارد:
-
-- `occupied` (پیش‌فرض): تعداد خانه‌های دارای شن، با مقدار اشغال ۰٫۵ یا ۱.
-- `half_units`: مجموع واحدهای نیمه‌شن باقی‌مانده، برای آزمایش فرمول جایگزین.
-
-برای کروموزومی که به Goal نرسیده است، کمترین Conflict در **تمام حالات مسیر، از جمله Initial State** محاسبه می‌شود. `C*` هزینهٔ مسیر تا همان اولین نقطه با کمترین Conflict است (با هزینه‌های مثبت، همین اولین نقطه کمترین هزینه را هم دارد). بنابراین هزینهٔ مسیر پس از آن نقطه اشتباهاً به آن نسبت داده نمی‌شود.
-
-تابع جریمهٔ هزینه `p(C)` به طور پیش‌فرض `log(1+C)` است. امتیازها به این شکل تعریف شده‌اند:
-
-```text
-Invalid sequence:  fitness = 0
-Not solved:        fitness = 1000 / ((1 + min_conflict) * (1 + p(C*)))
-Solved:            fitness = 100000 + 1000 / (1 + p(goal_path_cost))
-```
-
-این فرمول همیشه **غیرمنفی** است و هر مسیر حل‌شده از هر مسیر حل‌نشده Fitness بیشتری دارد. در بین مسیرهای حل‌شده نیز مسیر ارزان‌تر Fitness بالاتری می‌گیرد. این تابع تضمین بهینه بودن GA نیست؛ صرفاً یک معیار برای هدایت انتخاب نسل‌هاست. برای مقایسهٔ `log`، `linear` و `sqrt` باید از آزمایش‌های چند Seed استفاده کرد.
-
-## Evolution و نگرش داروین
-
-در هر نسل این مراحل اجرا می‌شود:
-
-1. ارزیابی Fitness همهٔ کروموزوم‌ها، با Start State یکسان.
-2. انتقال بدون تغییر بهترین **دو** کروموزوم به نسل بعد (`elitism=2`).
-3. محاسبهٔ وزن‌های Selection بر اساس Fitness **مقیاس‌بندی‌شده**؛ مقیاس‌بندی رتبهٔ افراد را حفظ می‌کند و باعث می‌شود عدد ثابت بزرگ Goal تفاوت هزینهٔ مسیرهای حل‌شده را پنهان نکند. انتخاب والدین Roulette Wheel و **با جایگذاری** است؛ هر والد می‌تواند چند بار انتخاب شود.
-4. ساخت دو فرزند از والدین با `one_point` (پیش‌فرض) یا `two_point` Crossover.
-5. انجام Mutation تصادفی با `replace` (تغییر یک ژن، پیش‌فرض) یا `swap` (جابه‌جایی دو ژن). Mutation بر اساس یادگیری یا اصلاح محلی انجام نمی‌شود.
-6. اضافه کردن درصد کمی کروموزوم تصادفی جدید (`immigrants=0.10`) برای کاهش ازبین‌رفتن تنوع.
-
-کروموزوم‌های فرزند **Repair نمی‌شوند**؛ اگر ترتیب اکشن‌های جدید نامعتبر باشد، هنگام ارزیابی Fitness آن‌ها صفر خواهد بود. در این پیاده‌سازی از بهبود محلی یا یادگیری اکتسابی کروموزوم‌ها (نگرش لامارکی) استفاده نشده است.
-
-پارامترها:
-
-```bash
-python -m genetic_alg solve --example professor --population 100 --length 100 --generations 1000 --elitism 2 --crossover two_point --mutation swap --mutation-rate 0.25 --immigrants 0.10 --seed 7 --output genetic_alg/results/variant_100
-```
-
-## آزمایش مقایسه‌ای روی چند جدول
-
-برای جلوگیری از مقایسهٔ نتایج مدل‌های مختلف، همهٔ الگوریتم‌ها در این دستور روی **همان مدل و همان `initial_code`** اجرا می‌شوند. GA و Random با چند Seed اجرا می‌شوند؛ الگوریتم‌های قطعی روی هر جدول یک اجرا دارند.
-
-```bash
-python -m genetic_alg benchmark --rows 3 --cols 2 --count 10 --repeats 5 --generations 1000 --population 50 --length 50 --ga-seconds 5 --baseline-seconds 5 --seed 42 --output genetic_alg/results/benchmark_3x2
-```
-
-برای `5×2` نیز همین دستور با `--rows 5 --cols 2` قابل استفاده است، ولی برخی الگوریتم‌های دقیق ممکن است به محدودیت زمان یا تعداد Expanded States برسند. Timeout به معنی نبود جواب نیست.
-
-## آزمایش تبدیل هزینه در Fitness
-
-سه تبدیل را با جدول اولیه و Seedهای **یکسان** بررسی می‌کنم:
-
-```bash
-python -m genetic_alg study --example professor --transforms linear log sqrt --population 50 --length 50 --generations 1000 --repeats 10 --ga-seconds 5 --seed 42 --output genetic_alg/results/fitness_study
-```
-
-در فایل `fitness_study.csv` وضعیت، هزینهٔ واقعی مسیر و تعداد اکشن‌ها برای هر تبدیل ثبت می‌شود. نتیجه باید با نرخ حل مسئله و هزینهٔ مسیر در چند Seed تفسیر شود؛ کمترین Fitness خام بین تبدیل‌های متفاوت مستقیماً قابل مقایسه نیست.
-
-## خروجی‌ها و داشبورد
-
-خروجی هر آزمایش در مسیر تعیین‌شده با `--output` ذخیره می‌شود:
-
-| فایل | محتوا |
-|---|---|
-| `comparison.csv` | تلاش‌های واقعی همهٔ الگوریتم‌ها، وضعیت پیدا شدن جواب، هزینه، اکشن، زمان، حافظه و Seed |
-| `ga_history.csv` | Best/Mean/Median Fitness، Minimum Conflict، تعداد کروموزوم معتبر و منحصربه‌فرد در هر نسل |
-| `genetic_solution.json` | پارامترها، کروموزوم، Prefix واقعی اکشن‌ها و Trace در صورت پیدا شدن Goal |
-| `genetic_route.html` | انیمیشن مسیر GA، با همان ابزار `sandgrid.visualize` موجود (فقط برای جواب کامل) |
-| `dashboard.html` | داشبورد آفلاین و تعاملی شامل نمودارهای هزینه، زمان، موفقیت، روند Fitness، Conflict و تنوع جمعیت |
-| `fitness_study.csv` | در اجرای `study`: داده‌های مقایسهٔ تبدیل‌های هزینه |
-| `run_config.json` | تنظیمات اجرا و نسخهٔ مدل (در `benchmark` نام فایل `experiment_config.json` است) |
-
-بعد از اجرا، کافی است `dashboard.html` را با مرورگر باز کنم. نمودارها از داده‌های واقعی CSV ساخته می‌شوند؛ برای Timeout، هزینهٔ صفر یا هزینهٔ فرضی وارد نمی‌شود. فایل HTML کتابخانهٔ Plotly را در خود نگه می‌دارد و برای نمایش به اینترنت نیاز ندارد.
-
-برای ساخت مجدد داشبورد از CSVها:
-
-```bash
-python -m genetic_alg dashboard --comparison genetic_alg/results/professor_compare/comparison.csv --history genetic_alg/results/professor_compare/ga_history.csv --output genetic_alg/results/professor_compare/dashboard_updated.html
-```
-
-### استفاده از CSV آزمایش‌های قبلی
-
-در صورت داشتن `results/project_with_random/professor/comparison.csv`، می‌توان آن را با خروجی ژنتیک تجمیع کرد؛ اما **فقط اگر مدل قدیمی همان نسخهٔ فعلی** باشد. چون فایل CSV قبلی ممکن است ستون `model_version` نداشته باشد، تأیید صریح لازم است:
-
-```bash
-python -m genetic_alg compare --example professor --no-baselines --baseline-csv results/project_with_random/professor/comparison.csv --confirm-same-model --repeats 5 --ga-seconds 5 --output genetic_alg/results/combined_existing
-```
-
-این دستور تنها ردیف‌های دارای `initial_code` برابر را وارد می‌کند. کدهای مدل‌های قبلی نباید با `continuous-flow-v2-full-is-1` مقایسه شوند.
-
-## ملاحظات گزارش نهایی
-
-- **Cost و Action Count** متفاوت‌اند: BFS می‌تواند کمترین تعداد اکشن داشته باشد، بدون اینکه کمترین هزینهٔ وزنی را بدهد.
-- در GA، تعداد ارزیابی‌های کروموزوم با `expanded` در BFS/UCS/A* یکسان نیست؛ در CSV برای `expanded` ژنتیک مقدار خالی ثبت می‌شود.
-- برای مقایسهٔ زمان، سقف زمانی، سخت‌افزار، اندازهٔ جدول و تنظیمات اندازه‌گیری حافظه باید یکسان باشند. `peak_python_bytes` تنها حافظهٔ ردگیری‌شده توسط Python است، نه کل RAM فرایند.
-- در چند جدول، هزینهٔ خام بین جدول‌های با سختی متفاوت مقیاس یکسانی ندارد. بهتر است مقایسهٔ چندجدولی با نسبت هزینه به **بهترین هزینهٔ مشاهده‌شده برای همان Initial State** (که لزوماً بهینهٔ ریاضی نیست) و نرخ موفقیت انجام شود.
-- نتیجهٔ GA تصادفی و به Seed وابسته است. برای گزارش قابل اتکا باید حداقل چند اجرای مستقل ثبت شود.
-
-تمام فایل‌ها و داده‌های این بخش در پوشهٔ `genetic_alg/` نگهداری می‌شوند؛ تنها وابستگی به بخش‌های قبلی، استفادهٔ بدون تغییر از مدل و الگوریتم‌های اصلی پروژه است. خروجی‌های نهایی پوشهٔ `results/` را می‌توان پس از آزمایش با `git add genetic_alg/` همراه کد در ریپازیتوری ثبت کرد.
+- **Course:** Artificial Intelligence
+- **Student:** Partow Roshani
+- **Instructor:** Dr. Katanforoush
+- **Exercise:** 3 – Local Search and Genetic Algorithm
+- **Semester:** First semester, 1405–1406
