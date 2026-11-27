@@ -41,9 +41,26 @@ def roulette_select(population: Sequence[Chromosome], fitnesses: Sequence[float]
     cumulative = 0.0
     for genome, fitness in zip(population, fitnesses):
         cumulative += fitness
-        if cumulative >= threshold:
+        if fitness > 0 and threshold < cumulative:
             return genome
     return population[-1]
+
+
+def select_population(population: Sequence[Chromosome], fitnesses: Sequence[float],
+                      rng: random.Random, size: int | None = None) -> list[Chromosome]:
+    """Create an explicit mating pool by roulette sampling with replacement.
+
+    Input scores are raw fitness values; the same scaling used by the legacy
+    selection is applied once. By default the pool equals population size.
+    """
+    if not population or len(population) != len(fitnesses):
+        raise ValueError("population and fitnesses must be nonempty and equally sized")
+    if size is None:
+        size = len(population)
+    if size < 0:
+        raise ValueError("mating pool size must be nonnegative")
+    weights = scale_fitnesses(fitnesses)
+    return [roulette_select(population, weights, rng) for _ in range(size)]
 
 
 def crossover(a: Chromosome, b: Chromosome, rng: random.Random,

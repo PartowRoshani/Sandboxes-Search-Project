@@ -86,7 +86,11 @@ def test_all_three_algorithms_use_path_score_and_return_valid_results(algorithm)
     outcome = optimize_paths(model, initial, algorithm,
                              max_evaluations=1200, max_seconds=None,
                              random_seed=42)
-    assert outcome.evaluations == 1200
+    if algorithm == 'anneal':
+        # Professor's stale > max_stale condition may stop early.
+        assert 1 <= outcome.evaluations <= 1200
+    else:
+        assert outcome.evaluations == 1200
     assert 30 <= len(outcome.best_path) <= 35
     assert outcome.evaluation.found_goal, algorithm
     trace = model.trace(initial, list(outcome.evaluation.executed_actions))
@@ -99,7 +103,7 @@ def test_all_three_algorithms_use_path_score_and_return_valid_results(algorithm)
     assert wrapped.found and wrapped.status == 'found'
     assert wrapped.cost == outcome.evaluation.path_cost
     assert wrapped.actions == list(outcome.evaluation.executed_actions)
-    assert wrapped.expanded == 1200
+    assert wrapped.expanded == outcome.evaluations
 
 
 @pytest.mark.parametrize('algorithm', ['hillclimb', 'anneal', 'genetic'])

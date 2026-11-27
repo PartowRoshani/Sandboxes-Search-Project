@@ -1,0 +1,6 @@
+﻿model_version,rows,cols,initial_code,algorithm,run_id,seed,status,found,cost,action_count,side_action_count,elapsed_sec,expanded,generated,max_frontier,peak_python_bytes,ga_fitness,ga_min_conflict,ga_cost_at_min_conflict,ga_generations_completed,ga_evaluations,ga_unique_evaluations,chromosome_length,population_size,cost_transform,conflict_mode,time_limit_sec,max_expansions,max_depth,evolution_mode,mutation_attempts,mutation_trials,lethal_mutations,mutation_fallbacks
+continuous-flow-v2-full-is-1,4,2,2000,genetic,0,42,found,1,37,9,2,0.905988,,,,,100215.629417,0,37,100,5050,3133,18,50,log,occupied,,,,legacy,,,,
+continuous-flow-v2-full-is-1,4,2,2000,genetic,1,43,found,1,47,9,1,1.931018,,,,,100205.288182,0,47,100,5050,3330,18,50,log,occupied,,,,legacy,,,,
+continuous-flow-v2-full-is-1,4,2,2000,genetic,2,44,found,1,41,11,4,1.833673,,,,,100211.074237,0,41,100,5050,3069,18,50,log,occupied,,,,legacy,,,,
+continuous-flow-v2-full-is-1,4,2,2000,genetic,3,45,found,1,38,10,3,1.809252,,,,,100214.428387,0,38,100,5050,2964,18,50,log,occupied,,,,legacy,,,,
+continuous-flow-v2-full-is-1,4,2,2000,genetic,4,46,found,1,41,9,2,1.505603,,,,,100211.074237,0,41,100,5050,3138,18,50,log,occupied,,,,legacy,,,,

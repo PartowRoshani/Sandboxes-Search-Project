@@ -17,7 +17,8 @@ HISTORY_COLUMNS = ("initial_code", "algorithm", "run_id", "seed", "cost_transfor
                    "conflict_mode", "generation", "best_fitness", "mean_fitness",
                    "median_fitness", "best_cost", "best_min_conflict",
                    "best_cost_at_min_conflict", "solved_count", "valid_count",
-                   "invalid_count", "unique_genomes", "elapsed_sec")
+                   "invalid_count", "unique_genomes", "elapsed_sec",
+                    "evolution_mode", "mutation_trials", "lethal_mutations", "mutation_fallbacks")
 
 
 def model_and_initial(args):
@@ -42,7 +43,9 @@ def config_from_args(args, seed: int | None = None, transform: str | None = None
                     cost_transform=transform or args.cost_transform,
                     conflict_mode=args.conflict,
                     seed=args.seed if seed is None else seed,
-                    max_seconds=args.ga_seconds, target_cost=args.target_cost)
+                    max_seconds=args.ga_seconds, target_cost=args.target_cost,
+                    evolution_mode=args.evolution_mode,
+                    mutation_attempts=args.mutation_attempts)
 
 
 def _save_and_report(model, initial, comparison, history, best, output,
@@ -195,6 +198,10 @@ def _add_ga(parser):
     parser.add_argument("--immigrants", type=float, default=0.10, help="Fraction of new random individuals per generation")
     parser.add_argument("--crossover", choices=("one_point", "two_point"), default="one_point")
     parser.add_argument("--mutation", choices=("replace", "swap"), default="replace")
+    parser.add_argument("--evolution-mode", choices=("classroom", "legacy"), default="classroom",
+                        help="Explicit mating pool and lethal-mutation retries, or previous algorithm")
+    parser.add_argument("--mutation-attempts", type=int, default=10,
+                        help="Maximum random mutation attempts in classroom mode")
     parser.add_argument("--cost-transform", choices=("log", "linear", "sqrt", "none"), default="log")
     parser.add_argument("--conflict", choices=("occupied", "half_units"), default="occupied")
     parser.add_argument("--ga-seconds", type=float, default=None, help="Optional GA wall-time cap")

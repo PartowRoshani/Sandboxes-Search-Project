@@ -19,6 +19,8 @@ COLUMNS = (
     "ga_generations_completed", "ga_evaluations", "ga_unique_evaluations",
     "chromosome_length", "population_size", "cost_transform", "conflict_mode",
     "time_limit_sec", "max_expansions", "max_depth",
+    "evolution_mode", "mutation_attempts", "mutation_trials",
+    "lethal_mutations", "mutation_fallbacks",
 )
 
 
@@ -112,10 +114,15 @@ def ga_run(model, initial: int, config: GAConfig, run_id: int = 0,
         "population_size": config.population_size,
         "cost_transform": config.cost_transform, "conflict_mode": config.conflict_mode,
         "time_limit_sec": config.max_seconds if config.max_seconds is not None else "",
+        "evolution_mode": config.evolution_mode,
+        "mutation_attempts": config.mutation_attempts if config.evolution_mode == "classroom" else "",
+        **{k: result.history[-1][k] if config.evolution_mode == "classroom" else ""
+           for k in ("mutation_trials", "lethal_mutations", "mutation_fallbacks")},
     }
     history = [dict(initial_code=initial, run_id=run_id, seed=config.seed,
                     algorithm="genetic", cost_transform=config.cost_transform,
-                    conflict_mode=config.conflict_mode, **item)
+                    conflict_mode=config.conflict_mode, evolution_mode=config.evolution_mode,
+                    **item)
                for item in result.history]
     return row, history, result
 
@@ -196,7 +203,8 @@ def save_experiment(model, initial: int, comparison: list[dict], history: list[d
                     "conflict_mode", "generation", "best_fitness", "mean_fitness",
                     "median_fitness", "best_cost", "best_min_conflict",
                     "best_cost_at_min_conflict", "solved_count", "valid_count",
-                    "invalid_count", "unique_genomes", "elapsed_sec")
+                    "invalid_count", "unique_genomes", "elapsed_sec",
+                    "evolution_mode", "mutation_trials", "lethal_mutations", "mutation_fallbacks")
     write_rows(dest / "ga_history.csv", history, hist_columns)
     (dest / "run_config.json").write_text(json.dumps({
         "model_version": model.MODEL_VERSION, "initial_code": initial,
