@@ -1,0 +1,7209 @@
+{
+  "settings": {
+    "model_version": "continuous-flow-v2-full-is-1",
+    "rows": 4,
+    "cols": 2,
+    "count": 100,
+    "sampling_seed": 42,
+    "initial_codes": [
+      5239,
+      913,
+      205,
+      6075,
+      2254,
+      2007,
+      1829,
+      1144,
+      6034,
+      840,
+      5544,
+      6068,
+      4468,
+      713,
+      4838,
+      3457,
+      261,
+      245,
+      768,
+      1792,
+      1906,
+      4140,
+      4932,
+      218,
+      4598,
+      1629,
+      5866,
+      5324,
+      5746,
+      4465,
+      3437,
+      1806,
+      3680,
+      4828,
+      2279,
+      54,
+      6217,
+      1308,
+      5720,
+      3463,
+      2788,
+      2277,
+      1274,
+      1764,
+      6255,
+      2758,
+      838,
+      760,
+      3113,
+      793,
+      2941,
+      2818,
+      4946,
+      2167,
+      356,
+      5978,
+      3764,
+      4393,
+      1023,
+      3101,
+      646,
+      4523,
+      2402,
+      5150,
+      5067,
+      2963,
+      4730,
+      1576,
+      5772,
+      570,
+      376,
+      5418,
+      1867,
+      6333,
+      2371,
+      654,
+      1908,
+      828,
+      3114,
+      2278,
+      3715,
+      5208,
+      2989,
+      1333,
+      3033,
+      2911,
+      1717,
+      5491,
+      2188,
+      5750,
+      5600,
+      5309,
+      585,
+      4991,
+      5202,
+      1402,
+      4376,
+      5974,
+      2006,
+      1339
+    ],
+    "ga_config": {
+      "population_size": 50,
+      "chromosome_length": 18,
+      "generations": 100,
+      "crossover_rate": 0.85,
+      "mutation_rate": 0.3,
+      "elitism": 2,
+      "immigrant_fraction": 0.1,
+      "crossover_method": "one_point",
+      "mutation_method": "replace",
+      "cost_transform": "log",
+      "conflict_mode": "occupied",
+      "seed": 42,
+      "max_seconds": null,
+      "target_cost": null,
+      "evolution_mode": "classroom",
+      "mutation_attempts": 10
+    },
+    "ga_seed_rule": "sampling_seed + 1000 * case_id",
+    "reference": "original sandgrid UCS"
+  },
+  "records": [
+    {
+      "case_id": 1,
+      "initial_code": 5239,
+      "initial_grid": [
+        [
+          0.5,
+          0.0
+        ],
+        [
+          0.0,
+          1.0
+        ],
+        [
+          0.5,
+          0.0
+        ],
+        [
+          0.5,
+          1.0
+        ]
+      ],
+      "ga_found": true,
+      "ga_status": "found",
+      "ga_cost": 33,
+      "ga_actions": [
+        15,
+        11,
+        4,
+        3,
+        5,
+        0,
+        2,
+        6,
+        7
+      ],
+      "ga_action_count": 9,
+      "ga_min_conflict": 0,
+      "ga_cost_at_min_conflict": 33,
+      "ga_fitness": 100220.92804904992,
+      "ga_seconds": 0.9958969000144862,
+      "ga_generations": 100,
+      "ga_evaluations": 9428,
+      "ga_unique_evaluations": 5724,
+      "mutation_trials": 3958,
+      "lethal_mutations": 2763,
+      "mutation_fallbacks": 148,
+      "ga_mean_valid_fraction": 0.9403960396039605,
+      "ga_seed": 1042,
+      "ucs_found": true,
+      "ucs_status": "found",
+      "optimum_cost": 31,
+      "ucs_actions": [
+        15,
+        0,
+        4,
+        2,
+        3,
+        13,
+        6,
+        5,
+        7
+      ],
+      "ucs_action_count": 9,
+      "ucs_seconds": 0.06360779999522492,
+      "ucs_expanded": 1131,
+      "ucs_generated": 5342,
+      "ucs_max_frontier": 432,
+      "ucs_limit_seconds": 120,
+      "ucs_limit_expansions": 2000000,
+      "ucs_max_depth": 1000000000
+    },
+    {
+      "case_id": 2,
+      "initial_code": 913,
+      "initial_grid": [
+        [
+          0.5,
+          0.5
+        ],
+        [
+          1.0,
+          0.0
+        ],
+        [
+          1.0,
+          0.0
+        ],
+        [
+          0.5,
+          0.0
+        ]
+      ],
+      "ga_found": true,
+      "ga_status": "found",
+      "ga_cost": 34,
+      "ga_actions": [
+        4,
+        2,
+        0,
+        6,
+        1,
+        3,
+        5,
+        7
+      ],
+      "ga_action_count": 8,
+      "ga_min_conflict": 0,
+      "ga_cost_at_min_conflict": 34,
+      "ga_fitness": 100219.52219380422,
+      "ga_seconds": 1.0433429999975488,
+      "ga_generations": 100,
+      "ga_evaluations": 9907,
+      "ga_unique_evaluations": 6324,
+      "mutation_trials": 4210,
+      "lethal_mutations": 3165,
+      "mutation_fallbacks": 219,
+      "ga_mean_valid_fraction": 0.909108910891089,
+      "ga_seed": 2042,
+      "ucs_found": true,
+      "ucs_status": "found",
+      "optimum_cost": 34,
+      "ucs_actions": [
+        1,
+        3,
+        5,
+        7,
+        4,
+        2,
+        0,
+        6
+      ],
+      "ucs_action_count": 8,
+      "ucs_seconds": 0.1906306000018958,
+      "ucs_expanded": 3012,
+      "ucs_generated": 15474,
+      "ucs_max_frontier": 1004,
+      "ucs_limit_seconds": 120,
+      "ucs_limit_expansions": 2000000,
+      "ucs_max_depth": 1000000000
+    },
+    {
+      "case_id": 3,
+      "initial_code": 205,
+      "initial_grid": [
+        [
+          0.5,
+          1.0
+        ],
+        [
+          0.5,
+          0.5
+        ],
+        [
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "ga_found": true,
+      "ga_status": "found",
+      "ga_cost": 48,
+      "ga_actions": [
+        2,
+        1,
+        0,
+        3,
+        4,
+        6,
+        5,
+        7
+      ],
+      "ga_action_count": 8,
+      "ga_min_conflict": 0,
+      "ga_cost_at_min_conflict": 48,
+      "ga_fitness": 100204.42288127105,
+      "ga_seconds": 1.1781391999975313,
+      "ga_generations": 100,
+      "ga_evaluations": 9881,
+      "ga_unique_evaluations": 6378,
+      "mutation_trials": 4197,
+      "lethal_mutations": 3140,
+      "mutation_fallbacks": 218,
+      "ga_mean_valid_fraction": 0.8908910891089109,
+      "ga_seed": 3042,
+      "ucs_found": true,
+      "ucs_status": "found",
+      "optimum_cost": 39,
+      "ucs_actions": [
+        2,
+        0,
+        9,
+        1,
+        11,
+        4,
+        0,
+        3,
+        5,
+        7,
+        6
+      ],
+      "ucs_action_count": 11,
+      "ucs_seconds": 0.3213462999992771,
+      "ucs_expanded": 5000,
+      "ucs_generated": 26762,
+      "ucs_max_frontier": 1478,
+      "ucs_limit_seconds": 120,
+      "ucs_limit_expansions": 2000000,
+      "ucs_max_depth": 1000000000
+    },
+    {
+      "case_id": 4,
+      "initial_code": 6075,
+      "initial_grid": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.5
+        ],
+        [
+          1.0,
+          1.0
+        ]
+      ],
+      "ga_found": true,
+      "ga_status": "found",
+      "ga_cost": 14,
+      "ga_actions": [
+        14,
+        5,
+        7,
+        6
+      ],
+      "ga_action_count": 4,
+      "ga_min_conflict": 0,
+      "ga_cost_at_min_conflict": 14,
+      "ga_fitness": 100269.6835117558,
+      "ga_seconds": 0.4138457999943057,
+      "ga_generations": 100,
+      "ga_evaluations": 7646,
+      "ga_unique_evaluations": 5002,
+      "mutation_trials": 2371,
+      "lethal_mutations": 1135,
+      "mutation_fallbacks": 75,
+      "ga_mean_valid_fraction": 0.9639603960396039,
+      "ga_seed": 4042,
+      "ucs_found": true,
+      "ucs_status": "found",
+      "optimum_cost": 14,
+      "ucs_actions": [
+        15,
+        6,
+        5,
+        7
+      ],
+      "ucs_action_count": 4,
+      "ucs_seconds": 0.0006675000040559098,
+      "ucs_expanded": 22,
+      "ucs_generated": 58,
+      "ucs_max_frontier": 11,
+      "ucs_limit_seconds": 120,
+      "ucs_limit_expansions": 2000000,
+      "ucs_max_depth": 1000000000
+    },
+    {
+      "case_id": 5,
+      "initial_code": 2254,
+      "initial_grid": [
+        [
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          1.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.5
+        ]
+      ],
+      "ga_found": true,
+      "ga_status": "found",
+      "ga_cost": 39,
+      "ga_actions": [
+        1,
+        0,
+        3,
+        10,
+        5,
+        2,
+        4,
+        6,
+        7
+      ],
+      "ga_action_count": 9,
+      "ga_min_conflict": 0,
+      "ga_cost_at_min_conflict": 39,
+      "ga_fitness": 100213.27057131371,
+      "ga_seconds": 1.1665785000077449,
+      "ga_generations": 100,
+      "ga_evaluations": 10460,
+      "ga_unique_evaluations": 6928,
+      "mutation_trials": 4695,
+      "lethal_mutations": 3699,
+      "mutation_fallbacks": 251,
+      "ga_mean_valid_fraction": 0.8772277227722771,
+      "ga_seed": 5042,
+      "ucs_found": true,
+      "ucs_status": "found",
+      "optimum_cost": 37,
+      "ucs_actions": [
+        0,
+        10,
+        3,
+        1,
+        2,
+        4,
+        6,
+        5,
+        7
+      ],
+      "ucs_action_count": 9,
+      "ucs_seconds": 0.0984286000020802,
+      "ucs_expanded": 1541,
+      "ucs_generated": 6966,
+      "ucs_max_frontier": 449,
+      "ucs_limit_seconds": 120,
+      "ucs_limit_expansions": 2000000,
+      "ucs_max_depth": 1000000000
+    },
+    {
+      "case_id": 6,
+      "initial_code": 2007,
+      "initial_grid": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.5,
+          1.0
+        ],
+        [
+          0.0,
+          1.0
+        ],
+        [
+          1.0,
+          0.0
+        ]
+      ],
+      "ga_found": true,
+      "ga_status": "found",
+      "ga_cost": 31,
+      "ga_actions": [
+        14,
+        5,
+        3,
+        7,
+        2,
+        4,
+        6
+      ],
+      "ga_action_count": 7,
+      "ga_min_conflict": 0,
+      "ga_cost_at_min_conflict": 31,
+      "ga_fitness": 100223.92725897048,
+      "ga_seconds": 0.7985479000053601,
+      "ga_generations": 100,
+      "ga_evaluations": 7930,
+      "ga_unique_evaluations": 4645,
+      "mutation_trials": 2697,
+      "lethal_mutations": 1504,
+      "mutation_fallbacks": 63,
+      "ga_mean_valid_fraction": 0.9582178217821782,
+      "ga_seed": 6042,
+      "ucs_found": true,
+      "ucs_status": "found",
+      "optimum_cost": 29,
+      "ucs_actions": [
+        11,
+        13,
+        3,
+        4,
+        2,
+        13,
+        6,
+        5,
+        7
+      ],
+      "ucs_action_count": 9,
+      "ucs_seconds": 0.057239000001573004,
+      "ucs_expanded": 1109,
+      "ucs_generated": 5332,
+      "ucs_max_frontier": 473,
+      "ucs_limit_seconds": 120,
+      "ucs_limit_expansions": 2000000,
+      "ucs_max_depth": 1000000000
+    },
+    {
+      "case_id": 7,
+      "initial_code": 1829,
+      "initial_grid": [
+        [
+          1.0,
+          0.0
+        ],
+        [
+          1.0,
+          0.5
+        ],
+        [
+          0.5,
+          0.5
+        ],
+        [
+          1.0,
+          0.0
+        ]
+      ],
+      "ga_found": true,
+      "ga_status": "found",
+      "ga_cost": 39,
+      "ga_actions": [
+        4,
+        2,
+        0,
+        6,
+        3,
+        5,
+        15,
+        7,
+        6
+      ],
+      "ga_action_count": 9,
+      "ga_min_conflict": 0,
+      "ga_cost_at_min_conflict": 39,
+      "ga_fitness": 100213.27057131371,
+      "ga_seconds": 1.2043585000064922,
+      "ga_generations": 100,
+      "ga_evaluations": 9333,
+      "ga_unique_evaluations": 5768,
+      "mutation_trials": 3832,
+      "lethal_mutations": 2737,
+      "mutation_fallbacks": 157,
+      "ga_mean_valid_fraction": 0.9291089108910892,
+      "ga_seed": 7042,
+      "ucs_found": true,
+      "ucs_status": "found",
+      "optimum_cost": 34,
+      "ucs_actions": [
+        3,
+        4,
+        2,
+        13,
+        0,
+        6,
+        5,
+        7
+      ],
+      "ucs_action_count": 8,
+      "ucs_seconds": 0.9290042999928119,
+      "ucs_expanded": 11216,
+      "ucs_generated": 69738,
+      "ucs_max_frontier": 4471,
+      "ucs_limit_seconds": 120,
+      "ucs_limit_expansions": 2000000,
+      "ucs_max_depth": 1000000000
+    },
+    {
+      "case_id": 8,
+      "initial_code": 1144,
+      "initial_grid": [
+        [
+          0.5,
+          0.0
+        ],
+        [
+          0.5,
+          0.0
+        ],
+        [
+          1.0,
+          0.5
+        ],
+        [
+          0.5,
+          0.0
+        ]
+      ],
+      "ga_found": true,
+      "ga_status": "found",
+      "ga_cost": 28,
+      "ga_actions": [
+        0,
+        5,
+        4,
+        2,
+        6,
+        7
+      ],
+      "ga_action_count": 6,
+      "ga_min_conflict": 0,
+      "ga_cost_at_min_conflict": 28,
+      "ga_fitness": 100228.97464218794,
+      "ga_seconds": 0.7389958999992814,
+      "ga_generations": 100,
+      "ga_evaluations": 7586,
+      "ga_unique_evaluations": 4293,
+      "mutation_trials": 2398,
+      "lethal_mutations": 1143,
+      "mutation_fallbacks": 46,
+      "ga_mean_valid_fraction": 0.9683168316831683,
+      "ga_seed": 8042,
+      "ucs_found": true,
+      "ucs_status": "found",
+      "optimum_cost": 28,
+      "ucs_actions": [
+        5,
+        7,
+        2,
+        0,
+        4,
+        6
+      ],
+      "ucs_action_count": 6,
+      "ucs_seconds": 0.031458800003747456,
+      "ucs_expanded": 688,
+      "ucs_generated": 2934,
+      "ucs_max_frontier": 252,
+      "ucs_limit_seconds": 120,
+      "ucs_limit_expansions": 2000000,
+      "ucs_max_depth": 1000000000
+    },
+    {
+      "case_id": 9,
+      "initial_code": 6034,
+      "initial_grid": [
+        [
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.5
+        ],
+        [
+          1.0,
+          0.0
+        ],
+        [
+          1.0,
+          1.0
+        ]
+      ],
+      "ga_found": true,
+      "ga_status": "found",
+      "ga_cost": 41,
+      "ga_actions": [
+        1,
+        0,
+        15,
+        12,
+        4,
+        2,
+        11,
+        6,
+        3,
+        5,
+        7
+      ],
+      "ga_action_count": 11,
+      "ga_min_conflict": 0,
+      "ga_cost_at_min_conflict": 41,
+      "ga_fitness": 100211.07423703435,
+      "ga_seconds": 1.3897203000087757,
+      "ga_generations": 100,
+      "ga_evaluations": 11002,
+      "ga_unique_evaluations": 7319,
+      "mutation_trials": 5199,
+      "lethal_mutations": 4191,
+      "mutation_fallbacks": 267,
+      "ga_mean_valid_fraction": 0.8857425742574256,
+      "ga_seed": 9042,
+      "ucs_found": true,
+      "ucs_status": "found",
+      "optimum_cost": 38,
+      "ucs_actions": [
+        12,
+        0,
+        10,
+        4,
+        2,
+        5,
+        3,
+        1,
+        6,
+        7
+      ],
+      "ucs_action_count": 10,
+      "ucs_seconds": 0.5508419000107097,
+      "ucs_expanded": 7530,
+      "ucs_generated": 45125,
+      "ucs_max_frontier": 3516,
+      "ucs_limit_seconds": 120,
+      "ucs_limit_expansions": 2000000,
+      "ucs_max_depth": 1000000000
+    },
+    {
+      "case_id": 10,
+      "initial_code": 840,
+      "initial_grid": [
+        [
+          0.0,
+          0.5
+        ],
+        [
+          0.0,
+          0.5
+        ],
+        [
+          0.5,
+          0.0
+        ],
+        [
+          0.5,
+          0.0
+        ]
+      ],
+      "ga_found": true,
+      "ga_status": "found",
+      "ga_cost": 25,
+      "ga_actions": [
+        4,
+        1,
+        3,
+        5,
+        15,
+        6,
+        7
+      ],
+      "ga_action_count": 7,
+      "ga_min_conflict": 0,
+      "ga_cost_at_min_conflict": 25,
+      "ga_fitness": 100234.84671873237,
+      "ga_seconds": 0.837567599999602,
+      "ga_generations": 100,
+      "ga_evaluations": 7825,
+      "ga_unique_evaluations": 4556,
+      "mutation_trials": 2577,
+      "lethal_mutations": 1378,
+      "mutation_fallbacks": 66,
+      "ga_mean_valid_fraction": 0.967920792079208,
+      "ga_seed": 10042,
+      "ucs_found": true,
+      "ucs_status": "found",
+      "optimum_cost": 25,
+      "ucs_actions": [
+        1,
+        4,
+        3,
+        5,
+        14,
+        7,
+        6
+      ],
+      "ucs_action_count": 7,
+      "ucs_seconds": 0.015271299998858012,
+      "ucs_expanded": 132,
+      "ucs_generated": 395,
+      "ucs_max_frontier": 39,
+      "ucs_limit_seconds": 120,
+      "ucs_limit_expansions": 2000000,
+      "ucs_max_depth": 1000000000
+    },
+    {
+      "case_id": 11,
+      "initial_code": 5544,
+      "initial_grid": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.5,
+          0.5
+        ],
+        [
+          1.0,
+          0.5
+        ],
+        [
+          0.5,
+          1.0
+        ]
+      ],
+      "ga_found": true,
+      "ga_status": "found",
+      "ga_cost": 28,
+      "ga_actions": [
+        5,
+        3,
+        7,
+        4,
+        2,
+        6
+      ],
+      "ga_action_count": 6,
+      "ga_min_conflict": 0,
+      "ga_cost_at_min_conflict": 28,
+      "ga_fitness": 100228.97464218794,
+      "ga_seconds": 1.8781287000019802,
+      "ga_generations": 100,
+      "ga_evaluations": 8432,
+      "ga_unique_evaluations": 5274,
+      "mutation_trials": 3051,
+      "lethal_mutations": 1883,
+      "mutation_fallbacks": 111,
+      "ga_mean_valid_fraction": 0.9417821782178218,
+      "ga_seed": 11042,
+      "ucs_found": true,
+      "ucs_status": "found",
+      "optimum_cost": 28,
+      "ucs_actions": [
+        5,
+        3,
+        4,
+        2,
+        6,
+        7
+      ],
+      "ucs_action_count": 6,
+      "ucs_seconds": 0.15552060000482015,
+      "ucs_expanded": 1174,
+      "ucs_generated": 5766,
+      "ucs_max_frontier": 569,
+      "ucs_limit_seconds": 120,
+      "ucs_limit_expansions": 2000000,
+      "ucs_max_depth": 1000000000
+    },
+    {
+      "case_id": 12,
+      "initial_code": 6068,
+      "initial_grid": [
+        [
+          1.0,
+          0.0
+        ],
+        [
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          0.0
+        ],
+        [
+          1.0,
+          1.0
+        ]
+      ],
+      "ga_found": true,
+      "ga_status": "found",
+      "ga_cost": 46,
+      "ga_actions": [
+        11,
+        2,
+        14,
+        15,
+        4,
+        0,
+        6,
+        3,
+        5,
+        7
+      ],
+      "ga_action_count": 10,
+      "ga_min_conflict": 0,
+      "ga_cost_at_min_conflict": 46,
+      "ga_fitness": 100206.17929228533,
+      "ga_seconds": 3.2932858999993186,
+      "ga_generations": 100,
+      "ga_evaluations": 9040,
+      "ga_unique_evaluations": 5594,
+      "mutation_trials": 3654,
+      "lethal_mutations": 2505,
+      "mutation_fallbacks": 114,
+      "ga_mean_valid_fraction": 0.9483168316831684,
+      "ga_seed": 12042,
+      "ucs_found": true,
+      "ucs_status": "found",
+      "optimum_cost": 39,
+      "ucs_actions": [
+        12,
+        4,
+        2,
+        0,
+        11,
+        5,
+        6,
+        3,
+        7
+      ],
+      "ucs_action_count": 9,
+      "ucs_seconds": 4.5992282000079285,
+      "ucs_expanded": 25983,
+      "ucs_generated": 178375,
+      "ucs_max_frontier": 12700,
+      "ucs_limit_seconds": 120,
+      "ucs_limit_expansions": 2000000,
+      "ucs_max_depth": 1000000000
+    },
+    {
+      "case_id": 13,
+      "initial_code": 4468,
+      "initial_grid": [
+        [
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.0
+        ],
+        [
+          0.5,
+          0.0
+        ],
+        [
+          0.0,
+          1.0
+        ]
+      ],
+      "ga_found": true,
+      "ga_status": "found",
+      "ga_cost": 37,
+      "ga_actions": [
+        2,
+        15,
+        0,
+        4,
+        2,
+        1,
+        6,
+        7,
+        3,
+        5,
+        7
+      ],
+      "ga_action_count": 11,
+      "ga_min_conflict": 0,
+      "ga_cost_at_min_conflict": 37,
+      "ga_fitness": 100215.6294170196,
+      "ga_seconds": 2.3704948000086006,
+      "ga_generations": 100,
+      "ga_evaluations": 9972,
+      "ga_unique_evaluations": 5895,
+      "mutation_trials": 4489,
+      "lethal_mutations": 3314,
+      "mutation_fallbacks": 153,
+      "ga_mean_valid_fraction": 0.94,
+      "ga_seed": 13042,
+      "ucs_found": true,
+      "ucs_status": "found",
+      "optimum_cost": 33,
+      "ucs_actions": [
+        0,
+        10,
+        2,
+        3,
+        1,
+        5,
+        3,
+        12,
+        7,
+        4,
+        6
+      ],
+      "ucs_action_count": 11,
+      "ucs_seconds": 0.11252359999343753,
+      "ucs_expanded": 985,
+      "ucs_generated": 4310,
+      "ucs_max_frontier": 309,
+      "ucs_limit_seconds": 120,
+      "ucs_limit_expansions": 2000000,
+      "ucs_max_depth": 1000000000
+    },
+    {
+      "case_id": 14,
+      "initial_code": 713,
+      "initial_grid": [
+        [
+          1.0,
+          0.0
+        ],
+        [
+          0.5,
+          1.0
+        ],
+        [
+          1.0,
+          1.0
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "ga_found": true,
+      "ga_status": "found",
+      "ga_cost": 46,
+      "ga_actions": [
+        13,
+        12,
+        2,
+        11,
+        0,
+        4,
+        3,
+        6,
+        5,
+        7
+      ],
+      "ga_action_count": 10,
+      "ga_min_conflict": 0,
+      "ga_cost_at_min_conflict": 46,
+      "ga_fitness": 100206.17929228533,
+      "ga_seconds": 3.2600926000013715,
+      "ga_generations": 100,
+      "ga_evaluations": 10337,
+      "ga_unique_evaluations": 6825,
+      "mutation_trials": 4664,
+      "lethal_mutations": 3542,
+      "mutation_fallbacks": 215,
+      "ga_mean_valid_fraction": 0.8988118811881188,
+      "ga_seed": 14042,
+      "ucs_found": true,
+      "ucs_status": "found",
+      "optimum_cost": 38,
+      "ucs_actions": [
+        11,
+        13,
+        4,
+        3,
+        2,
+        13,
+        0,
+        6,
+        5,
+        7
+      ],
+      "ucs_action_count": 10,
+      "ucs_seconds": 1.9176523000060115,
+      "ucs_expanded": 12879,
+      "ucs_generated": 80097,
+      "ucs_max_frontier": 5060,
+      "ucs_limit_seconds": 120,
+      "ucs_limit_expansions": 2000000,
+      "ucs_max_depth": 1000000000
+    },
+    {
+      "case_id": 15,
+      "initial_code": 4838,
+      "initial_grid": [
+        [
+          1.0,
+          0.5
+        ],
+        [
+          0.0,
+          1.0
+        ],
+        [
+          1.0,
+          0.5
+        ],
+        [
+          0.0,
+          1.0
+        ]
+      ],
+      "ga_found": true,
+      "ga_status": "found",
+      "ga_cost": 46,
+      "ga_actions": [
+        5,
+        1,
+        12,
+        0,
+        3,
+        10,
+        7,
+        4,
+        2,
+        6,
+        4,
+        6
+      ],
+      "ga_action_count": 12,
+      "ga_min_conflict": 0,
+      "ga_cost_at_min_conflict": 46,
+      "ga_fitness": 100206.17929228533,
+      "ga_seconds": 2.778883600010886,
+      "ga_generations": 100,
+      "ga_evaluations": 8694,
+      "ga_unique_evaluations": 5077,
+      "mutation_trials": 3364,
+      "lethal_mutations": 2170,
+      "mutation_fallbacks": 98,
+      "ga_mean_valid_fraction": 0.9530693069306931,
+      "ga_seed": 15042,
+      "ucs_found": true,
+      "ucs_status": "found",
+      "optimum_cost": 39,
+      "ucs_actions": [
+        1,
+        8,
+        5,
+        12,
+        0,
+        2,
+        12,
+        3,
+        7,
+        4,
+        6
+      ],
+      "ucs_action_count": 11,
+      "ucs_seconds": 2.4583465000032447,
+      "ucs_expanded": 24231,
+      "ucs_generated": 163276,
+      "ucs_max_frontier": 10550,
+      "ucs_limit_seconds": 120,
+      "ucs_limit_expansions": 2000000,
+      "ucs_max_depth": 1000000000
+    },
+    {
+      "case_id": 16,
+      "initial_code": 3457,
+      "initial_grid": [
+        [
+          0.5,
+          0.0
+        ],
+        [
+          0.0,
+          1.0
+        ],
+        [
+          0.0,
+          1.0
+        ],
+        [
+          0.5,
+          0.5
+        ]
+      ],
+      "ga_found": true,
+      "ga_status": "found",
+      "ga_cost": 33,
+      "ga_actions": [
+        5,
+        0,
+        2,
+        3,
+        7,
+        4,
+        6
+      ],
+      "ga_action_count": 7,
+      "ga_min_conflict": 0,
+      "ga_cost_at_min_conflict": 33,
+      "ga_fitness": 100220.92804904992,
+      "ga_seconds": 0.9165019999927608,
+      "ga_generations": 100,
+      "ga_evaluations": 8973,
+      "ga_unique_evaluations": 5493,
+      "mutation_trials": 3529,
+      "lethal_mutations": 2377,
+      "mutation_fallbacks": 140,
+      "ga_mean_valid_fraction": 0.9279207920792079,
+      "ga_seed": 16042,
+      "ucs_found": true,
+      "ucs_status": "found",
+      "optimum_cost": 32,
+      "ucs_actions": [
+        0,
+        2,
+        4,
+        5,
+        14,
+        3,
+        7,
+        6
+      ],
+      "ucs_action_count": 8,
+      "ucs_seconds": 0.08408919999783393,
+      "ucs_expanded": 1492,
+      "ucs_generated": 7270,
+      "ucs_max_frontier": 572,
+      "ucs_limit_seconds": 120,
+      "ucs_limit_expansions": 2000000,
+      "ucs_max_depth": 1000000000
+    },
+    {
+      "case_id": 17,
+      "initial_code": 261,
+      "initial_grid": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.5
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "ga_found": true,
+      "ga_status": "found",
+      "ga_cost": 21,
+      "ga_actions": [
+        5,
+        2,
+        4,
+        7,
+        6
+      ],
+      "ga_action_count": 5,
+      "ga_min_conflict": 0,
+      "ga_cost_at_min_conflict": 21,
+      "ga_fitness": 100244.43647588626,
+      "ga_seconds": 0.45347199999378063,
+      "ga_generations": 100,
+      "ga_evaluations": 8092,
+      "ga_unique_evaluations": 5239,
+      "mutation_trials": 2724,
+      "lethal_mutations": 1526,
+      "mutation_fallbacks": 106,
+      "ga_mean_valid_fraction": 0.9518811881188118,
+      "ga_seed": 17042,
+      "ucs_found": true,
+      "ucs_status": "found",
+      "optimum_cost": 21,
+      "ucs_actions": [
+        5,
+        7,
+        2,
+        4,
+        6
+      ],
+      "ucs_action_count": 5,
+      "ucs_seconds": 0.0022400000016205013,
+      "ucs_expanded": 53,
+      "ucs_generated": 127,
+      "ucs_max_frontier": 21,
+      "ucs_limit_seconds": 120,
+      "ucs_limit_expansions": 2000000,
+      "ucs_max_depth": 1000000000
+    },
+    {
+      "case_id": 18,
+      "initial_code": 245,
+      "initial_grid": [
+        [
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.5
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "ga_found": true,
+      "ga_status": "found",
+      "ga_cost": 26,
+      "ga_actions": [
+        0,
+        2,
+        4,
+        5,
+        6,
+        7
+      ],
+      "ga_action_count": 6,
+      "ga_min_conflict": 0,
+      "ga_cost_at_min_conflict": 26,
+      "ga_fitness": 100232.78351371153,
+      "ga_seconds": 0.5203142999962438,
+      "ga_generations": 100,
+      "ga_evaluations": 7938,
+      "ga_unique_evaluations": 4967,
+      "mutation_trials": 2657,
+      "lethal_mutations": 1427,
+      "mutation_fallbacks": 77,
+      "ga_mean_valid_fraction": 0.9643564356435644,
+      "ga_seed": 18042,
+      "ucs_found": true,
+      "ucs_status": "found",
+      "optimum_cost": 26,
+      "ucs_actions": [
+        5,
+        7,
+        0,
+        2,
+        4,
+        6
+      ],
+      "ucs_action_count": 6,
+      "ucs_seconds": 0.0023373000003630295,
+      "ucs_expanded": 86,
+      "ucs_generated": 210,
+      "ucs_max_frontier": 26,
+      "ucs_limit_seconds": 120,
+      "ucs_limit_expansions": 2000000,
+      "ucs_max_depth": 1000000000
+    },
+    {
+      "case_id": 19,
+      "initial_code": 768,
+      "initial_grid": [
+        [
+          0.0,
+          0.5
+        ],
+        [
+          0.5,
+          0.5
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.5,
+          0.0
+        ]
+      ],
+      "ga_found": true,
+      "ga_status": "found",
+      "ga_cost": 28,
+      "ga_actions": [
+        2,
+        4,
+        1,
+        3,
+        5,
+        15,
+        6,
+        7
+      ],
+      "ga_action_count": 8,
+      "ga_min_conflict": 0,
+      "ga_cost_at_min_conflict": 28,
+      "ga_fitness": 100228.97464218794,
+      "ga_seconds": 0.6180181999952765,
+      "ga_generations": 100,
+      "ga_evaluations": 8362,
+      "ga_unique_evaluations": 5036,
+      "mutation_trials": 3048,
+      "lethal_mutations": 1859,
+      "mutation_fallbacks": 88,
+      "ga_mean_valid_fraction": 0.9502970297029704,
+      "ga_seed": 19042,
+      "ucs_found": true,
+      "ucs_status": "found",
+      "optimum_cost": 28,
+      "ucs_actions": [
+        1,
+        2,
+        4,
+        3,
+        5,
+        14,
+        7,
+        6
+      ],
+      "ucs_action_count": 8,
+      "ucs_seconds": 0.00606790000165347,
+      "ucs_expanded": 154,
+      "ucs_generated": 468,
+      "ucs_max_frontier": 44,
+      "ucs_limit_seconds": 120,
+      "ucs_limit_expansions": 2000000,
+      "ucs_max_depth": 1000000000
+    },
+    {
+      "case_id": 20,
+      "initial_code": 1792,
+      "initial_grid": [
+        [
+          0.5,
+          0.0
+        ],
+        [
+          0.5,
+          0.0
+        ],
+        [
+          0.5,
+          0.5
+        ],
+        [
+          1.0,
+          0.0
+        ]
+      ],
+      "ga_found": true,
+      "ga_status": "found",
+      "ga_cost": 26,
+      "ga_actions": [
+        4,
+        0,
+        2,
+        6,
+        5,
+        7
+      ],
+      "ga_action_count": 6,
+      "ga_min_conflict": 0,
+      "ga_cost_at_min_conflict": 26,
+      "ga_fitness": 100232.78351371153,
+      "ga_seconds": 0.6815145000000484,
+      "ga_generations": 100,
+      "ga_evaluations": 8227,
+      "ga_unique_evaluations": 4928,
+      "mutation_trials": 2879,
+      "lethal_mutations": 1706,
+      "mutation_fallbacks": 100,
+      "ga_mean_valid_fraction": 0.9568316831683168,
+      "ga_seed": 20042,
+      "ucs_found": true,
+      "ucs_status": "found",
+      "optimum_cost": 26,
+      "ucs_actions": [
+        0,
+        5,
+        7,
+        4,
+        2,
+        6
+      ],
+      "ucs_action_count": 6,
+      "ucs_seconds": 0.02556229999754578,
+      "ucs_expanded": 572,
+      "ucs_generated": 2423,
+      "ucs_max_frontier": 216,
+      "ucs_limit_seconds": 120,
+      "ucs_limit_expansions": 2000000,
+      "ucs_max_depth": 1000000000
+    },
+    {
+      "case_id": 21,
+      "initial_code": 1906,
+      "initial_grid": [
+        [
+          0.5,
+          1.0
+        ],
+        [
+          0.5,
+          0.5
+        ],
+        [
+          1.0,
+          0.5
+        ],
+        [
+          1.0,
+          0.0
+        ]
+      ],
+      "ga_found": true,
+      "ga_status": "found",
+      "ga_cost": 50,
+      "ga_actions": [
+        12,
+        4,
+        1,
+        13,
+        0,
+        14,
+        3,
+        10,
+        5,
+        2,
+        6,
+        7
+      ],
+      "ga_action_count": 12,
+      "ga_min_conflict": 0,
+      "ga_cost_at_min_conflict": 50,
+      "ga_fitness": 100202.76467062514,
+      "ga_seconds": 1.5759556999983033,
+      "ga_generations": 100,
+      "ga_evaluations": 10726,
+      "ga_unique_evaluations": 7035,
+      "mutation_trials": 4962,
+      "lethal_mutations": 3928,
+      "mutation_fallbacks": 248,
+      "ga_mean_valid_fraction": 0.899009900990099,
+      "ga_seed": 21042,
+      "ucs_found": true,
+      "ucs_status": "found",
+      "optimum_cost": 41,
+      "ucs_actions": [
+        9,
+        12,
+        4,
+        13,
+        1,
+        2,
+        11,
+        3,
+        13,
+        0,
+        6,
+        5,
+        7
+      ],
+      "ucs_action_count": 13,
+      "ucs_seconds": 2.226023000010173,
+      "ucs_expanded": 23910,
+      "ucs_generated": 160419,
+      "ucs_max_frontier": 10223,
+      "ucs_limit_seconds": 120,
+      "ucs_limit_expansions": 2000000,
+      "ucs_max_depth": 1000000000
+    },
+    {
+      "case_id": 22,
+      "initial_code": 4140,
+      "initial_grid": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.5,
+          0.0
+        ],
+        [
+          0.0,
+          1.0
+        ],
+        [
+          1.0,
+          0.5
+        ]
+      ],
+      "ga_found": true,
+      "ga_status": "found",
+      "ga_cost": 21,
+      "ga_actions": [
+        13,
+        5,
+        4,
+        2,
+        15,
+        6,
+        7
+      ],
+      "ga_action_count": 7,
+      "ga_min_conflict": 0,
+      "ga_cost_at_min_conflict": 21,
+      "ga_fitness": 100244.43647588626,
+      "ga_seconds": 0.7491734999930486,
+      "ga_generations": 100,
+      "ga_evaluations": 7810,
+      "ga_unique_evaluations": 4534,
+      "mutation_trials": 2592,
+      "lethal_mutations": 1324,
+      "mutation_fallbacks": 56,
+      "ga_mean_valid_fraction": 0.9756435643564355,
+      "ga_seed": 22042,
+      "ucs_found": true,
+      "ucs_status": "found",
+      "optimum_cost": 21,
+      "ucs_actions": [
+        13,
+        5,
+        15,
+        4,
+        2,
+        6,
+        7
+      ],
+      "ucs_action_count": 7,
+      "ucs_seconds": 0.008337200008099899,
+      "ucs_expanded": 205,
+      "ucs_generated": 789,
+      "ucs_max_frontier": 88,
+      "ucs_limit_seconds": 120,
+      "ucs_limit_expansions": 2000000,
+      "ucs_max_depth": 1000000000
+    },
+    {
+      "case_id": 23,
+      "initial_code": 4932,
+      "initial_grid": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          1.0,
+          1.0
+        ],
+        [
+          0.0,
+          1.0
+        ],
+        [
+          0.0,
+          1.0
+        ]
+      ],
+      "ga_found": true,
+      "ga_status": "found",
+      "ga_cost": 33,
+      "ga_actions": [
+        5,
+        10,
+        3,
+        7,
+        2,
+        4,
+        6
+      ],
+      "ga_action_count": 7,
+      "ga_min_conflict": 0,
+      "ga_cost_at_min_conflict": 33,
+      "ga_fitness": 100220.92804904992,
+      "ga_seconds": 1.3049250999902142,
+      "ga_generations": 100,
+      "ga_evaluations": 9615,
+      "ga_unique_evaluations": 5950,
+      "mutation_trials": 4056,
+      "lethal_mutations": 2962,
+      "mutation_fallbacks": 179,
+      "ga_mean_valid_fraction": 0.9194059405940594,
+      "ga_seed": 23042,
+      "ucs_found": true,
+      "ucs_status": "found",
+      "optimum_cost": 29,
+      "ucs_actions": [
+        13,
+        5,
+        3,
+        10,
+        2,
+        12,
+        7,
+        4,
+        6
+      ],
+      "ucs_action_count": 9,
+      "ucs_seconds": 0.14703180000651628,
+      "ucs_expanded": 1951,
+      "ucs_generated": 10269,
+      "ucs_max_frontier": 919,
+      "ucs_limit_seconds": 120,
+      "ucs_limit_expansions": 2000000,
+      "ucs_max_depth": 1000000000
+    },
+    {
+      "case_id": 24,
+      "initial_code": 218,
+      "initial_grid": [
+        [
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0
+        ],
+        [
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "ga_found": true,
+      "ga_status": "found",
+      "ga_cost": 36,
+      "ga_actions": [
+        3,
+        13,
+        4,
+        5,
+        7,
+        0,
+        2,
+        6
+      ],
+      "ga_action_count": 8,
+      "ga_min_conflict": 0,
+      "ga_cost_at_min_conflict": 36,
+      "ga_fitness": 100216.87655667384,
+      "ga_seconds": 1.2565786000050139,
+      "ga_generations": 100,
+      "ga_evaluations": 9881,
+      "ga_unique_evaluations": 6376,
+      "mutation_trials": 4200,
+      "lethal_mutations": 3157,
+      "mutation_fallbacks": 219,
+      "ga_mean_valid_fraction": 0.9116831683168317,
+      "ga_seed": 24042,
+      "ucs_found": true,
+      "ucs_status": "found",
+      "optimum_cost": 36,
+      "ucs_actions": [
+        11,
+        3,
+        5,
+        7,
+        2,
+        0,
+        4,
+        6
+      ],
+      "ucs_action_count": 8,
+      "ucs_seconds": 0.09854859999904875,
+      "ucs_expanded": 1951,
+      "ucs_generated": 9085,
+      "ucs_max_frontier": 586,
+      "ucs_limit_seconds": 120,
+      "ucs_limit_expansions": 2000000,
+      "ucs_max_depth": 1000000000
+    },
+    {
+      "case_id": 25,
+      "initial_code": 4598,
+      "initial_grid": [
+        [
+          1.0,
+          1.0
+        ],
+        [
+          0.0,
+          1.0
+        ],
+        [
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0
+        ]
+      ],
+      "ga_found": true,
+      "ga_status": "found",
+      "ga_cost": 52,
+      "ga_actions": [
+        1,
+        8,
+        3,
+        12,
+        5,
+        0,
+        2,
+        7,
+        4,
+        6
+      ],
+      "ga_action_count": 10,
+      "ga_min_conflict": 0,
+      "ga_cost_at_min_conflict": 52,
+      "ga_fitness": 100201.19542622303,
+      "ga_seconds": 1.528414000000339,
+      "ga_generations": 100,
+      "ga_evaluations": 9199,
+      "ga_unique_evaluations": 5686,
+      "mutation_trials": 3794,
+      "lethal_mutations": 2614,
+      "mutation_fallbacks": 127,
+      "ga_mean_valid_fraction": 0.9526732673267326,
+      "ga_seed": 25042,
+      "ucs_found": true,
+      "ucs_status": "found",
+      "optimum_cost": 39,
+      "ucs_actions": [
+        12,
+        5,
+        3,
+        1,
+        8,
+        0,
+        2,
+        12,
+        7,
+        4,
+        6
+      ],
+      "ucs_action_count": 11,
+      "ucs_seconds": 2.2322101000027033,
+      "ucs_expanded": 26302,
+      "ucs_generated": 178258,
+      "ucs_max_frontier": 11178,
+      "ucs_limit_seconds": 120,
+      "ucs_limit_expansions": 2000000,
+      "ucs_max_depth": 1000000000
+    },
+    {
+      "case_id": 26,
+      "initial_code": 1629,
+      "initial_grid": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.5,
+          0.0
+        ],
+        [
+          1.0,
+          0.0
+        ],
+        [
+          1.0,
+          0.0
+        ]
+      ],
+      "ga_found": true,
+      "ga_status": "found",
+      "ga_cost": 19,
+      "ga_actions": [
+        4,
+        2,
+        6
+      ],
+      "ga_action_count": 3,
+      "ga_min_conflict": 0,
+      "ga_cost_at_min_conflict": 19,
+      "ga_fitness": 100250.2670177926,
+      "ga_seconds": 0.6190313999977661,
+      "ga_generations": 100,
+      "ga_evaluations": 7050,
+      "ga_unique_evaluations": 4294,
+      "mutation_trials": 1901,
+      "lethal_mutations": 620,
+      "mutation_fallbacks": 33,
+      "ga_mean_valid_fraction": 0.9859405940594059,
+      "ga_seed": 26042,
+      "ucs_found": true,
+      "ucs_status": "found",
+      "optimum_cost": 19,
+      "ucs_actions": [
+        2,
+        4,
+        6
+      ],
+      "ucs_action_count": 3,
+      "ucs_seconds": 0.010394900004030205,
+      "ucs_expanded": 138,
+      "ucs_generated": 479,
+      "ucs_max_frontier": 61,
+      "ucs_limit_seconds": 120,
+      "ucs_limit_expansions": 2000000,
+      "ucs_max_depth": 1000000000
+    },
+    {
+      "case_id": 27,
+      "initial_code": 5866,
+      "initial_grid": [
+        [
+          0.5,
+          1.0
+        ],
+        [
+          0.0,
+          0.5
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          1.0,
+          1.0
+        ]
+      ],
+      "ga_found": true,
+      "ga_status": "found",
+      "ga_cost": 41,
+      "ga_actions": [
+        14,
+        0,
+        3,
+        1,
+        5,
+        3,
+        7,
+        6,
+        2,
+        4,
+        6
+      ],
+      "ga_action_count": 11,
+      "ga_min_conflict": 0,
+      "ga_cost_at_min_conflict": 41,
+      "ga_fitness": 100211.07423703435,
+      "ga_seconds": 3.0744984000048134,
+      "ga_generations": 100,
+      "ga_evaluations": 10919,
+      "ga_unique_evaluations": 7217,
+      "mutation_trials": 5171,
+      "lethal_mutations": 4126,
+      "mutation_fallbacks": 244,
+      "ga_mean_valid_fraction": 0.8845544554455446,
+      "ga_seed": 27042,
+      "ucs_found": true,
+      "ucs_status": "found",
+      "optimum_cost": 40,
+      "ucs_actions": [
+        14,
+        0,
+        2,
+        3,
+        1,
+        5,
+        3,
+        7,
+        4,
+        6
+      ],
+      "ucs_action_count": 10,
+      "ucs_seconds": 0.32156020001275465,
+      "ucs_expanded": 2283,
+      "ucs_generated": 11610,
+      "ucs_max_frontier": 699,
+      "ucs_limit_seconds": 120,
+      "ucs_limit_expansions": 2000000,
+      "ucs_max_depth": 1000000000
+    },
+    {
+      "case_id": 28,
+      "initial_code": 5324,
+      "initial_grid": [
+        [
+          1.0,
+          0.5
+        ],
+        [
+          0.0,
+          1.0
+        ],
+        [
+          1.0,
+          0.0
+        ],
+        [
+          0.5,
+          1.0
+        ]
+      ],
+      "ga_found": true,
+      "ga_status": "found",
+      "ga_cost": 49,
+      "ga_actions": [
+        4,
+        15,
+        1,
+        3,
+        8,
+        5,
+        1,
+        7,
+        0,
+        2,
+        6
+      ],
+      "ga_action_count": 11,
+      "ga_min_conflict": 0,
+      "ga_cost_at_min_conflict": 49,
+      "ga_fitness": 100203.58210840929,
+      "ga_seconds": 3.3605389000003925,
+      "ga_generations": 100,
+      "ga_evaluations": 11003,
+      "ga_unique_evaluations": 7635,
+      "mutation_trials": 5251,
+      "lethal_mutations": 4217,
+      "mutation_fallbacks": 244,
+      "ga_mean_valid_fraction": 0.8908910891089109,
+      "ga_seed": 28042,
+      "ucs_found": true,
+      "ucs_status": "found",
+      "optimum_cost": 40,
+      "ucs_actions": [
+        12,
+        1,
+        8,
+        0,
+        2,
+        5,
+        12,
+        4,
+        14,
+        3,
+        7,
+        6
+      ],
+      "ucs_action_count": 12,
+      "ucs_seconds": 2.7097677999990992,
+      "ucs_expanded": 20595,
+      "ucs_generated": 136863,
+      "ucs_max_frontier": 8808,
+      "ucs_limit_seconds": 120,
+      "ucs_limit_expansions": 2000000,
+      "ucs_max_depth": 1000000000
+    },
+    {
+      "case_id": 29,
+      "initial_code": 5746,
+      "initial_grid": [
+        [
+          0.5,
+          0.5
+        ],
+        [
+          1.0,
+          1.0
+        ],
+        [
+          0.5,
+          1.0
+        ],
+        [
+          0.5,
+          1.0
+        ]
+      ],
+      "ga_found": true,
+      "ga_status": "found",
+      "ga_cost": 51,
+      "ga_actions": [
+        13,
+        5,
+        1,
+        12,
+        3,
+        11,
+        15,
+        10,
+        4,
+        0,
+        7,
+        2,
+        6
+      ],
+      "ga_action_count": 13,
+      "ga_min_conflict": 0,
+      "ga_cost_at_min_conflict": 51,
+      "ga_fitness": 100201.96945592621,
+      "ga_seconds": 3.1752434999943944,
+      "ga_generations": 100,
+      "ga_evaluations": 10308,
+      "ga_unique_evaluations": 6214,
+      "mutation_trials": 4881,
+      "lethal_mutations": 3794,
+      "mutation_fallbacks": 151,
+      "ga_mean_valid_fraction": 0.9425742574257426,
+      "ga_seed": 29042,
+      "ucs_found": true,
+      "ucs_status": "found",
+      "optimum_cost": 41,
+      "ucs_actions": [
+        13,
+        5,
+        3,
+        10,
+        12,
+        15,
+        0,
+        1,
+        10,
+        7,
+        4,
+        2,
+        6
+      ],
+      "ucs_action_count": 13,
+      "ucs_seconds": 5.216607400012435,
+      "ucs_expanded": 33264,
+      "ucs_generated": 232030,
+      "ucs_max_frontier": 16453,
+      "ucs_limit_seconds": 120,
+      "ucs_limit_expansions": 2000000,
+      "ucs_max_depth": 1000000000
+    },
+    {
+      "case_id": 30,
+      "initial_code": 4465,
+      "initial_grid": [
+        [
+          0.5,
+          0.0
+        ],
+        [
+          0.5,
+          0.0
+        ],
+        [
+          0.5,
+          0.0
+        ],
+        [
+          0.0,
+          1.0
+        ]
+      ],
+      "ga_found": true,
+      "ga_status": "found",
+      "ga_cost": 25,
+      "ga_actions": [
+        2,
+        15,
+        4,
+        7,
+        0,
+        2,
+        6
+      ],
+      "ga_action_count": 7,
+      "ga_min_conflict": 0,
+      "ga_cost_at_min_conflict": 25,
+      "ga_fitness": 100234.84671873237,
+      "ga_seconds": 1.3558214000076987,
+      "ga_generations": 100,
+      "ga_evaluations": 7939,
+      "ga_unique_evaluations": 4843,
+      "mutation_trials": 2625,
+      "lethal_mutations": 1411,
+      "mutation_fallbacks": 88,
+      "ga_mean_valid_fraction": 0.9651485148514852,
+      "ga_seed": 30042,
+      "ucs_found": true,
+      "ucs_status": "found",
+      "optimum_cost": 25,
+      "ucs_actions": [
+        15,
+        2,
+        0,
+        7,
+        4,
+        2,
+        6
+      ],
+      "ucs_action_count": 7,
+      "ucs_seconds": 0.022663099996862,
+      "ucs_expanded": 264,
+      "ucs_generated": 947,
+      "ucs_max_frontier": 86,
+      "ucs_limit_seconds": 120,
+      "ucs_limit_expansions": 2000000,
+      "ucs_max_depth": 1000000000
+    },
+    {
+      "case_id": 31,
+      "initial_code": 3437,
+      "initial_grid": [
+        [
+          1.0,
+          1.0
+        ],
+        [
+          0.0,
+          0.5
+        ],
+        [
+          0.0,
+          1.0
+        ],
+        [
+          0.5,
+          0.5
+        ]
+      ],
+      "ga_found": true,
+      "ga_status": "found",
+      "ga_cost": 42,
+      "ga_actions": [
+        3,
+        1,
+        8,
+        0,
+        5,
+        7,
+        2,
+        6,
+        4,
+        6
+      ],
+      "ga_action_count": 10,
+      "ga_min_conflict": 0,
+      "ga_cost_at_min_conflict": 42,
+      "ga_fitness": 100210.03107949693,
+      "ga_seconds": 3.0290572000085376,
+      "ga_generations": 100,
+      "ga_evaluations": 10581,
+      "ga_unique_evaluations": 6908,
+      "mutation_trials": 4832,
+      "lethal_mutations": 3767,
+      "mutation_fallbacks": 243,
+      "ga_mean_valid_fraction": 0.8944554455445545,
+      "ga_seed": 31042,
+      "ucs_found": true,
+      "ucs_status": "found",
+      "optimum_cost": 40,
+      "ucs_actions": [
+        3,
+        1,
+        8,
+        0,
+        2,
+        4,
+        14,
+        6,
+        5,
+        7
+      ],
+      "ucs_action_count": 10,
+      "ucs_seconds": 2.091768600002979,
+      "ucs_expanded": 12928,
+      "ucs_generated": 80437,
+      "ucs_max_frontier": 4843,
+      "ucs_limit_seconds": 120,
+      "ucs_limit_expansions": 2000000,
+      "ucs_max_depth": 1000000000
+    },
+    {
+      "case_id": 32,
+      "initial_code": 1806,
+      "initial_grid": [
+        [
+          0.0,
+          1.0
+        ],
+        [
+          1.0,
+          0.0
+        ],
+        [
+          0.5,
+          0.5
+        ],
+        [
+          1.0,
+          0.0
+        ]
+      ],
+      "ga_found": true,
+      "ga_status": "found",
+      "ga_cost": 39,
+      "ga_actions": [
+        4,
+        5,
+        2,
+        9,
+        0,
+        7,
+        6,
+        1,
+        3,
+        5,
+        7
+      ],
+      "ga_action_count": 11,
+      "ga_min_conflict": 0,
+      "ga_cost_at_min_conflict": 39,
+      "ga_fitness": 100213.27057131371,
+      "ga_seconds": 2.654873799998313,
+      "ga_generations": 100,
+      "ga_evaluations": 10833,
+      "ga_unique_evaluations": 7151,
+      "mutation_trials": 5030,
+      "lethal_mutations": 3979,
+      "mutation_fallbacks": 263,
+      "ga_mean_valid_fraction": 0.8803960396039604,
+      "ga_seed": 32042,
+      "ucs_found": true,
+      "ucs_status": "found",
+      "optimum_cost": 33,
+      "ucs_actions": [
+        1,
+        4,
+        2,
+        11,
+        3,
+        13,
+        6,
+        5,
+        7
+      ],
+      "ucs_action_count": 9,
+      "ucs_seconds": 0.7660304000019096,
+      "ucs_expanded": 5486,
+      "ucs_generated": 31054,
+      "ucs_max_frontier": 2111,
+      "ucs_limit_seconds": 120,
+      "ucs_limit_expansions": 2000000,
+      "ucs_max_depth": 1000000000
+    },
+    {
+      "case_id": 33,
+      "initial_code": 3680,
+      "initial_grid": [
+        [
+          1.0,
+          1.0
+        ],
+        [
+          0.0,
+          0.5
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          1.0,
+          0.5
+        ]
+      ],
+      "ga_found": true,
+      "ga_status": "found",
+      "ga_cost": 47,
+      "ga_actions": [
+        9,
+        1,
+        14,
+        3,
+        0,
+        10,
+        5,
+        7,
+        2,
+        4,
+        6
+      ],
+      "ga_action_count": 11,
+      "ga_min_conflict": 0,
+      "ga_cost_at_min_conflict": 47,
+      "ga_fitness": 100205.2881820645,
+      "ga_seconds": 2.791674799998873,
+      "ga_generations": 100,
+      "ga_evaluations": 10740,
+      "ga_unique_evaluations": 6978,
+      "mutation_trials": 5001,
+      "lethal_mutations": 3931,
+      "mutation_fallbacks": 243,
+      "ga_mean_valid_fraction": 0.8978217821782177,
+      "ga_seed": 33042,
+      "ucs_found": true,
+      "ucs_status": "found",
+      "optimum_cost": 42,
+      "ucs_actions": [
+        0,
+        9,
+        1,
+        3,
+        13,
+        5,
+        15,
+        4,
+        2,
+        0,
+        6,
+        7
+      ],
+      "ucs_action_count": 12,
+      "ucs_seconds": 0.7188629000011133,
+      "ucs_expanded": 5341,
+      "ucs_generated": 29765,
+      "ucs_max_frontier": 1806,
+      "ucs_limit_seconds": 120,
+      "ucs_limit_expansions": 2000000,
+      "ucs_max_depth": 1000000000
+    },
+    {
+      "case_id": 34,
+      "initial_code": 4828,
+      "initial_grid": [
+        [
+          0.5,
+          0.5
+        ],
+        [
+          1.0,
+          0.5
+        ],
+        [
+          1.0,
+          0.5
+        ],
+        [
+          0.0,
+          1.0
+        ]
+      ],
+      "ga_found": true,
+      "ga_status": "found",
+      "ga_cost": 45,
+      "ga_actions": [
+        5,
+        10,
+        3,
+        12,
+        1,
+        7,
+        4,
+        0,
+        2,
+        4,
+        6
+      ],
+      "ga_action_count": 11,
+      "ga_min_conflict": 0,
+      "ga_cost_at_min_conflict": 45,
+      "ga_fitness": 100207.09759078964,
+      "ga_seconds": 3.5086733999924036,
+      "ga_generations": 100,
+      "ga_evaluations": 12844,
+      "ga_unique_evaluations": 8806,
+      "mutation_trials": 6714,
+      "lethal_mutations": 5801,
+      "mutation_fallbacks": 390,
+      "ga_mean_valid_fraction": 0.8354455445544554,
+      "ga_seed": 34042,
+      "ucs_found": true,
+      "ucs_status": "found",
+      "optimum_cost": 39,
+      "ucs_actions": [
+        5,
+        12,
+        3,
+        10,
+        0,
+        10,
+        1,
+        7,
+        2,
+        4,
+        6
+      ],
+      "ucs_action_count": 11,
+      "ucs_seconds": 2.831718000001274,
+      "ucs_expanded": 17766,
+      "ucs_generated": 115363,
+      "ucs_max_frontier": 7999,
+      "ucs_limit_seconds": 120,
+      "ucs_limit_expansions": 2000000,
+      "ucs_max_depth": 1000000000
+    },
+    {
+      "case_id": 35,
+      "initial_code": 2279,
+      "initial_grid": [
+        [
+          1.0,
+          0.0
+        ],
+        [
+          0.5,
+          0.0
+        ],
+        [
+          0.5,
+          0.0
+        ],
+        [
+          0.0,
+          0.5
+        ]
+      ],
+      "ga_found": true,
+      "ga_status": "found",
+      "ga_cost": 33,
+      "ga_actions": [
+        0,
+        2,
+        7,
+        4,
+        6
+      ],
+      "ga_action_count": 5,
+      "ga_min_conflict": 0,
+      "ga_cost_at_min_conflict": 33,
+      "ga_fitness": 100220.92804904992,
+      "ga_seconds": 1.4901898999960395,
+      "ga_generations": 100,
+      "ga_evaluations": 7680,
+      "ga_unique_evaluations": 4417,
+      "mutation_trials": 2422,
+      "lethal_mutations": 1209,
+      "mutation_fallbacks": 70,
+      "ga_mean_valid_fraction": 0.9675247524752475,
+      "ga_seed": 35042,
+      "ucs_found": true,
+      "ucs_status": "found",
+      "optimum_cost": 33,
+      "ucs_actions": [
+        7,
+        0,
+        2,
+        4,
+        6
+      ],
+      "ucs_action_count": 5,
+      "ucs_seconds": 0.047847099995124154,
+      "ucs_expanded": 558,
+      "ucs_generated": 2117,
+      "ucs_max_frontier": 149,
+      "ucs_limit_seconds": 120,
+      "ucs_limit_expansions": 2000000,
+      "ucs_max_depth": 1000000000
+    },
+    {
+      "case_id": 36,
+      "initial_code": 54,
+      "initial_grid": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "ga_found": true,
+      "ga_status": "found",
+      "ga_cost": 15,
+      "ga_actions": [
+        3,
+        5,
+        7
+      ],
+      "ga_action_count": 3,
+      "ga_min_conflict": 0,
+      "ga_cost_at_min_conflict": 15,
+      "ga_fitness": 100265.06997545343,
+      "ga_seconds": 0.659171300008893,
+      "ga_generations": 100,
+      "ga_evaluations": 6773,
+      "ga_unique_evaluations": 4056,
+      "mutation_trials": 1690,
+      "lethal_mutations": 387,
+      "mutation_fallbacks": 11,
+      "ga_mean_valid_fraction": 0.9972277227722772,
+      "ga_seed": 36042,
+      "ucs_found": true,
+      "ucs_status": "found",
+      "optimum_cost": 15,
+      "ucs_actions": [
+        3,
+        5,
+        7
+      ],
+      "ucs_action_count": 3,
+      "ucs_seconds": 0.0008114999945973977,
+      "ucs_expanded": 18,
+      "ucs_generated": 30,
+      "ucs_max_frontier": 7,
+      "ucs_limit_seconds": 120,
+      "ucs_limit_expansions": 2000000,
+      "ucs_max_depth": 1000000000
+    },
+    {
+      "case_id": 37,
+      "initial_code": 6217,
+      "initial_grid": [
+        [
+          0.5,
+          1.0
+        ],
+        [
+          0.0,
+          1.0
+        ],
+        [
+          0.5,
+          0.5
+        ],
+        [
+          1.0,
+          1.0
+        ]
+      ],
+      "ga_found": true,
+      "ga_status": "found",
+      "ga_cost": 48,
+      "ga_actions": [
+        5,
+        1,
+        14,
+        3,
+        7,
+        0,
+        4,
+        2,
+        4,
+        6
+      ],
+      "ga_action_count": 10,
+      "ga_min_conflict": 0,
+      "ga_cost_at_min_conflict": 48,
+      "ga_fitness": 100204.42288127105,
+      "ga_seconds": 3.066873600007966,
+      "ga_generations": 100,
+      "ga_evaluations": 9502,
+      "ga_unique_evaluations": 5815,
+      "mutation_trials": 4073,
+      "lethal_mutations": 2890,
+      "mutation_fallbacks": 133,
+      "ga_mean_valid_fraction": 0.9431683168316832,
+      "ga_seed": 37042,
+      "ucs_found": true,
+      "ucs_status": "found",
+      "optimum_cost": 40,
+      "ucs_actions": [
+        0,
+        4,
+        2,
+        5,
+        6,
+        3,
+        1,
+        7
+      ],
+      "ucs_action_count": 8,
+      "ucs_seconds": 3.2646230999962427,
+      "ucs_expanded": 19374,
+      "ucs_generated": 128943,
+      "ucs_max_frontier": 8587,
+      "ucs_limit_seconds": 120,
+      "ucs_limit_expansions": 2000000,
+      "ucs_max_depth": 1000000000
+    },
+    {
+      "case_id": 38,
+      "initial_code": 1308,
+      "initial_grid": [
+        [
+          0.0,
+          0.5
+        ],
+        [
+          0.5,
+          0.0
+        ],
+        [
+          0.5,
+          1.0
+        ],
+        [
+          0.5,
+          0.0
+        ]
+      ],
+      "ga_found": true,
+      "ga_status": "found",
+      "ga_cost": 32,
+      "ga_actions": [
+        1,
+        3,
+        5,
+        2,
+        12,
+        7,
+        4,
+        6
+      ],
+      "ga_action_count": 8,
+      "ga_min_conflict": 0,
+      "ga_cost_at_min_conflict": 32,
+      "ga_fitness": 100222.3948222771,
+      "ga_seconds": 1.9435604000027524,
+      "ga_generations": 100,
+      "ga_evaluations": 9062,
+      "ga_unique_evaluations": 5464,
+      "mutation_trials": 3620,
+      "lethal_mutations": 2410,
+      "mutation_fallbacks": 132,
+      "ga_mean_valid_fraction": 0.9417821782178218,
+      "ga_seed": 38042,
+      "ucs_found": true,
+      "ucs_status": "found",
+      "optimum_cost": 29,
+      "ucs_actions": [
+        2,
+        12,
+        5,
+        4,
+        14,
+        1,
+        3,
+        7,
+        6
+      ],
+      "ucs_action_count": 9,
+      "ucs_seconds": 0.06545059999916703,
+      "ucs_expanded": 634,
+      "ucs_generated": 2676,
+      "ucs_max_frontier": 214,
+      "ucs_limit_seconds": 120,
+      "ucs_limit_expansions": 2000000,
+      "ucs_max_depth": 1000000000
+    },
+    {
+      "case_id": 39,
+      "initial_code": 5720,
+      "initial_grid": [
+        [
+          1.0,
+          0.5
+        ],
+        [
+          1.0,
+          0.5
+        ],
+        [
+          0.5,
+          1.0
+        ],
+        [
+          0.5,
+          1.0
+        ]
+      ],
+      "ga_found": true,
+      "ga_status": "found",
+      "ga_cost": 44,
+      "ga_actions": [
+        13,
+        5,
+        4,
+        1,
+        2,
+        0,
+        11,
+        6,
+        3,
+        7
+      ],
+      "ga_action_count": 10,
+      "ga_min_conflict": 0,
+      "ga_cost_at_min_conflict": 44,
+      "ga_fitness": 100208.04456358819,
+      "ga_seconds": 3.42404080000415,
+      "ga_generations": 100,
+      "ga_evaluations": 9474,
+      "ga_unique_evaluations": 5764,
+      "mutation_trials": 4097,
+      "lethal_mutations": 2934,
+      "mutation_fallbacks": 119,
+      "ga_mean_valid_fraction": 0.9394059405940594,
+      "ga_seed": 39042,
+      "ucs_found": true,
+      "ucs_status": "found",
+      "optimum_cost": 42,
+      "ucs_actions": [
+        13,
+        5,
+        12,
+        3,
+        10,
+        1,
+        8,
+        15,
+        0,
+        10,
+        4,
+        7,
+        2,
+        6
+      ],
+      "ucs_action_count": 14,
+      "ucs_seconds": 10.871950200002175,
+      "ucs_expanded": 59331,
+      "ucs_generated": 441805,
+      "ucs_max_frontier": 28978,
+      "ucs_limit_seconds": 120,
+      "ucs_limit_expansions": 2000000,
+      "ucs_max_depth": 1000000000
+    },
+    {
+      "case_id": 40,
+      "initial_code": 3463,
+      "initial_grid": [
+        [
+          0.5,
+          1.0
+        ],
+        [
+          0.0,
+          1.0
+        ],
+        [
+          0.0,
+          1.0
+        ],
+        [
+          0.5,
+          0.5
+        ]
+      ],
+      "ga_found": true,
+      "ga_status": "found",
+      "ga_cost": 41,
+      "ga_actions": [
+        5,
+        3,
+        6,
+        1,
+        7,
+        0,
+        2,
+        4,
+        6
+      ],
+      "ga_action_count": 9,
+      "ga_min_conflict": 0,
+      "ga_cost_at_min_conflict": 41,
+      "ga_fitness": 100211.07423703435,
+      "ga_seconds": 2.744827600006829,
+      "ga_generations": 100,
+      "ga_evaluations": 11271,
+      "ga_unique_evaluations": 7630,
+      "mutation_trials": 5401,
+      "lethal_mutations": 4383,
+      "mutation_fallbacks": 286,
+      "ga_mean_valid_fraction": 0.8805940594059406,
+      "ga_seed": 40042,
+      "ucs_found": true,
+      "ucs_status": "found",
+      "optimum_cost": 39,
+      "ucs_actions": [
+        0,
+        2,
+        4,
+        5,
+        14,
+        3,
+        1,
+        7,
+        6
+      ],
+      "ucs_action_count": 9,
+      "ucs_seconds": 1.9249765999993542,
+      "ucs_expanded": 13257,
+      "ucs_generated": 83152,
+      "ucs_max_frontier": 4851,
+      "ucs_limit_seconds": 120,
+      "ucs_limit_expansions": 2000000,
+      "ucs_max_depth": 1000000000
+    },
+    {
+      "case_id": 41,
+      "initial_code": 2788,
+      "initial_grid": [
+        [
+          0.5,
+          1.0
+        ],
+        [
+          0.0,
+          0.5
+        ],
+        [
+          0.5,
+          1.0
+        ],
+        [
+          0.0,
+          0.5
+        ]
+      ],
+      "ga_found": true,
+      "ga_status": "found",
+      "ga_cost": 44,
+      "ga_actions": [
+        3,
+        0,
+        4,
+        6,
+        1,
+        5,
+        7,
+        2,
+        4,
+        6
+      ],
+      "ga_action_count": 10,
+      "ga_min_conflict": 0,
+      "ga_cost_at_min_conflict": 44,
+      "ga_fitness": 100208.04456358819,
+      "ga_seconds": 2.663106699998025,
+      "ga_generations": 100,
+      "ga_evaluations": 10266,
+      "ga_unique_evaluations": 6560,
+      "mutation_trials": 4595,
+      "lethal_mutations": 3516,
+      "mutation_fallbacks": 213,
+      "ga_mean_valid_fraction": 0.9097029702970296,
+      "ga_seed": 41042,
+      "ucs_found": true,
+      "ucs_status": "found",
+      "optimum_cost": 37,
+      "ucs_actions": [
+        0,
+        2,
+        5,
+        12,
+        4,
+        6,
+        3,
+        1,
+        7
+      ],
+      "ucs_action_count": 9,
+      "ucs_seconds": 0.949430199994822,
+      "ucs_expanded": 6940,
+      "ucs_generated": 40075,
+      "ucs_max_frontier": 2509,
+      "ucs_limit_seconds": 120,
+      "ucs_limit_expansions": 2000000,
+      "ucs_max_depth": 1000000000
+    },
+    {
+      "case_id": 42,
+      "initial_code": 2277,
+      "initial_grid": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.5,
+          0.0
+        ],
+        [
+          0.5,
+          0.0
+        ],
+        [
+          0.0,
+          0.5
+        ]
+      ],
+      "ga_found": true,
+      "ga_status": "found",
+      "ga_cost": 16,
+      "ga_actions": [
+        7,
+        2,
+        4,
+        6
+      ],
+      "ga_action_count": 4,
+      "ga_min_conflict": 0,
+      "ga_cost_at_min_conflict": 16,
+      "ga_fitness": 100260.87773109488,
+      "ga_seconds": 0.7660743000014918,
+      "ga_generations": 100,
+      "ga_evaluations": 7306,
+      "ga_unique_evaluations": 4543,
+      "mutation_trials": 2115,
+      "lethal_mutations": 832,
+      "mutation_fallbacks": 47,
+      "ga_mean_valid_fraction": 0.9827722772277229,
+      "ga_seed": 42042,
+      "ucs_found": true,
+      "ucs_status": "found",
+      "optimum_cost": 16,
+      "ucs_actions": [
+        2,
+        7,
+        4,
+        6
+      ],
+      "ucs_action_count": 4,
+      "ucs_seconds": 0.0013796999992337078,
+      "ucs_expanded": 26,
+      "ucs_generated": 56,
+      "ucs_max_frontier": 10,
+      "ucs_limit_seconds": 120,
+      "ucs_limit_expansions": 2000000,
+      "ucs_max_depth": 1000000000
+    },
+    {
+      "case_id": 43,
+      "initial_code": 1274,
+      "initial_grid": [
+        [
+          1.0,
+          0.5
+        ],
+        [
+          0.0,
+          1.0
+        ],
+        [
+          0.0,
+          1.0
+        ],
+        [
+          0.5,
+          0.0
+        ]
+      ],
+      "ga_found": true,
+      "ga_status": "found",
+      "ga_cost": 44,
+      "ga_actions": [
+        1,
+        3,
+        8,
+        5,
+        7,
+        6,
+        0,
+        2,
+        4,
+        6
+      ],
+      "ga_action_count": 10,
+      "ga_min_conflict": 0,
+      "ga_cost_at_min_conflict": 44,
+      "ga_fitness": 100208.04456358819,
+      "ga_seconds": 2.7628700000059325,
+      "ga_generations": 100,
+      "ga_evaluations": 10195,
+      "ga_unique_evaluations": 6425,
+      "mutation_trials": 4552,
+      "lethal_mutations": 3468,
+      "mutation_fallbacks": 211,
+      "ga_mean_valid_fraction": 0.9138613861386138,
+      "ga_seed": 43042,
+      "ucs_found": true,
+      "ucs_status": "found",
+      "optimum_cost": 40,
+      "ucs_actions": [
+        1,
+        8,
+        0,
+        2,
+        4,
+        14,
+        6,
+        5,
+        3,
+        7
+      ],
+      "ucs_action_count": 10,
+      "ucs_seconds": 1.2768609000049764,
+      "ucs_expanded": 8313,
+      "ucs_generated": 48380,
+      "ucs_max_frontier": 2837,
+      "ucs_limit_seconds": 120,
+      "ucs_limit_expansions": 2000000,
+      "ucs_max_depth": 1000000000
+    },
+    {
+      "case_id": 44,
+      "initial_code": 1764,
+      "initial_grid": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.5,
+          1.0
+        ],
+        [
+          0.0,
+          0.5
+        ],
+        [
+          1.0,
+          0.0
+        ]
+      ],
+      "ga_found": true,
+      "ga_status": "found",
+      "ga_cost": 28,
+      "ga_actions": [
+        11,
+        3,
+        13,
+        5,
+        4,
+        2,
+        7,
+        6
+      ],
+      "ga_action_count": 8,
+      "ga_min_conflict": 0,
+      "ga_cost_at_min_conflict": 28,
+      "ga_fitness": 100228.97464218794,
+      "ga_seconds": 1.8269277999934275,
+      "ga_generations": 100,
+      "ga_evaluations": 8491,
+      "ga_unique_evaluations": 4992,
+      "mutation_trials": 3176,
+      "lethal_mutations": 1979,
+      "mutation_fallbacks": 89,
+      "ga_mean_valid_fraction": 0.9586138613861386,
+      "ga_seed": 44042,
+      "ucs_found": true,
+      "ucs_status": "found",
+      "optimum_cost": 27,
+      "ucs_actions": [
+        2,
+        11,
+        3,
+        4,
+        2,
+        13,
+        6,
+        5,
+        7
+      ],
+      "ucs_action_count": 9,
+      "ucs_seconds": 0.030581200000597164,
+      "ucs_expanded": 534,
+      "ucs_generated": 2262,
+      "ucs_max_frontier": 200,
+      "ucs_limit_seconds": 120,
+      "ucs_limit_expansions": 2000000,
+      "ucs_max_depth": 1000000000
+    },
+    {
+      "case_id": 45,
+      "initial_code": 6255,
+      "initial_grid": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          1.0,
+          0.0
+        ],
+        [
+          1.0,
+          0.5
+        ],
+        [
+          1.0,
+          1.0
+        ]
+      ],
+      "ga_found": true,
+      "ga_status": "found",
+      "ga_cost": 32,
+      "ga_actions": [
+        4,
+        15,
+        2,
+        6,
+        5,
+        7
+      ],
+      "ga_action_count": 6,
+      "ga_min_conflict": 0,
+      "ga_cost_at_min_conflict": 32,
+      "ga_fitness": 100222.3948222771,
+      "ga_seconds": 1.8252188000042224,
+      "ga_generations": 100,
+      "ga_evaluations": 7709,
+      "ga_unique_evaluations": 4450,
+      "mutation_trials": 2465,
+      "lethal_mutations": 1289,
+      "mutation_fallbacks": 66,
+      "ga_mean_valid_fraction": 0.9635643564356435,
+      "ga_seed": 45042,
+      "ucs_found": true,
+      "ucs_status": "found",
+      "optimum_cost": 28,
+      "ucs_actions": [
+        5,
+        12,
+        4,
+        7,
+        2,
+        6
+      ],
+      "ucs_action_count": 6,
+      "ucs_seconds": 0.17525640000530984,
+      "ucs_expanded": 1316,
+      "ucs_generated": 6603,
+      "ucs_max_frontier": 709,
+      "ucs_limit_seconds": 120,
+      "ucs_limit_expansions": 2000000,
+      "ucs_max_depth": 1000000000
+    },
+    {
+      "case_id": 46,
+      "initial_code": 2758,
+      "initial_grid": [
+        [
+          0.5,
+          0.5
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.5,
+          1.0
+        ],
+        [
+          0.0,
+          0.5
+        ]
+      ],
+      "ga_found": true,
+      "ga_status": "found",
+      "ga_cost": 31,
+      "ga_actions": [
+        5,
+        0,
+        1,
+        2,
+        3,
+        12,
+        7,
+        4,
+        6
+      ],
+      "ga_action_count": 9,
+      "ga_min_conflict": 0,
+      "ga_cost_at_min_conflict": 31,
+      "ga_fitness": 100223.92725897048,
+      "ga_seconds": 1.9738848999986658,
+      "ga_generations": 100,
+      "ga_evaluations": 9371,
+      "ga_unique_evaluations": 5327,
+      "mutation_trials": 3987,
+      "lethal_mutations": 2847,
+      "mutation_fallbacks": 118,
+      "ga_mean_valid_fraction": 0.9524752475247525,
+      "ga_seed": 46042,
+      "ucs_found": true,
+      "ucs_status": "found",
+      "optimum_cost": 31,
+      "ucs_actions": [
+        0,
+        1,
+        2,
+        5,
+        3,
+        12,
+        7,
+        4,
+        6
+      ],
+      "ucs_action_count": 9,
+      "ucs_seconds": 0.0841744000063045,
+      "ucs_expanded": 841,
+      "ucs_generated": 3619,
+      "ucs_max_frontier": 271,
+      "ucs_limit_seconds": 120,
+      "ucs_limit_expansions": 2000000,
+      "ucs_max_depth": 1000000000
+    },
+    {
+      "case_id": 47,
+      "initial_code": 838,
+      "initial_grid": [
+        [
+          0.5,
+          0.0
+        ],
+        [
+          0.0,
+          0.5
+        ],
+        [
+          0.5,
+          0.0
+        ],
+        [
+          0.5,
+          0.0
+        ]
+      ],
+      "ga_found": true,
+      "ga_status": "found",
+      "ga_cost": 27,
+      "ga_actions": [
+        3,
+        0,
+        2,
+        4,
+        6,
+        5,
+        7
+      ],
+      "ga_action_count": 7,
+      "ga_min_conflict": 0,
+      "ga_cost_at_min_conflict": 27,
+      "ga_fitness": 100230.82936127583,
+      "ga_seconds": 1.2640473999927053,
+      "ga_generations": 100,
+      "ga_evaluations": 7876,
+      "ga_unique_evaluations": 4598,
+      "mutation_trials": 2643,
+      "lethal_mutations": 1405,
+      "mutation_fallbacks": 61,
+      "ga_mean_valid_fraction": 0.9712871287128713,
+      "ga_seed": 47042,
+      "ucs_found": true,
+      "ucs_status": "found",
+      "optimum_cost": 27,
+      "ucs_actions": [
+        0,
+        2,
+        3,
+        5,
+        7,
+        4,
+        6
+      ],
+      "ucs_action_count": 7,
+      "ucs_seconds": 0.011465000003227033,
+      "ucs_expanded": 125,
+      "ucs_generated": 372,
+      "ucs_max_frontier": 37,
+      "ucs_limit_seconds": 120,
+      "ucs_limit_expansions": 2000000,
+      "ucs_max_depth": 1000000000
+    },
+    {
+      "case_id": 48,
+      "initial_code": 760,
+      "initial_grid": [
+        [
+          0.5,
+          0.5
+        ],
+        [
+          0.0,
+          0.5
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.5,
+          0.0
+        ]
+      ],
+      "ga_found": true,
+      "ga_status": "found",
+      "ga_cost": 31,
+      "ga_actions": [
+        1,
+        0,
+        3,
+        5,
+        2,
+        4,
+        15,
+        6,
+        7
+      ],
+      "ga_action_count": 9,
+      "ga_min_conflict": 0,
+      "ga_cost_at_min_conflict": 31,
+      "ga_fitness": 100223.92725897048,
+      "ga_seconds": 1.4435608999920078,
+      "ga_generations": 100,
+      "ga_evaluations": 8303,
+      "ga_unique_evaluations": 4510,
+      "mutation_trials": 3082,
+      "lethal_mutations": 1810,
+      "mutation_fallbacks": 59,
+      "ga_mean_valid_fraction": 0.9732673267326732,
+      "ga_seed": 48042,
+      "ucs_found": true,
+      "ucs_status": "found",
+      "optimum_cost": 31,
+      "ucs_actions": [
+        0,
+        1,
+        2,
+        4,
+        3,
+        5,
+        14,
+        7,
+        6
+      ],
+      "ucs_action_count": 9,
+      "ucs_seconds": 0.007817199992132373,
+      "ucs_expanded": 202,
+      "ucs_generated": 621,
+      "ucs_max_frontier": 53,
+      "ucs_limit_seconds": 120,
+      "ucs_limit_expansions": 2000000,
+      "ucs_max_depth": 1000000000
+    },
+    {
+      "case_id": 49,
+      "initial_code": 3113,
+      "initial_grid": [
+        [
+          1.0,
+          1.0
+        ],
+        [
+          0.0,
+          0.5
+        ],
+        [
+          1.0,
+          0.0
+        ],
+        [
+          0.5,
+          0.5
+        ]
+      ],
+      "ga_found": true,
+      "ga_status": "found",
+      "ga_cost": 51,
+      "ga_actions": [
+        3,
+        4,
+        9,
+        8,
+        0,
+        9,
+        1,
+        2,
+        5,
+        15,
+        0,
+        6,
+        3,
+        5,
+        7
+      ],
+      "ga_action_count": 15,
+      "ga_min_conflict": 0,
+      "ga_cost_at_min_conflict": 51,
+      "ga_fitness": 100201.96945592621,
+      "ga_seconds": 3.497824000005494,
+      "ga_generations": 100,
+      "ga_evaluations": 13069,
+      "ga_unique_evaluations": 8480,
+      "mutation_trials": 7131,
+      "lethal_mutations": 6256,
+      "mutation_fallbacks": 388,
+      "ga_mean_valid_fraction": 0.8699009900990099,
+      "ga_seed": 49042,
+      "ucs_found": true,
+      "ucs_status": "found",
+      "optimum_cost": 43,
+      "ucs_actions": [
+        0,
+        9,
+        1,
+        4,
+        2,
+        0,
+        11,
+        6,
+        3,
+        5,
+        7
+      ],
+      "ucs_action_count": 11,
+      "ucs_seconds": 1.803535799990641,
+      "ucs_expanded": 13015,
+      "ucs_generated": 80727,
+      "ucs_max_frontier": 4687,
+      "ucs_limit_seconds": 120,
+      "ucs_limit_expansions": 2000000,
+      "ucs_max_depth": 1000000000
+    },
+    {
+      "case_id": 50,
+      "initial_code": 793,
+      "initial_grid": [
+        [
+          0.5,
+          0.0
+        ],
+        [
+          0.5,
+          1.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.5,
+          0.0
+        ]
+      ],
+      "ga_found": true,
+      "ga_status": "found",
+      "ga_cost": 33,
+      "ga_actions": [
+        0,
+        2,
+        11,
+        4,
+        2,
+        3,
+        6,
+        5,
+        7
+      ],
+      "ga_action_count": 9,
+      "ga_min_conflict": 0,
+      "ga_cost_at_min_conflict": 33,
+      "ga_fitness": 100220.92804904992,
+      "ga_seconds": 1.8436848999990616,
+      "ga_generations": 100,
+      "ga_evaluations": 9402,
+      "ga_unique_evaluations": 5905,
+      "mutation_trials": 3896,
+      "lethal_mutations": 2750,
+      "mutation_fallbacks": 154,
+      "ga_mean_valid_fraction": 0.9221782178217822,
+      "ga_seed": 50042,
+      "ucs_found": true,
+      "ucs_status": "found",
+      "optimum_cost": 32,
+      "ucs_actions": [
+        0,
+        2,
+        3,
+        4,
+        13,
+        5,
+        7,
+        6
+      ],
+      "ucs_action_count": 8,
+      "ucs_seconds": 0.03811829999904148,
+      "ucs_expanded": 445,
+      "ucs_generated": 1682,
+      "ucs_max_frontier": 134,
+      "ucs_limit_seconds": 120,
+      "ucs_limit_expansions": 2000000,
+      "ucs_max_depth": 1000000000
+    },
+    {
+      "case_id": 51,
+      "initial_code": 2941,
+      "initial_grid": [
+        [
+          0.5,
+          1.0
+        ],
+        [
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.5,
+          0.5
+        ]
+      ],
+      "ga_found": true,
+      "ga_status": "found",
+      "ga_cost": 43,
+      "ga_actions": [
+        0,
+        9,
+        10,
+        2,
+        1,
+        11,
+        3,
+        4,
+        6,
+        5,
+        7
+      ],
+      "ga_action_count": 11,
+      "ga_min_conflict": 0,
+      "ga_cost_at_min_conflict": 43,
+      "ga_fitness": 100209.02181487756,
+      "ga_seconds": 2.5520309999992605,
+      "ga_generations": 100,
+      "ga_evaluations": 11130,
+      "ga_unique_evaluations": 7403,
+      "mutation_trials": 5285,
+      "lethal_mutations": 4302,
+      "mutation_fallbacks": 277,
+      "ga_mean_valid_fraction": 0.8740594059405941,
+      "ga_seed": 51042,
+      "ucs_found": true,
+      "ucs_status": "found",
+      "optimum_cost": 38,
+      "ucs_actions": [
+        1,
+        3,
+        13,
+        5,
+        15,
+        7,
+        4,
+        2,
+        0,
+        6
+      ],
+      "ucs_action_count": 10,
+      "ucs_seconds": 0.4001334000058705,
+      "ucs_expanded": 3221,
+      "ucs_generated": 16495,
+      "ucs_max_frontier": 974,
+      "ucs_limit_seconds": 120,
+      "ucs_limit_expansions": 2000000,
+      "ucs_max_depth": 1000000000
+    },
+    {
+      "case_id": 52,
+      "initial_code": 2818,
+      "initial_grid": [
+        [
+          0.5,
+          0.0
+        ],
+        [
+          0.5,
+          1.0
+        ],
+        [
+          0.5,
+          1.0
+        ],
+        [
+          0.0,
+          0.5
+        ]
+      ],
+      "ga_found": true,
+      "ga_status": "found",
+      "ga_cost": 40,
+      "ga_actions": [
+        0,
+        4,
+        10,
+        5,
+        3,
+        7,
+        6,
+        2,
+        4,
+        6
+      ],
+      "ga_action_count": 10,
+      "ga_min_conflict": 0,
+      "ga_cost_at_min_conflict": 40,
+      "ga_fitness": 100212.15332784742,
+      "ga_seconds": 2.76410620000388,
+      "ga_generations": 100,
+      "ga_evaluations": 11062,
+      "ga_unique_evaluations": 7364,
+      "mutation_trials": 5180,
+      "lethal_mutations": 4193,
+      "mutation_fallbacks": 290,
+      "ga_mean_valid_fraction": 0.8702970297029704,
+      "ga_seed": 52042,
+      "ucs_found": true,
+      "ucs_status": "found",
+      "optimum_cost": 33,
+      "ucs_actions": [
+        0,
+        5,
+        3,
+        10,
+        2,
+        12,
+        7,
+        4,
+        6
+      ],
+      "ucs_action_count": 9,
+      "ucs_seconds": 0.4634393000014825,
+      "ucs_expanded": 3706,
+      "ucs_generated": 20421,
+      "ucs_max_frontier": 1432,
+      "ucs_limit_seconds": 120,
+      "ucs_limit_expansions": 2000000,
+      "ucs_max_depth": 1000000000
+    },
+    {
+      "case_id": 53,
+      "initial_code": 4946,
+      "initial_grid": [
+        [
+          1.0,
+          0.5
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.5,
+          1.0
+        ],
+        [
+          0.0,
+          1.0
+        ]
+      ],
+      "ga_found": true,
+      "ga_status": "found",
+      "ga_cost": 42,
+      "ga_actions": [
+        15,
+        1,
+        5,
+        3,
+        15,
+        0,
+        7,
+        4,
+        2,
+        6
+      ],
+      "ga_action_count": 10,
+      "ga_min_conflict": 0,
+      "ga_cost_at_min_conflict": 42,
+      "ga_fitness": 100210.03107949693,
+      "ga_seconds": 2.773116399999708,
+      "ga_generations": 100,
+      "ga_evaluations": 10927,
+      "ga_unique_evaluations": 7152,
+      "mutation_trials": 5147,
+      "lethal_mutations": 4118,
+      "mutation_fallbacks": 258,
+      "ga_mean_valid_fraction": 0.8829702970297029,
+      "ga_seed": 53042,
+      "ucs_found": true,
+      "ucs_status": "found",
+      "optimum_cost": 36,
+      "ucs_actions": [
+        13,
+        0,
+        10,
+        5,
+        12,
+        2,
+        12,
+        3,
+        1,
+        7,
+        4,
+        6
+      ],
+      "ucs_action_count": 12,
+      "ucs_seconds": 0.6384572999959346,
+      "ucs_expanded": 4840,
+      "ucs_generated": 27141,
+      "ucs_max_frontier": 1746,
+      "ucs_limit_seconds": 120,
+      "ucs_limit_expansions": 2000000,
+      "ucs_max_depth": 1000000000
+    },
+    {
+      "case_id": 54,
+      "initial_code": 2167,
+      "initial_grid": [
+        [
+          0.5,
+          1.0
+        ],
+        [
+          0.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          0.0
+        ]
+      ],
+      "ga_found": true,
+      "ga_status": "found",
+      "ga_cost": 55,
+      "ga_actions": [
+        12,
+        6,
+        4,
+        14,
+        5,
+        9,
+        3,
+        8,
+        1,
+        7,
+        6,
+        0,
+        2,
+        4,
+        6
+      ],
+      "ga_action_count": 15,
+      "ga_min_conflict": 0,
+      "ga_cost_at_min_conflict": 55,
+      "ga_fitness": 100198.99104809792,
+      "ga_seconds": 3.5548096999991685,
+      "ga_generations": 100,
+      "ga_evaluations": 11667,
+      "ga_unique_evaluations": 7477,
+      "mutation_trials": 6018,
+      "lethal_mutations": 5000,
+      "mutation_fallbacks": 245,
+      "ga_mean_valid_fraction": 0.909108910891089,
+      "ga_seed": 54042,
+      "ucs_found": true,
+      "ucs_status": "found",
+      "optimum_cost": 43,
+      "ucs_actions": [
+        12,
+        0,
+        5,
+        4,
+        2,
+        6,
+        3,
+        1,
+        7
+      ],
+      "ucs_action_count": 9,
+      "ucs_seconds": 5.723855600008392,
+      "ucs_expanded": 33297,
+      "ucs_generated": 232557,
+      "ucs_max_frontier": 14660,
+      "ucs_limit_seconds": 120,
+      "ucs_limit_expansions": 2000000,
+      "ucs_max_depth": 1000000000
+    },
+    {
+      "case_id": 55,
+      "initial_code": 356,
+      "initial_grid": [
+        [
+          1.0,
+          0.5
+        ],
+        [
+          0.0,
+          0.5
+        ],
+        [
+          0.5,
+          0.5
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "ga_found": true,
+      "ga_status": "found",
+      "ga_cost": 43,
+      "ga_actions": [
+        0,
+        2,
+        12,
+        3,
+        13,
+        1,
+        5,
+        12,
+        7,
+        4,
+        6
+      ],
+      "ga_action_count": 11,
+      "ga_min_conflict": 0,
+      "ga_cost_at_min_conflict": 43,
+      "ga_fitness": 100209.02181487756,
+      "ga_seconds": 2.6495320000103675,
+      "ga_generations": 100,
+      "ga_evaluations": 11591,
+      "ga_unique_evaluations": 8068,
+      "mutation_trials": 5578,
+      "lethal_mutations": 4562,
+      "mutation_fallbacks": 337,
+      "ga_mean_valid_fraction": 0.860990099009901,
+      "ga_seed": 55042,
+      "ucs_found": true,
+      "ucs_status": "found",
+      "optimum_cost": 40,
+      "ucs_actions": [
+        8,
+        0,
+        2,
+        12,
+        4,
+        6,
+        3,
+        1,
+        5,
+        7
+      ],
+      "ucs_action_count": 10,
+      "ucs_seconds": 0.22134899999946356,
+      "ucs_expanded": 2081,
+      "ucs_generated": 9739,
+      "ucs_max_frontier": 555,
+      "ucs_limit_seconds": 120,
+      "ucs_limit_expansions": 2000000,
+      "ucs_max_depth": 1000000000
+    },
+    {
+      "case_id": 56,
+      "initial_code": 5978,
+      "initial_grid": [
+        [
+          1.0,
+          0.0
+        ],
+        [
+          0.5,
+          1.0
+        ],
+        [
+          0.5,
+          0.0
+        ],
+        [
+          1.0,
+          1.0
+        ]
+      ],
+      "ga_found": true,
+      "ga_status": "found",
+      "ga_cost": 44,
+      "ga_actions": [
+        11,
+        7,
+        2,
+        8,
+        0,
+        1,
+        4,
+        11,
+        6,
+        3,
+        5,
+        7
+      ],
+      "ga_action_count": 12,
+      "ga_min_conflict": 0,
+      "ga_cost_at_min_conflict": 44,
+      "ga_fitness": 100208.04456358819,
+      "ga_seconds": 3.2742162000067765,
+      "ga_generations": 100,
+      "ga_evaluations": 10513,
+      "ga_unique_evaluations": 7028,
+      "mutation_trials": 4810,
+      "lethal_mutations": 3746,
+      "mutation_fallbacks": 227,
+      "ga_mean_valid_fraction": 0.8831683168316832,
+      "ga_seed": 56042,
+      "ucs_found": true,
+      "ucs_status": "found",
+      "optimum_cost": 37,
+      "ucs_actions": [
+        11,
+        15,
+        3,
+        4,
+        2,
+        0,
+        6,
+        5,
+        7
+      ],
+      "ucs_action_count": 9,
+      "ucs_seconds": 1.4439669999992475,
+      "ucs_expanded": 9106,
+      "ucs_generated": 55626,
+      "ucs_max_frontier": 3847,
+      "ucs_limit_seconds": 120,
+      "ucs_limit_expansions": 2000000,
+      "ucs_max_depth": 1000000000
+    },
+    {
+      "case_id": 57,
+      "initial_code": 3764,
+      "initial_grid": [
+        [
+          1.0,
+          0.0
+        ],
+        [
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.0
+        ],
+        [
+          1.0,
+          0.5
+        ]
+      ],
+      "ga_found": true,
+      "ga_status": "found",
+      "ga_cost": 38,
+      "ga_actions": [
+        0,
+        3,
+        7,
+        4,
+        2,
+        6,
+        5,
+        7
+      ],
+      "ga_action_count": 8,
+      "ga_min_conflict": 0,
+      "ga_cost_at_min_conflict": 38,
+      "ga_fitness": 100214.42838668809,
+      "ga_seconds": 2.3944077999913134,
+      "ga_generations": 100,
+      "ga_evaluations": 9524,
+      "ga_unique_evaluations": 6039,
+      "mutation_trials": 3946,
+      "lethal_mutations": 2904,
+      "mutation_fallbacks": 190,
+      "ga_mean_valid_fraction": 0.9021782178217822,
+      "ga_seed": 57042,
+      "ucs_found": true,
+      "ucs_status": "found",
+      "optimum_cost": 35,
+      "ucs_actions": [
+        8,
+        1,
+        11,
+        3,
+        5,
+        15,
+        4,
+        2,
+        0,
+        6,
+        7
+      ],
+      "ucs_action_count": 11,
+      "ucs_seconds": 0.5289504999964265,
+      "ucs_expanded": 4125,
+      "ucs_generated": 22585,
+      "ucs_max_frontier": 1495,
+      "ucs_limit_seconds": 120,
+      "ucs_limit_expansions": 2000000,
+      "ucs_max_depth": 1000000000
+    },
+    {
+      "case_id": 58,
+      "initial_code": 4393,
+      "initial_grid": [
+        [
+          0.5,
+          0.0
+        ],
+        [
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0
+        ]
+      ],
+      "ga_found": true,
+      "ga_status": "found",
+      "ga_cost": 29,
+      "ga_actions": [
+        0,
+        7,
+        2,
+        4,
+        6
+      ],
+      "ga_action_count": 5,
+      "ga_min_conflict": 0,
+      "ga_cost_at_min_conflict": 29,
+      "ga_fitness": 100227.21089587269,
+      "ga_seconds": 1.2871446999924956,
+      "ga_generations": 100,
+      "ga_evaluations": 7337,
+      "ga_unique_evaluations": 4316,
+      "mutation_trials": 2161,
+      "lethal_mutations": 936,
+      "mutation_fallbacks": 42,
+      "ga_mean_valid_fraction": 0.9792079207920793,
+      "ga_seed": 58042,
+      "ucs_found": true,
+      "ucs_status": "found",
+      "optimum_cost": 27,
+      "ucs_actions": [
+        15,
+        7,
+        2,
+        0,
+        4,
+        2,
+        6
+      ],
+      "ucs_action_count": 7,
+      "ucs_seconds": 0.043717099993955344,
+      "ucs_expanded": 329,
+      "ucs_generated": 1207,
+      "ucs_max_frontier": 103,
+      "ucs_limit_seconds": 120,
+      "ucs_limit_expansions": 2000000,
+      "ucs_max_depth": 1000000000
+    },
+    {
+      "case_id": 59,
+      "initial_code": 1023,
+      "initial_grid": [
+        [
+          0.0,
+          1.0
+        ],
+        [
+          1.0,
+          0.5
+        ],
+        [
+          0.0,
+          0.5
+        ],
+        [
+          0.5,
+          0.0
+        ]
+      ],
+      "ga_found": true,
+      "ga_status": "found",
+      "ga_cost": 39,
+      "ga_actions": [
+        10,
+        3,
+        1,
+        2,
+        4,
+        5,
+        14,
+        7,
+        6
+      ],
+      "ga_action_count": 9,
+      "ga_min_conflict": 0,
+      "ga_cost_at_min_conflict": 39,
+      "ga_fitness": 100213.27057131371,
+      "ga_seconds": 2.8136895000061486,
+      "ga_generations": 100,
+      "ga_evaluations": 11460,
+      "ga_unique_evaluations": 7929,
+      "mutation_trials": 5484,
+      "lethal_mutations": 4472,
+      "mutation_fallbacks": 322,
+      "ga_mean_valid_fraction": 0.8720792079207921,
+      "ga_seed": 59042,
+      "ucs_found": true,
+      "ucs_status": "found",
+      "optimum_cost": 39,
+      "ucs_actions": [
+        10,
+        2,
+        4,
+        14,
+        6,
+        3,
+        1,
+        5,
+        7
+      ],
+      "ucs_action_count": 9,
+      "ucs_seconds": 0.44211010000435635,
+      "ucs_expanded": 3510,
+      "ucs_generated": 18063,
+      "ucs_max_frontier": 1040,
+      "ucs_limit_seconds": 120,
+      "ucs_limit_expansions": 2000000,
+      "ucs_max_depth": 1000000000
+    },
+    {
+      "case_id": 60,
+      "initial_code": 3101,
+      "initial_grid": [
+        [
+          1.0,
+          0.5
+        ],
+        [
+          1.0,
+          0.0
+        ],
+        [
+          1.0,
+          0.0
+        ],
+        [
+          0.5,
+          0.5
+        ]
+      ],
+      "ga_found": true,
+      "ga_status": "found",
+      "ga_cost": 41,
+      "ga_actions": [
+        7,
+        4,
+        2,
+        0,
+        6,
+        1,
+        3,
+        5,
+        7
+      ],
+      "ga_action_count": 9,
+      "ga_min_conflict": 0,
+      "ga_cost_at_min_conflict": 41,
+      "ga_fitness": 100211.07423703435,
+      "ga_seconds": 2.7407352999871364,
+      "ga_generations": 100,
+      "ga_evaluations": 9129,
+      "ga_unique_evaluations": 5584,
+      "mutation_trials": 3713,
+      "lethal_mutations": 2543,
+      "mutation_fallbacks": 134,
+      "ga_mean_valid_fraction": 0.9384158415841585,
+      "ga_seed": 60042,
+      "ucs_found": true,
+      "ucs_status": "found",
+      "optimum_cost": 39,
+      "ucs_actions": [
+        1,
+        3,
+        5,
+        4,
+        15,
+        2,
+        0,
+        6,
+        7
+      ],
+      "ucs_action_count": 9,
+      "ucs_seconds": 1.9957046000054106,
+      "ucs_expanded": 13257,
+      "ucs_generated": 83152,
+      "ucs_max_frontier": 4851,
+      "ucs_limit_seconds": 120,
+      "ucs_limit_expansions": 2000000,
+      "ucs_max_depth": 1000000000
+    },
+    {
+      "case_id": 61,
+      "initial_code": 646,
+      "initial_grid": [
+        [
+          0.5,
+          1.0
+        ],
+        [
+          1.0,
+          1.0
+        ],
+        [
+          0.5,
+          1.0
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "ga_found": true,
+      "ga_status": "found",
+      "ga_cost": 57,
+      "ga_actions": [
+        1,
+        0,
+        10,
+        9,
+        2,
+        4,
+        13,
+        11,
+        11,
+        6,
+        5,
+        3,
+        7,
+        5,
+        7
+      ],
+      "ga_action_count": 15,
+      "ga_min_conflict": 0,
+      "ga_cost_at_min_conflict": 57,
+      "ga_fitness": 100197.61115734649,
+      "ga_seconds": 3.1073367999924812,
+      "ga_generations": 100,
+      "ga_evaluations": 10756,
+      "ga_unique_evaluations": 7152,
+      "mutation_trials": 4961,
+      "lethal_mutations": 3926,
+      "mutation_fallbacks": 259,
+      "ga_mean_valid_fraction": 0.8851485148514852,
+      "ga_seed": 61042,
+      "ucs_found": true,
+      "ucs_status": "found",
+      "optimum_cost": 46,
+      "ucs_actions": [
+        2,
+        11,
+        13,
+        0,
+        9,
+        1,
+        11,
+        4,
+        6,
+        3,
+        5,
+        7
+      ],
+      "ucs_action_count": 12,
+      "ucs_seconds": 4.5895468999951845,
+      "ucs_expanded": 30168,
+      "ucs_generated": 204885,
+      "ucs_max_frontier": 12228,
+      "ucs_limit_seconds": 120,
+      "ucs_limit_expansions": 2000000,
+      "ucs_max_depth": 1000000000
+    },
+    {
+      "case_id": 62,
+      "initial_code": 4523,
+      "initial_grid": [
+        [
+          1.0,
+          0.5
+        ],
+        [
+          0.5,
+          1.0
+        ],
+        [
+          0.5,
+          0.0
+        ],
+        [
+          0.0,
+          1.0
+        ]
+      ],
+      "ga_found": true,
+      "ga_status": "found",
+      "ga_cost": 48,
+      "ga_actions": [
+        8,
+        15,
+        11,
+        1,
+        2,
+        0,
+        4,
+        11,
+        11,
+        7,
+        6,
+        3,
+        5,
+        7
+      ],
+      "ga_action_count": 14,
+      "ga_min_conflict": 0,
+      "ga_cost_at_min_conflict": 48,
+      "ga_fitness": 100204.42288127105,
+      "ga_seconds": 3.2152606999879936,
+      "ga_generations": 100,
+      "ga_evaluations": 12374,
+      "ga_unique_evaluations": 7738,
+      "mutation_trials": 6500,
+      "lethal_mutations": 5574,
+      "mutation_fallbacks": 330,
+      "ga_mean_valid_fraction": 0.8902970297029703,
+      "ga_seed": 62042,
+      "ucs_found": true,
+      "ucs_status": "found",
+      "optimum_cost": 42,
+      "ucs_actions": [
+        2,
+        12,
+        1,
+        8,
+        0,
+        2,
+        5,
+        12,
+        4,
+        6,
+        3,
+        7
+      ],
+      "ucs_action_count": 12,
+      "ucs_seconds": 1.859827000007499,
+      "ucs_expanded": 14758,
+      "ucs_generated": 93105,
+      "ucs_max_frontier": 5316,
+      "ucs_limit_seconds": 120,
+      "ucs_limit_expansions": 2000000,
+      "ucs_max_depth": 1000000000
+    },
+    {
+      "case_id": 63,
+      "initial_code": 2402,
+      "initial_grid": [
+        [
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          0.5
+        ],
+        [
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.5
+        ]
+      ],
+      "ga_found": true,
+      "ga_status": "found",
+      "ga_cost": 57,
+      "ga_actions": [
+        0,
+        9,
+        2,
+        4,
+        3,
+        6,
+        1,
+        7,
+        5,
+        3,
+        7,
+        5,
+        7
+      ],
+      "ga_action_count": 13,
+      "ga_min_conflict": 0,
+      "ga_cost_at_min_conflict": 57,
+      "ga_fitness": 100197.61115734649,
+      "ga_seconds": 3.757808300011675,
+      "ga_generations": 100,
+      "ga_evaluations": 13019,
+      "ga_unique_evaluations": 8351,
+      "mutation_trials": 7187,
+      "lethal_mutations": 6216,
+      "mutation_fallbacks": 352,
+      "ga_mean_valid_fraction": 0.8982178217821782,
+      "ga_seed": 63042,
+      "ucs_found": true,
+      "ucs_status": "found",
+      "optimum_cost": 46,
+      "ucs_actions": [
+        9,
+        10,
+        2,
+        11,
+        0,
+        4,
+        1,
+        11,
+        6,
+        3,
+        5,
+        7
+      ],
+      "ucs_action_count": 12,
+      "ucs_seconds": 5.306578799994895,
+      "ucs_expanded": 30817,
+      "ucs_generated": 207980,
+      "ucs_max_frontier": 11381,
+      "ucs_limit_seconds": 120,
+      "ucs_limit_expansions": 2000000,
+      "ucs_max_depth": 1000000000
+    },
+    {
+      "case_id": 64,
+      "initial_code": 5150,
+      "initial_grid": [
+        [
+          1.0,
+          0.0
+        ],
+        [
+          1.0,
+          0.5
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.5,
+          1.0
+        ]
+      ],
+      "ga_found": true,
+      "ga_status": "found",
+      "ga_cost": 42,
+      "ga_actions": [
+        2,
+        4,
+        0,
+        15,
+        2,
+        6,
+        7,
+        3,
+        5,
+        7
+      ],
+      "ga_action_count": 10,
+      "ga_min_conflict": 0,
+      "ga_cost_at_min_conflict": 42,
+      "ga_fitness": 100210.03107949693,
+      "ga_seconds": 2.37822280000546,
+      "ga_generations": 100,
+      "ga_evaluations": 10192,
+      "ga_unique_evaluations": 6703,
+      "mutation_trials": 4481,
+      "lethal_mutations": 3373,
+      "mutation_fallbacks": 235,
+      "ga_mean_valid_fraction": 0.907920792079208,
+      "ga_seed": 64042,
+      "ucs_found": true,
+      "ucs_status": "found",
+      "optimum_cost": 38,
+      "ucs_actions": [
+        8,
+        10,
+        0,
+        2,
+        12,
+        4,
+        14,
+        5,
+        3,
+        1,
+        7,
+        6
+      ],
+      "ucs_action_count": 12,
+      "ucs_seconds": 0.5821718999941368,
+      "ucs_expanded": 4737,
+      "ucs_generated": 26206,
+      "ucs_max_frontier": 1607,
+      "ucs_limit_seconds": 120,
+      "ucs_limit_expansions": 2000000,
+      "ucs_max_depth": 1000000000
+    },
+    {
+      "case_id": 65,
+      "initial_code": 5067,
+      "initial_grid": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          1.0,
+          0.5
+        ],
+        [
+          1.0,
+          1.0
+        ],
+        [
+          0.0,
+          1.0
+        ]
+      ],
+      "ga_found": true,
+      "ga_status": "found",
+      "ga_cost": 33,
+      "ga_actions": [
+        13,
+        4,
+        3,
+        15,
+        2,
+        13,
+        6,
+        5,
+        7
+      ],
+      "ga_action_count": 9,
+      "ga_min_conflict": 0,
+      "ga_cost_at_min_conflict": 33,
+      "ga_fitness": 100220.92804904992,
+      "ga_seconds": 2.509520599996904,
+      "ga_generations": 100,
+      "ga_evaluations": 10004,
+      "ga_unique_evaluations": 6400,
+      "mutation_trials": 4348,
+      "lethal_mutations": 3229,
+      "mutation_fallbacks": 208,
+      "ga_mean_valid_fraction": 0.9130693069306931,
+      "ga_seed": 65042,
+      "ucs_found": true,
+      "ucs_status": "found",
+      "optimum_cost": 32,
+      "ucs_actions": [
+        15,
+        5,
+        12,
+        3,
+        10,
+        2,
+        12,
+        7,
+        4,
+        6
+      ],
+      "ucs_action_count": 10,
+      "ucs_seconds": 0.3932855000020936,
+      "ucs_expanded": 2673,
+      "ucs_generated": 14813,
+      "ucs_max_frontier": 1337,
+      "ucs_limit_seconds": 120,
+      "ucs_limit_expansions": 2000000,
+      "ucs_max_depth": 1000000000
+    },
+    {
+      "case_id": 66,
+      "initial_code": 2963,
+      "initial_grid": [
+        [
+          1.0,
+          0.0
+        ],
+        [
+          1.0,
+          0.5
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.5,
+          0.5
+        ]
+      ],
+      "ga_found": true,
+      "ga_status": "found",
+      "ga_cost": 43,
+      "ga_actions": [
+        0,
+        3,
+        5,
+        2,
+        7,
+        4,
+        6
+      ],
+      "ga_action_count": 7,
+      "ga_min_conflict": 0,
+      "ga_cost_at_min_conflict": 43,
+      "ga_fitness": 100209.02181487756,
+      "ga_seconds": 2.2328273000021,
+      "ga_generations": 100,
+      "ga_evaluations": 9350,
+      "ga_unique_evaluations": 5920,
+      "mutation_trials": 3790,
+      "lethal_mutations": 2658,
+      "mutation_fallbacks": 176,
+      "ga_mean_valid_fraction": 0.9174257425742574,
+      "ga_seed": 66042,
+      "ucs_found": true,
+      "ucs_status": "found",
+      "optimum_cost": 37,
+      "ucs_actions": [
+        8,
+        1,
+        3,
+        13,
+        5,
+        15,
+        7,
+        4,
+        2,
+        0,
+        6
+      ],
+      "ucs_action_count": 11,
+      "ucs_seconds": 0.3485156999959145,
+      "ucs_expanded": 2817,
+      "ucs_generated": 14242,
+      "ucs_max_frontier": 855,
+      "ucs_limit_seconds": 120,
+      "ucs_limit_expansions": 2000000,
+      "ucs_max_depth": 1000000000
+    },
+    {
+      "case_id": 67,
+      "initial_code": 4730,
+      "initial_grid": [
+        [
+          1.0,
+          0.5
+        ],
+        [
+          0.0,
+          0.5
+        ],
+        [
+          0.5,
+          0.5
+        ],
+        [
+          0.0,
+          1.0
+        ]
+      ],
+      "ga_found": true,
+      "ga_status": "found",
+      "ga_cost": 40,
+      "ga_actions": [
+        5,
+        8,
+        0,
+        2,
+        1,
+        3,
+        12,
+        7,
+        4,
+        6
+      ],
+      "ga_action_count": 10,
+      "ga_min_conflict": 0,
+      "ga_cost_at_min_conflict": 40,
+      "ga_fitness": 100212.15332784742,
+      "ga_seconds": 2.966213699997752,
+      "ga_generations": 100,
+      "ga_evaluations": 11029,
+      "ga_unique_evaluations": 7343,
+      "mutation_trials": 5205,
+      "lethal_mutations": 4229,
+      "mutation_fallbacks": 274,
+      "ga_mean_valid_fraction": 0.8762376237623762,
+      "ga_seed": 67042,
+      "ucs_found": true,
+      "ucs_status": "found",
+      "optimum_cost": 36,
+      "ucs_actions": [
+        8,
+        0,
+        2,
+        5,
+        12,
+        4,
+        6,
+        3,
+        1,
+        7
+      ],
+      "ucs_action_count": 10,
+      "ucs_seconds": 0.8866622000059579,
+      "ucs_expanded": 6157,
+      "ucs_generated": 35232,
+      "ucs_max_frontier": 2184,
+      "ucs_limit_seconds": 120,
+      "ucs_limit_expansions": 2000000,
+      "ucs_max_depth": 1000000000
+    },
+    {
+      "case_id": 68,
+      "initial_code": 1576,
+      "initial_grid": [
+        [
+          0.5,
+          0.0
+        ],
+        [
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.0
+        ],
+        [
+          1.0,
+          0.0
+        ]
+      ],
+      "ga_found": true,
+      "ga_status": "found",
+      "ga_cost": 29,
+      "ga_actions": [
+        4,
+        0,
+        3,
+        2,
+        5,
+        6,
+        7
+      ],
+      "ga_action_count": 7,
+      "ga_min_conflict": 0,
+      "ga_cost_at_min_conflict": 29,
+      "ga_fitness": 100227.21089587269,
+      "ga_seconds": 1.6618994000018574,
+      "ga_generations": 100,
+      "ga_evaluations": 7886,
+      "ga_unique_evaluations": 4404,
+      "mutation_trials": 2655,
+      "lethal_mutations": 1430,
+      "mutation_fallbacks": 61,
+      "ga_mean_valid_fraction": 0.9706930693069307,
+      "ga_seed": 68042,
+      "ucs_found": true,
+      "ucs_status": "found",
+      "optimum_cost": 29,
+      "ucs_actions": [
+        0,
+        3,
+        5,
+        7,
+        4,
+        2,
+        6
+      ],
+      "ucs_action_count": 7,
+      "ucs_seconds": 0.08101120000355877,
+      "ucs_expanded": 721,
+      "ucs_generated": 3120,
+      "ucs_max_frontier": 255,
+      "ucs_limit_seconds": 120,
+      "ucs_limit_expansions": 2000000,
+      "ucs_max_depth": 1000000000
+    },
+    {
+      "case_id": 69,
+      "initial_code": 5772,
+      "initial_grid": [
+        [
+          0.0,
+          0.5
+        ],
+        [
+          1.0,
+          0.0
+        ],
+        [
+          1.0,
+          1.0
+        ],
+        [
+          0.5,
+          1.0
+        ]
+      ],
+      "ga_found": true,
+      "ga_status": "found",
+      "ga_cost": 40,
+      "ga_actions": [
+        4,
+        2,
+        1,
+        13,
+        15,
+        14,
+        6,
+        3,
+        5,
+        7
+      ],
+      "ga_action_count": 10,
+      "ga_min_conflict": 0,
+      "ga_cost_at_min_conflict": 40,
+      "ga_fitness": 100212.15332784742,
+      "ga_seconds": 2.855729999995674,
+      "ga_generations": 100,
+      "ga_evaluations": 10560,
+      "ga_unique_evaluations": 7127,
+      "mutation_trials": 4743,
+      "lethal_mutations": 3743,
+      "mutation_fallbacks": 265,
+      "ga_mean_valid_fraction": 0.8762376237623762,
+      "ga_seed": 69042,
+      "ucs_found": true,
+      "ucs_status": "found",
+      "optimum_cost": 36,
+      "ucs_actions": [
+        10,
+        15,
+        5,
+        12,
+        3,
+        1,
+        4,
+        2,
+        6,
+        7
+      ],
+      "ucs_action_count": 10,
+      "ucs_seconds": 0.8142384999955539,
+      "ucs_expanded": 5199,
+      "ucs_generated": 30673,
+      "ucs_max_frontier": 2493,
+      "ucs_limit_seconds": 120,
+      "ucs_limit_expansions": 2000000,
+      "ucs_max_depth": 1000000000
+    },
+    {
+      "case_id": 70,
+      "initial_code": 570,
+      "initial_grid": [
+        [
+          0.0,
+          0.5
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.5,
+          1.0
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "ga_found": true,
+      "ga_status": "found",
+      "ga_cost": 26,
+      "ga_actions": [
+        4,
+        1,
+        3,
+        6,
+        5,
+        7
+      ],
+      "ga_action_count": 6,
+      "ga_min_conflict": 0,
+      "ga_cost_at_min_conflict": 26,
+      "ga_fitness": 100232.78351371153,
+      "ga_seconds": 1.487799399998039,
+      "ga_generations": 100,
+      "ga_evaluations": 8800,
+      "ga_unique_evaluations": 5954,
+      "mutation_trials": 3300,
+      "lethal_mutations": 2154,
+      "mutation_fallbacks": 150,
+      "ga_mean_valid_fraction": 0.935049504950495,
+      "ga_seed": 70042,
+      "ucs_found": true,
+      "ucs_status": "found",
+      "optimum_cost": 26,
+      "ucs_actions": [
+        1,
+        4,
+        6,
+        3,
+        5,
+        7
+      ],
+      "ucs_action_count": 6,
+      "ucs_seconds": 0.007862400001613423,
+      "ucs_expanded": 116,
+      "ucs_generated": 354,
+      "ucs_max_frontier": 33,
+      "ucs_limit_seconds": 120,
+      "ucs_limit_expansions": 2000000,
+      "ucs_max_depth": 1000000000
+    },
+    {
+      "case_id": 71,
+      "initial_code": 376,
+      "initial_grid": [
+        [
+          0.5,
+          1.0
+        ],
+        [
+          1.0,
+          0.5
+        ],
+        [
+          0.5,
+          0.5
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "ga_found": true,
+      "ga_status": "found",
+      "ga_cost": 50,
+      "ga_actions": [
+        3,
+        0,
+        13,
+        5,
+        2,
+        9,
+        1,
+        3,
+        4,
+        6,
+        5,
+        7
+      ],
+      "ga_action_count": 12,
+      "ga_min_conflict": 0,
+      "ga_cost_at_min_conflict": 50,
+      "ga_fitness": 100202.76467062514,
+      "ga_seconds": 3.6333812000084436,
+      "ga_generations": 100,
+      "ga_evaluations": 13462,
+      "ga_unique_evaluations": 9608,
+      "mutation_trials": 7237,
+      "lethal_mutations": 6404,
+      "mutation_fallbacks": 435,
+      "ga_mean_valid_fraction": 0.8304950495049505,
+      "ga_seed": 71042,
+      "ucs_found": true,
+      "ucs_status": "found",
+      "optimum_cost": 42,
+      "ucs_actions": [
+        2,
+        0,
+        9,
+        1,
+        11,
+        4,
+        3,
+        13,
+        0,
+        6,
+        5,
+        7
+      ],
+      "ucs_action_count": 12,
+      "ucs_seconds": 1.473714799998561,
+      "ucs_expanded": 10180,
+      "ucs_generated": 60053,
+      "ucs_max_frontier": 3253,
+      "ucs_limit_seconds": 120,
+      "ucs_limit_expansions": 2000000,
+      "ucs_max_depth": 1000000000
+    },
+    {
+      "case_id": 72,
+      "initial_code": 5418,
+      "initial_grid": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          1.0,
+          1.0
+        ],
+        [
+          0.0,
+          0.5
+        ],
+        [
+          0.5,
+          1.0
+        ]
+      ],
+      "ga_found": true,
+      "ga_status": "found",
+      "ga_cost": 30,
+      "ga_actions": [
+        6,
+        5,
+        3,
+        10,
+        2,
+        7,
+        4,
+        6
+      ],
+      "ga_action_count": 8,
+      "ga_min_conflict": 0,
+      "ga_cost_at_min_conflict": 30,
+      "ga_fitness": 100225.53064631952,
+      "ga_seconds": 2.1142394000053173,
+      "ga_generations": 100,
+      "ga_evaluations": 8998,
+      "ga_unique_evaluations": 5683,
+      "mutation_trials": 3560,
+      "lethal_mutations": 2404,
+      "mutation_fallbacks": 132,
+      "ga_mean_valid_fraction": 0.9312871287128713,
+      "ga_seed": 72042,
+      "ucs_found": true,
+      "ucs_status": "found",
+      "optimum_cost": 28,
+      "ucs_actions": [
+        5,
+        3,
+        10,
+        2,
+        4,
+        14,
+        7,
+        6
+      ],
+      "ucs_action_count": 8,
+      "ucs_seconds": 0.1924278999940725,
+      "ucs_expanded": 1569,
+      "ucs_generated": 8097,
+      "ucs_max_frontier": 816,
+      "ucs_limit_seconds": 120,
+      "ucs_limit_expansions": 2000000,
+      "ucs_max_depth": 1000000000
+    },
+    {
+      "case_id": 73,
+      "initial_code": 1867,
+      "initial_grid": [
+        [
+          0.5,
+          0.5
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          1.0,
+          0.5
+        ],
+        [
+          1.0,
+          0.0
+        ]
+      ],
+      "ga_found": true,
+      "ga_status": "found",
+      "ga_cost": 35,
+      "ga_actions": [
+        14,
+        4,
+        1,
+        0,
+        3,
+        13,
+        5,
+        14,
+        7,
+        2,
+        6
+      ],
+      "ga_action_count": 11,
+      "ga_min_conflict": 0,
+      "ga_cost_at_min_conflict": 35,
+      "ga_fitness": 100218.17298312219,
+      "ga_seconds": 2.3304773999989266,
+      "ga_generations": 100,
+      "ga_evaluations": 10357,
+      "ga_unique_evaluations": 6620,
+      "mutation_trials": 4697,
+      "lethal_mutations": 3622,
+      "mutation_fallbacks": 212,
+      "ga_mean_valid_fraction": 0.9081188118811881,
+      "ga_seed": 73042,
+      "ucs_found": true,
+      "ucs_status": "found",
+      "optimum_cost": 33,
+      "ucs_actions": [
+        12,
+        4,
+        13,
+        1,
+        3,
+        13,
+        0,
+        2,
+        6,
+        5,
+        7
+      ],
+      "ucs_action_count": 11,
+      "ucs_seconds": 0.16744819999439642,
+      "ucs_expanded": 1434,
+      "ucs_generated": 6850,
+      "ucs_max_frontier": 491,
+      "ucs_limit_seconds": 120,
+      "ucs_limit_expansions": 2000000,
+      "ucs_max_depth": 1000000000
+    },
+    {
+      "case_id": 74,
+      "initial_code": 6333,
+      "initial_grid": [
+        [
+          0.0,
+          1.0
+        ],
+        [
+          0.5,
+          0.0
+        ],
+        [
+          0.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0
+        ]
+      ],
+      "ga_found": true,
+      "ga_status": "found",
+      "ga_cost": 40,
+      "ga_actions": [
+        1,
+        5,
+        14,
+        3,
+        7,
+        2,
+        4,
+        6
+      ],
+      "ga_action_count": 8,
+      "ga_min_conflict": 0,
+      "ga_cost_at_min_conflict": 40,
+      "ga_fitness": 100212.15332784742,
+      "ga_seconds": 2.6057964000065112,
+      "ga_generations": 100,
+      "ga_evaluations": 10486,
+      "ga_unique_evaluations": 7033,
+      "mutation_trials": 4677,
+      "lethal_mutations": 3665,
+      "mutation_fallbacks": 267,
+      "ga_mean_valid_fraction": 0.875049504950495,
+      "ga_seed": 74042,
+      "ucs_found": true,
+      "ucs_status": "found",
+      "optimum_cost": 36,
+      "ucs_actions": [
+        13,
+        4,
+        2,
+        1,
+        5,
+        6,
+        3,
+        7
+      ],
+      "ucs_action_count": 8,
+      "ucs_seconds": 0.28267099999357015,
+      "ucs_expanded": 3411,
+      "ucs_generated": 18568,
+      "ucs_max_frontier": 1487,
+      "ucs_limit_seconds": 120,
+      "ucs_limit_expansions": 2000000,
+      "ucs_max_depth": 1000000000
+    },
+    {
+      "case_id": 75,
+      "initial_code": 2371,
+      "initial_grid": [
+        [
+          0.5,
+          0.5
+        ],
+        [
+          1.0,
+          0.0
+        ],
+        [
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.5
+        ]
+      ],
+      "ga_found": true,
+      "ga_status": "found",
+      "ga_cost": 43,
+      "ga_actions": [
+        2,
+        1,
+        7,
+        3,
+        0,
+        4,
+        6,
+        5,
+        7
+      ],
+      "ga_action_count": 9,
+      "ga_min_conflict": 0,
+      "ga_cost_at_min_conflict": 43,
+      "ga_fitness": 100209.02181487756,
+      "ga_seconds": 2.6645256000047084,
+      "ga_generations": 100,
+      "ga_evaluations": 10794,
+      "ga_unique_evaluations": 7171,
+      "mutation_trials": 4966,
+      "lethal_mutations": 3964,
+      "mutation_fallbacks": 268,
+      "ga_mean_valid_fraction": 0.879009900990099,
+      "ga_seed": 75042,
+      "ucs_found": true,
+      "ucs_status": "found",
+      "optimum_cost": 35,
+      "ucs_actions": [
+        1,
+        3,
+        5,
+        15,
+        7,
+        4,
+        2,
+        0,
+        6
+      ],
+      "ucs_action_count": 9,
+      "ucs_seconds": 0.37404999999853317,
+      "ucs_expanded": 2996,
+      "ucs_generated": 15367,
+      "ucs_max_frontier": 957,
+      "ucs_limit_seconds": 120,
+      "ucs_limit_expansions": 2000000,
+      "ucs_max_depth": 1000000000
+    },
+    {
+      "case_id": 76,
+      "initial_code": 654,
+      "initial_grid": [
+        [
+          0.0,
+          1.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          1.0,
+          1.0
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "ga_found": true,
+      "ga_status": "found",
+      "ga_cost": 35,
+      "ga_actions": [
+        1,
+        12,
+        3,
+        5,
+        7,
+        4,
+        6
+      ],
+      "ga_action_count": 7,
+      "ga_min_conflict": 0,
+      "ga_cost_at_min_conflict": 35,
+      "ga_fitness": 100218.17298312219,
+      "ga_seconds": 1.9540733999892836,
+      "ga_generations": 100,
+      "ga_evaluations": 9150,
+      "ga_unique_evaluations": 5766,
+      "mutation_trials": 3628,
+      "lethal_mutations": 2466,
+      "mutation_fallbacks": 162,
+      "ga_mean_valid_fraction": 0.9289108910891088,
+      "ga_seed": 76042,
+      "ucs_found": true,
+      "ucs_status": "found",
+      "optimum_cost": 31,
+      "ucs_actions": [
+        12,
+        5,
+        4,
+        6,
+        1,
+        3,
+        7
+      ],
+      "ucs_action_count": 7,
+      "ucs_seconds": 0.1069223999948008,
+      "ucs_expanded": 966,
+      "ucs_generated": 4242,
+      "ucs_max_frontier": 341,
+      "ucs_limit_seconds": 120,
+      "ucs_limit_expansions": 2000000,
+      "ucs_max_depth": 1000000000
+    },
+    {
+      "case_id": 77,
+      "initial_code": 1908,
+      "initial_grid": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          1.0,
+          0.5
+        ],
+        [
+          1.0,
+          0.5
+        ],
+        [
+          1.0,
+          0.0
+        ]
+      ],
+      "ga_found": true,
+      "ga_status": "found",
+      "ga_cost": 35,
+      "ga_actions": [
+        12,
+        4,
+        2,
+        6,
+        3,
+        5,
+        7
+      ],
+      "ga_action_count": 7,
+      "ga_min_conflict": 0,
+      "ga_cost_at_min_conflict": 35,
+      "ga_fitness": 100218.17298312219,
+      "ga_seconds": 2.0787670999998227,
+      "ga_generations": 100,
+      "ga_evaluations": 8838,
+      "ga_unique_evaluations": 5481,
+      "mutation_trials": 3367,
+      "lethal_mutations": 2182,
+      "mutation_fallbacks": 143,
+      "ga_mean_valid_fraction": 0.9332673267326733,
+      "ga_seed": 77042,
+      "ucs_found": true,
+      "ucs_status": "found",
+      "optimum_cost": 29,
+      "ucs_actions": [
+        10,
+        12,
+        4,
+        13,
+        2,
+        11,
+        3,
+        13,
+        6,
+        5,
+        7
+      ],
+      "ucs_action_count": 11,
+      "ucs_seconds": 0.26056539999262895,
+      "ucs_expanded": 1930,
+      "ucs_generated": 10215,
+      "ucs_max_frontier": 918,
+      "ucs_limit_seconds": 120,
+      "ucs_limit_expansions": 2000000,
+      "ucs_max_depth": 1000000000
+    },
+    {
+      "case_id": 78,
+      "initial_code": 828,
+      "initial_grid": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          1.0,
+          0.0
+        ],
+        [
+          0.5,
+          0.0
+        ],
+        [
+          0.5,
+          0.0
+        ]
+      ],
+      "ga_found": true,
+      "ga_status": "found",
+      "ga_cost": 21,
+      "ga_actions": [
+        2,
+        4,
+        6
+      ],
+      "ga_action_count": 3,
+      "ga_min_conflict": 0,
+      "ga_cost_at_min_conflict": 21,
+      "ga_fitness": 100244.43647588626,
+      "ga_seconds": 0.9056281000084709,
+      "ga_generations": 100,
+      "ga_evaluations": 6855,
+      "ga_unique_evaluations": 4243,
+      "mutation_trials": 1763,
+      "lethal_mutations": 434,
+      "mutation_fallbacks": 14,
+      "ga_mean_valid_fraction": 0.9867326732673267,
+      "ga_seed": 78042,
+      "ucs_found": true,
+      "ucs_status": "found",
+      "optimum_cost": 21,
+      "ucs_actions": [
+        2,
+        4,
+        6
+      ],
+      "ucs_action_count": 3,
+      "ucs_seconds": 0.007825900000170805,
+      "ucs_expanded": 106,
+      "ucs_generated": 321,
+      "ucs_max_frontier": 36,
+      "ucs_limit_seconds": 120,
+      "ucs_limit_expansions": 2000000,
+      "ucs_max_depth": 1000000000
+    },
+    {
+      "case_id": 79,
+      "initial_code": 3114,
+      "initial_grid": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.5,
+          0.5
+        ],
+        [
+          1.0,
+          0.0
+        ],
+        [
+          0.5,
+          0.5
+        ]
+      ],
+      "ga_found": true,
+      "ga_status": "found",
+      "ga_cost": 26,
+      "ga_actions": [
+        4,
+        3,
+        5,
+        2,
+        6,
+        7
+      ],
+      "ga_action_count": 6,
+      "ga_min_conflict": 0,
+      "ga_cost_at_min_conflict": 26,
+      "ga_fitness": 100232.78351371153,
+      "ga_seconds": 1.538950299989665,
+      "ga_generations": 100,
+      "ga_evaluations": 7618,
+      "ga_unique_evaluations": 4380,
+      "mutation_trials": 2415,
+      "lethal_mutations": 1166,
+      "mutation_fallbacks": 51,
+      "ga_mean_valid_fraction": 0.9661386138613861,
+      "ga_seed": 79042,
+      "ucs_found": true,
+      "ucs_status": "found",
+      "optimum_cost": 25,
+      "ucs_actions": [
+        3,
+        5,
+        4,
+        15,
+        2,
+        6,
+        7
+      ],
+      "ucs_action_count": 7,
+      "ucs_seconds": 0.025425200001336634,
+      "ucs_expanded": 401,
+      "ucs_generated": 1633,
+      "ucs_max_frontier": 161,
+      "ucs_limit_seconds": 120,
+      "ucs_limit_expansions": 2000000,
+      "ucs_max_depth": 1000000000
+    },
+    {
+      "case_id": 80,
+      "initial_code": 2278,
+      "initial_grid": [
+        [
+          0.5,
+          0.0
+        ],
+        [
+          0.5,
+          0.0
+        ],
+        [
+          0.5,
+          0.0
+        ],
+        [
+          0.0,
+          0.5
+        ]
+      ],
+      "ga_found": true,
+      "ga_status": "found",
+      "ga_cost": 25,
+      "ga_actions": [
+        0,
+        2,
+        4,
+        6,
+        7
+      ],
+      "ga_action_count": 5,
+      "ga_min_conflict": 0,
+      "ga_cost_at_min_conflict": 25,
+      "ga_fitness": 100234.84671873237,
+      "ga_seconds": 1.150492699991446,
+      "ga_generations": 100,
+      "ga_evaluations": 7695,
+      "ga_unique_evaluations": 4583,
+      "mutation_trials": 2459,
+      "lethal_mutations": 1165,
+      "mutation_fallbacks": 62,
+      "ga_mean_valid_fraction": 0.972079207920792,
+      "ga_seed": 80042,
+      "ucs_found": true,
+      "ucs_status": "found",
+      "optimum_cost": 25,
+      "ucs_actions": [
+        0,
+        7,
+        2,
+        4,
+        6
+      ],
+      "ucs_action_count": 5,
+      "ucs_seconds": 0.008747599989874288,
+      "ucs_expanded": 133,
+      "ucs_generated": 395,
+      "ucs_max_frontier": 40,
+      "ucs_limit_seconds": 120,
+      "ucs_limit_expansions": 2000000,
+      "ucs_max_depth": 1000000000
+    },
+    {
+      "case_id": 81,
+      "initial_code": 3715,
+      "initial_grid": [
+        [
+          0.5,
+          1.0
+        ],
+        [
+          0.5,
+          1.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          1.0,
+          0.5
+        ]
+      ],
+      "ga_found": true,
+      "ga_status": "found",
+      "ga_cost": 48,
+      "ga_actions": [
+        1,
+        3,
+        14,
+        5,
+        0,
+        10,
+        7,
+        2,
+        4,
+        6
+      ],
+      "ga_action_count": 10,
+      "ga_min_conflict": 0,
+      "ga_cost_at_min_conflict": 48,
+      "ga_fitness": 100204.42288127105,
+      "ga_seconds": 2.8120290000078967,
+      "ga_generations": 100,
+      "ga_evaluations": 10577,
+      "ga_unique_evaluations": 6903,
+      "mutation_trials": 4855,
+      "lethal_mutations": 3808,
+      "mutation_fallbacks": 234,
+      "ga_mean_valid_fraction": 0.8996039603960396,
+      "ga_seed": 81042,
+      "ucs_found": true,
+      "ucs_status": "found",
+      "optimum_cost": 41,
+      "ucs_actions": [
+        14,
+        0,
+        2,
+        12,
+        4,
+        14,
+        5,
+        3,
+        1,
+        7,
+        6
+      ],
+      "ucs_action_count": 11,
+      "ucs_seconds": 1.628456999998889,
+      "ucs_expanded": 11836,
+      "ucs_generated": 73268,
+      "ucs_max_frontier": 4309,
+      "ucs_limit_seconds": 120,
+      "ucs_limit_expansions": 2000000,
+      "ucs_max_depth": 1000000000
+    },
+    {
+      "case_id": 82,
+      "initial_code": 5208,
+      "initial_grid": [
+        [
+          0.0,
+          1.0
+        ],
+        [
+          1.0,
+          0.0
+        ],
+        [
+          0.5,
+          0.0
+        ],
+        [
+          0.5,
+          1.0
+        ]
+      ],
+      "ga_found": true,
+      "ga_status": "found",
+      "ga_cost": 40,
+      "ga_actions": [
+        2,
+        9,
+        1,
+        0,
+        4,
+        15,
+        3,
+        6,
+        5,
+        7
+      ],
+      "ga_action_count": 10,
+      "ga_min_conflict": 0,
+      "ga_cost_at_min_conflict": 40,
+      "ga_fitness": 100212.15332784742,
+      "ga_seconds": 2.677441199994064,
+      "ga_generations": 100,
+      "ga_evaluations": 10744,
+      "ga_unique_evaluations": 7004,
+      "mutation_trials": 4998,
+      "lethal_mutations": 3902,
+      "mutation_fallbacks": 242,
+      "ga_mean_valid_fraction": 0.900990099009901,
+      "ga_seed": 82042,
+      "ucs_found": true,
+      "ucs_status": "found",
+      "optimum_cost": 34,
+      "ucs_actions": [
+        15,
+        1,
+        4,
+        2,
+        11,
+        3,
+        5,
+        15,
+        6,
+        7
+      ],
+      "ucs_action_count": 10,
+      "ucs_seconds": 0.41788459999952465,
+      "ucs_expanded": 4222,
+      "ucs_generated": 23165,
+      "ucs_max_frontier": 1632,
+      "ucs_limit_seconds": 120,
+      "ucs_limit_expansions": 2000000,
+      "ucs_max_depth": 1000000000
+    },
+    {
+      "case_id": 83,
+      "initial_code": 2989,
+      "initial_grid": [
+        [
+          0.5,
+          0.0
+        ],
+        [
+          1.0,
+          1.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.5,
+          0.5
+        ]
+      ],
+      "ga_found": true,
+      "ga_status": "found",
+      "ga_cost": 36,
+      "ga_actions": [
+        11,
+        2,
+        0,
+        4,
+        3,
+        6,
+        5,
+        7
+      ],
+      "ga_action_count": 8,
+      "ga_min_conflict": 0,
+      "ga_cost_at_min_conflict": 36,
+      "ga_fitness": 100216.87655667384,
+      "ga_seconds": 2.5044629000040004,
+      "ga_generations": 100,
+      "ga_evaluations": 10042,
+      "ga_unique_evaluations": 6546,
+      "mutation_trials": 4361,
+      "lethal_mutations": 3305,
+      "mutation_fallbacks": 221,
+      "ga_mean_valid_fraction": 0.8895049504950495,
+      "ga_seed": 83042,
+      "ucs_found": true,
+      "ucs_status": "found",
+      "optimum_cost": 33,
+      "ucs_actions": [
+        3,
+        13,
+        5,
+        15,
+        7,
+        4,
+        2,
+        0,
+        6
+      ],
+      "ucs_action_count": 9,
+      "ucs_seconds": 0.18903490000229795,
+      "ucs_expanded": 1609,
+      "ucs_generated": 7905,
+      "ucs_max_frontier": 601,
+      "ucs_limit_seconds": 120,
+      "ucs_limit_expansions": 2000000,
+      "ucs_max_depth": 1000000000
+    },
+    {
+      "case_id": 84,
+      "initial_code": 1333,
+      "initial_grid": [
+        [
+          0.5,
+          0.0
+        ],
+        [
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          1.0
+        ],
+        [
+          0.5,
+          0.0
+        ]
+      ],
+      "ga_found": true,
+      "ga_status": "found",
+      "ga_cost": 36,
+      "ga_actions": [
+        13,
+        0,
+        3,
+        4,
+        5,
+        14,
+        2,
+        15,
+        6,
+        7
+      ],
+      "ga_action_count": 10,
+      "ga_min_conflict": 0,
+      "ga_cost_at_min_conflict": 36,
+      "ga_fitness": 100216.87655667384,
+      "ga_seconds": 2.190692800009856,
+      "ga_generations": 100,
+      "ga_evaluations": 9912,
+      "ga_unique_evaluations": 6291,
+      "mutation_trials": 4322,
+      "lethal_mutations": 3236,
+      "mutation_fallbacks": 184,
+      "ga_mean_valid_fraction": 0.9114851485148515,
+      "ga_seed": 84042,
+      "ucs_found": true,
+      "ucs_status": "found",
+      "optimum_cost": 31,
+      "ucs_actions": [
+        13,
+        3,
+        4,
+        13,
+        5,
+        7,
+        2,
+        0,
+        6
+      ],
+      "ucs_action_count": 9,
+      "ucs_seconds": 0.22052839999378193,
+      "ucs_expanded": 1668,
+      "ucs_generated": 8241,
+      "ucs_max_frontier": 683,
+      "ucs_limit_seconds": 120,
+      "ucs_limit_expansions": 2000000,
+      "ucs_max_depth": 1000000000
+    },
+    {
+      "case_id": 85,
+      "initial_code": 3033,
+      "initial_grid": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.0
+        ],
+        [
+          0.5,
+          0.5
+        ]
+      ],
+      "ga_found": true,
+      "ga_status": "found",
+      "ga_cost": 23,
+      "ga_actions": [
+        3,
+        5,
+        15,
+        4,
+        7,
+        2,
+        6
+      ],
+      "ga_action_count": 7,
+      "ga_min_conflict": 0,
+      "ga_cost_at_min_conflict": 23,
+      "ga_fitness": 100239.34588700996,
+      "ga_seconds": 1.4778892999893287,
+      "ga_generations": 100,
+      "ga_evaluations": 8280,
+      "ga_unique_evaluations": 5018,
+      "mutation_trials": 2921,
+      "lethal_mutations": 1763,
+      "mutation_fallbacks": 103,
+      "ga_mean_valid_fraction": 0.954059405940594,
+      "ga_seed": 85042,
+      "ucs_found": true,
+      "ucs_status": "found",
+      "optimum_cost": 23,
+      "ucs_actions": [
+        3,
+        5,
+        15,
+        7,
+        4,
+        2,
+        6
+      ],
+      "ucs_action_count": 7,
+      "ucs_seconds": 0.007846299995435402,
+      "ucs_expanded": 175,
+      "ucs_generated": 604,
+      "ucs_max_frontier": 64,
+      "ucs_limit_seconds": 120,
+      "ucs_limit_expansions": 2000000,
+      "ucs_max_depth": 1000000000
+    },
+    {
+      "case_id": 86,
+      "initial_code": 2911,
+      "initial_grid": [
+        [
+          0.5,
+          0.5
+        ],
+        [
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0
+        ],
+        [
+          0.0,
+          0.5
+        ]
+      ],
+      "ga_found": true,
+      "ga_status": "found",
+      "ga_cost": 54,
+      "ga_actions": [
+        0,
+        1,
+        12,
+        5,
+        10,
+        3,
+        7,
+        2,
+        4,
+        6
+      ],
+      "ga_action_count": 10,
+      "ga_min_conflict": 0,
+      "ga_cost_at_min_conflict": 54,
+      "ga_fitness": 100199.70710216551,
+      "ga_seconds": 3.1863293000060366,
+      "ga_generations": 100,
+      "ga_evaluations": 9947,
+      "ga_unique_evaluations": 6361,
+      "mutation_trials": 4359,
+      "lethal_mutations": 3243,
+      "mutation_fallbacks": 188,
+      "ga_mean_valid_fraction": 0.9162376237623762,
+      "ga_seed": 86042,
+      "ucs_found": true,
+      "ucs_status": "found",
+      "optimum_cost": 42,
+      "ucs_actions": [
+        13,
+        4,
+        2,
+        11,
+        14,
+        0,
+        1,
+        11,
+        5,
+        6,
+        3,
+        7
+      ],
+      "ucs_action_count": 12,
+      "ucs_seconds": 3.802470800001174,
+      "ucs_expanded": 24403,
+      "ucs_generated": 164574,
+      "ucs_max_frontier": 11177,
+      "ucs_limit_seconds": 120,
+      "ucs_limit_expansions": 2000000,
+      "ucs_max_depth": 1000000000
+    },
+    {
+      "case_id": 87,
+      "initial_code": 1717,
+      "initial_grid": [
+        [
+          0.5,
+          1.0
+        ],
+        [
+          0.5,
+          0.0
+        ],
+        [
+          0.0,
+          0.5
+        ],
+        [
+          1.0,
+          0.0
+        ]
+      ],
+      "ga_found": true,
+      "ga_status": "found",
+      "ga_cost": 44,
+      "ga_actions": [
+        0,
+        14,
+        1,
+        6,
+        11,
+        2,
+        3,
+        4,
+        13,
+        6,
+        5,
+        7
+      ],
+      "ga_action_count": 12,
+      "ga_min_conflict": 0,
+      "ga_cost_at_min_conflict": 44,
+      "ga_fitness": 100208.04456358819,
+      "ga_seconds": 2.775998500001151,
+      "ga_generations": 100,
+      "ga_evaluations": 10996,
+      "ga_unique_evaluations": 7323,
+      "mutation_trials": 5226,
+      "lethal_mutations": 4241,
+      "mutation_fallbacks": 254,
+      "ga_mean_valid_fraction": 0.8734653465346535,
+      "ga_seed": 87042,
+      "ucs_found": true,
+      "ucs_status": "found",
+      "optimum_cost": 36,
+      "ucs_actions": [
+        1,
+        11,
+        3,
+        13,
+        5,
+        7,
+        4,
+        2,
+        0,
+        6
+      ],
+      "ucs_action_count": 10,
+      "ucs_seconds": 0.3864714999945136,
+      "ucs_expanded": 3008,
+      "ucs_generated": 15477,
+      "ucs_max_frontier": 957,
+      "ucs_limit_seconds": 120,
+      "ucs_limit_expansions": 2000000,
+      "ucs_max_depth": 1000000000
+    },
+    {
+      "case_id": 88,
+      "initial_code": 5491,
+      "initial_grid": [
+        [
+          0.5,
+          0.0
+        ],
+        [
+          0.5,
+          1.0
+        ],
+        [
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          1.0
+        ]
+      ],
+      "ga_found": true,
+      "ga_status": "found",
+      "ga_cost": 39,
+      "ga_actions": [
+        11,
+        5,
+        2,
+        3,
+        13,
+        7,
+        0,
+        4,
+        6
+      ],
+      "ga_action_count": 9,
+      "ga_min_conflict": 0,
+      "ga_cost_at_min_conflict": 39,
+      "ga_fitness": 100213.27057131371,
+      "ga_seconds": 2.517781399990781,
+      "ga_generations": 100,
+      "ga_evaluations": 9757,
+      "ga_unique_evaluations": 6149,
+      "mutation_trials": 4156,
+      "lethal_mutations": 3074,
+      "mutation_fallbacks": 193,
+      "ga_mean_valid_fraction": 0.9047524752475247,
+      "ga_seed": 88042,
+      "ucs_found": true,
+      "ucs_status": "found",
+      "optimum_cost": 33,
+      "ucs_actions": [
+        0,
+        5,
+        3,
+        10,
+        2,
+        12,
+        7,
+        4,
+        6
+      ],
+      "ucs_action_count": 9,
+      "ucs_seconds": 0.5342372000013711,
+      "ucs_expanded": 4906,
+      "ucs_generated": 28490,
+      "ucs_max_frontier": 2180,
+      "ucs_limit_seconds": 120,
+      "ucs_limit_expansions": 2000000,
+      "ucs_max_depth": 1000000000
+    },
+    {
+      "case_id": 89,
+      "initial_code": 2188,
+      "initial_grid": [
+        [
+          0.5,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.5
+        ]
+      ],
+      "ga_found": true,
+      "ga_status": "found",
+      "ga_cost": 15,
+      "ga_actions": [
+        0,
+        2,
+        7,
+        4,
+        6
+      ],
+      "ga_action_count": 5,
+      "ga_min_conflict": 0,
+      "ga_cost_at_min_conflict": 15,
+      "ga_fitness": 100265.06997545343,
+      "ga_seconds": 0.8087360999925295,
+      "ga_generations": 100,
+      "ga_evaluations": 7463,
+      "ga_unique_evaluations": 4911,
+      "mutation_trials": 2257,
+      "lethal_mutations": 1019,
+      "mutation_fallbacks": 52,
+      "ga_mean_valid_fraction": 0.9744554455445544,
+      "ga_seed": 89042,
+      "ucs_found": true,
+      "ucs_status": "found",
+      "optimum_cost": 15,
+      "ucs_actions": [
+        0,
+        2,
+        4,
+        6,
+        7
+      ],
+      "ucs_action_count": 5,
+      "ucs_seconds": 0.000446999998530373,
+      "ucs_expanded": 9,
+      "ucs_generated": 13,
+      "ucs_max_frontier": 3,
+      "ucs_limit_seconds": 120,
+      "ucs_limit_expansions": 2000000,
+      "ucs_max_depth": 1000000000
+    },
+    {
+      "case_id": 90,
+      "initial_code": 5750,
+      "initial_grid": [
+        [
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0
+        ],
+        [
+          0.5,
+          1.0
+        ],
+        [
+          0.5,
+          1.0
+        ]
+      ],
+      "ga_found": true,
+      "ga_status": "found",
+      "ga_cost": 59,
+      "ga_actions": [
+        2,
+        0,
+        9,
+        12,
+        3,
+        1,
+        11,
+        4,
+        6,
+        5,
+        7
+      ],
+      "ga_action_count": 11,
+      "ga_min_conflict": 0,
+      "ga_cost_at_min_conflict": 59,
+      "ga_fitness": 100196.2961059634,
+      "ga_seconds": 3.7313005000032717,
+      "ga_generations": 100,
+      "ga_evaluations": 8595,
+      "ga_unique_evaluations": 5379,
+      "mutation_trials": 3361,
+      "lethal_mutations": 2150,
+      "mutation_fallbacks": 66,
+      "ga_mean_valid_fraction": 0.9710891089108911,
+      "ga_seed": 90042,
+      "ucs_found": true,
+      "ucs_status": "found",
+      "optimum_cost": 46,
+      "ucs_actions": [
+        13,
+        5,
+        3,
+        10,
+        12,
+        15,
+        1,
+        8,
+        0,
+        10,
+        7,
+        4,
+        2,
+        6
+      ],
+      "ucs_action_count": 14,
+      "ucs_seconds": 26.73850279999897,
+      "ucs_expanded": 129001,
+      "ucs_generated": 1028119,
+      "ucs_max_frontier": 56599,
+      "ucs_limit_seconds": 120,
+      "ucs_limit_expansions": 2000000,
+      "ucs_max_depth": 1000000000
+    },
+    {
+      "case_id": 91,
+      "initial_code": 5600,
+      "initial_grid": [
+        [
+          1.0,
+          0.0
+        ],
+        [
+          0.5,
+          0.0
+        ],
+        [
+          0.0,
+          1.0
+        ],
+        [
+          0.5,
+          1.0
+        ]
+      ],
+      "ga_found": true,
+      "ga_status": "found",
+      "ga_cost": 38,
+      "ga_actions": [
+        0,
+        2,
+        13,
+        15,
+        4,
+        6,
+        5,
+        7
+      ],
+      "ga_action_count": 8,
+      "ga_min_conflict": 0,
+      "ga_cost_at_min_conflict": 38,
+      "ga_fitness": 100214.42838668809,
+      "ga_seconds": 2.9452980999922147,
+      "ga_generations": 100,
+      "ga_evaluations": 11821,
+      "ga_unique_evaluations": 7891,
+      "mutation_trials": 5970,
+      "lethal_mutations": 5061,
+      "mutation_fallbacks": 303,
+      "ga_mean_valid_fraction": 0.8700990099009901,
+      "ga_seed": 91042,
+      "ucs_found": true,
+      "ucs_status": "found",
+      "optimum_cost": 35,
+      "ucs_actions": [
+        15,
+        2,
+        0,
+        4,
+        2,
+        13,
+        6,
+        5,
+        7
+      ],
+      "ucs_action_count": 9,
+      "ucs_seconds": 0.4424042000027839,
+      "ucs_expanded": 3507,
+      "ucs_generated": 18892,
+      "ucs_max_frontier": 1427,
+      "ucs_limit_seconds": 120,
+      "ucs_limit_expansions": 2000000,
+      "ucs_max_depth": 1000000000
+    },
+    {
+      "case_id": 92,
+      "initial_code": 5309,
+      "initial_grid": [
+        [
+          1.0,
+          1.0
+        ],
+        [
+          0.5,
+          0.5
+        ],
+        [
+          1.0,
+          0.0
+        ],
+        [
+          0.5,
+          1.0
+        ]
+      ],
+      "ga_found": true,
+      "ga_status": "found",
+      "ga_cost": 55,
+      "ga_actions": [
+        1,
+        2,
+        3,
+        0,
+        5,
+        12,
+        4,
+        7,
+        6
+      ],
+      "ga_action_count": 9,
+      "ga_min_conflict": 0,
+      "ga_cost_at_min_conflict": 55,
+      "ga_fitness": 100198.99104809792,
+      "ga_seconds": 3.4339679999975488,
+      "ga_generations": 100,
+      "ga_evaluations": 11611,
+      "ga_unique_evaluations": 7465,
+      "mutation_trials": 5671,
+      "lethal_mutations": 4650,
+      "mutation_fallbacks": 334,
+      "ga_mean_valid_fraction": 0.8817821782178218,
+      "ga_seed": 92042,
+      "ucs_found": true,
+      "ucs_status": "found",
+      "optimum_cost": 43,
+      "ucs_actions": [
+        12,
+        2,
+        5,
+        12,
+        3,
+        1,
+        8,
+        0,
+        2,
+        12,
+        7,
+        4,
+        6
+      ],
+      "ucs_action_count": 13,
+      "ucs_seconds": 6.617207400006009,
+      "ucs_expanded": 37907,
+      "ucs_generated": 267364,
+      "ucs_max_frontier": 16061,
+      "ucs_limit_seconds": 120,
+      "ucs_limit_expansions": 2000000,
+      "ucs_max_depth": 1000000000
+    },
+    {
+      "case_id": 93,
+      "initial_code": 585,
+      "initial_grid": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          1.0,
+          0.0
+        ],
+        [
+          0.5,
+          1.0
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "ga_found": true,
+      "ga_status": "found",
+      "ga_cost": 26,
+      "ga_actions": [
+        2,
+        4,
+        13,
+        6,
+        5,
+        7
+      ],
+      "ga_action_count": 6,
+      "ga_min_conflict": 0,
+      "ga_cost_at_min_conflict": 26,
+      "ga_fitness": 100232.78351371153,
+      "ga_seconds": 1.5099513000022853,
+      "ga_generations": 100,
+      "ga_evaluations": 7986,
+      "ga_unique_evaluations": 4816,
+      "mutation_trials": 2696,
+      "lethal_mutations": 1470,
+      "mutation_fallbacks": 80,
+      "ga_mean_valid_fraction": 0.9601980198019803,
+      "ga_seed": 93042,
+      "ucs_found": true,
+      "ucs_status": "found",
+      "optimum_cost": 26,
+      "ucs_actions": [
+        10,
+        2,
+        12,
+        5,
+        3,
+        4,
+        6,
+        7
+      ],
+      "ucs_action_count": 8,
+      "ucs_seconds": 0.03510550000646617,
+      "ucs_expanded": 316,
+      "ucs_generated": 1177,
+      "ucs_max_frontier": 106,
+      "ucs_limit_seconds": 120,
+      "ucs_limit_expansions": 2000000,
+      "ucs_max_depth": 1000000000
+    },
+    {
+      "case_id": 94,
+      "initial_code": 4991,
+      "initial_grid": [
+        [
+          1.0,
+          0.5
+        ],
+        [
+          1.0,
+          0.5
+        ],
+        [
+          0.5,
+          1.0
+        ],
+        [
+          0.0,
+          1.0
+        ]
+      ],
+      "ga_found": true,
+      "ga_status": "found",
+      "ga_cost": 50,
+      "ga_actions": [
+        2,
+        3,
+        0,
+        4,
+        1,
+        5,
+        6,
+        7
+      ],
+      "ga_action_count": 8,
+      "ga_min_conflict": 0,
+      "ga_cost_at_min_conflict": 50,
+      "ga_fitness": 100202.76467062514,
+      "ga_seconds": 3.260049100004835,
+      "ga_generations": 100,
+      "ga_evaluations": 8754,
+      "ga_unique_evaluations": 5267,
+      "mutation_trials": 3363,
+      "lethal_mutations": 2190,
+      "mutation_fallbacks": 123,
+      "ga_mean_valid_fraction": 0.9467326732673268,
+      "ga_seed": 94042,
+      "ucs_found": true,
+      "ucs_status": "found",
+      "optimum_cost": 41,
+      "ucs_actions": [
+        13,
+        5,
+        12,
+        3,
+        10,
+        1,
+        8,
+        0,
+        10,
+        7,
+        2,
+        4,
+        6
+      ],
+      "ucs_action_count": 13,
+      "ucs_seconds": 7.650454900009208,
+      "ucs_expanded": 43465,
+      "ucs_generated": 312172,
+      "ucs_max_frontier": 19566,
+      "ucs_limit_seconds": 120,
+      "ucs_limit_expansions": 2000000,
+      "ucs_max_depth": 1000000000
+    },
+    {
+      "case_id": 95,
+      "initial_code": 5202,
+      "initial_grid": [
+        [
+          0.0,
+          0.0
+        ],
+        [
+          1.0,
+          0.0
+        ],
+        [
+          0.5,
+          0.0
+        ],
+        [
+          0.5,
+          1.0
+        ]
+      ],
+      "ga_found": true,
+      "ga_status": "found",
+      "ga_cost": 21,
+      "ga_actions": [
+        15,
+        7,
+        4,
+        2,
+        6
+      ],
+      "ga_action_count": 5,
+      "ga_min_conflict": 0,
+      "ga_cost_at_min_conflict": 21,
+      "ga_fitness": 100244.43647588626,
+      "ga_seconds": 1.2803571999975247,
+      "ga_generations": 100,
+      "ga_evaluations": 7030,
+      "ga_unique_evaluations": 3785,
+      "mutation_trials": 1917,
+      "lethal_mutations": 704,
+      "mutation_fallbacks": 21,
+      "ga_mean_valid_fraction": 0.9855445544554456,
+      "ga_seed": 95042,
+      "ucs_found": true,
+      "ucs_status": "found",
+      "optimum_cost": 21,
+      "ucs_actions": [
+        15,
+        7,
+        4,
+        2,
+        6
+      ],
+      "ucs_action_count": 5,
+      "ucs_seconds": 0.033188500005053356,
+      "ucs_expanded": 305,
+      "ucs_generated": 1232,
+      "ucs_max_frontier": 125,
+      "ucs_limit_seconds": 120,
+      "ucs_limit_expansions": 2000000,
+      "ucs_max_depth": 1000000000
+    },
+    {
+      "case_id": 96,
+      "initial_code": 1402,
+      "initial_grid": [
+        [
+          0.5,
+          1.0
+        ],
+        [
+          1.0,
+          0.0
+        ],
+        [
+          1.0,
+          1.0
+        ],
+        [
+          0.5,
+          0.0
+        ]
+      ],
+      "ga_found": true,
+      "ga_status": "found",
+      "ga_cost": 48,
+      "ga_actions": [
+        13,
+        4,
+        0,
+        2,
+        5,
+        7,
+        9,
+        6,
+        1,
+        3,
+        5,
+        7
+      ],
+      "ga_action_count": 12,
+      "ga_min_conflict": 0,
+      "ga_cost_at_min_conflict": 48,
+      "ga_fitness": 100204.42288127105,
+      "ga_seconds": 3.832863900010125,
+      "ga_generations": 100,
+      "ga_evaluations": 12041,
+      "ga_unique_evaluations": 7850,
+      "mutation_trials": 6158,
+      "lethal_mutations": 5172,
+      "mutation_fallbacks": 301,
+      "ga_mean_valid_fraction": 0.8817821782178218,
+      "ga_seed": 96042,
+      "ucs_found": true,
+      "ucs_status": "found",
+      "optimum_cost": 41,
+      "ucs_actions": [
+        0,
+        9,
+        4,
+        13,
+        1,
+        3,
+        13,
+        2,
+        6,
+        5,
+        7
+      ],
+      "ucs_action_count": 11,
+      "ucs_seconds": 4.076096699995105,
+      "ucs_expanded": 22871,
+      "ucs_generated": 152871,
+      "ucs_max_frontier": 9736,
+      "ucs_limit_seconds": 120,
+      "ucs_limit_expansions": 2000000,
+      "ucs_max_depth": 1000000000
+    },
+    {
+      "case_id": 97,
+      "initial_code": 4376,
+      "initial_grid": [
+        [
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0
+        ]
+      ],
+      "ga_found": true,
+      "ga_status": "found",
+      "ga_cost": 24,
+      "ga_actions": [
+        0,
+        2,
+        4,
+        15,
+        6,
+        7
+      ],
+      "ga_action_count": 6,
+      "ga_min_conflict": 0,
+      "ga_cost_at_min_conflict": 24,
+      "ga_fitness": 100237.02996758177,
+      "ga_seconds": 1.1341373000032036,
+      "ga_generations": 100,
+      "ga_evaluations": 7452,
+      "ga_unique_evaluations": 4458,
+      "mutation_trials": 2273,
+      "lethal_mutations": 1045,
+      "mutation_fallbacks": 43,
+      "ga_mean_valid_fraction": 0.9774257425742574,
+      "ga_seed": 97042,
+      "ucs_found": true,
+      "ucs_status": "found",
+      "optimum_cost": 24,
+      "ucs_actions": [
+        0,
+        2,
+        4,
+        14,
+        7,
+        6
+      ],
+      "ucs_action_count": 6,
+      "ucs_seconds": 0.007651500010979362,
+      "ucs_expanded": 126,
+      "ucs_generated": 369,
+      "ucs_max_frontier": 37,
+      "ucs_limit_seconds": 120,
+      "ucs_limit_expansions": 2000000,
+      "ucs_max_depth": 1000000000
+    },
+    {
+      "case_id": 98,
+      "initial_code": 5974,
+      "initial_grid": [
+        [
+          0.5,
+          1.0
+        ],
+        [
+          0.0,
+          1.0
+        ],
+        [
+          0.5,
+          0.0
+        ],
+        [
+          1.0,
+          1.0
+        ]
+      ],
+      "ga_found": true,
+      "ga_status": "found",
+      "ga_cost": 46,
+      "ga_actions": [
+        11,
+        15,
+        9,
+        0,
+        1,
+        3,
+        4,
+        2,
+        13,
+        6,
+        5,
+        7
+      ],
+      "ga_action_count": 12,
+      "ga_min_conflict": 0,
+      "ga_cost_at_min_conflict": 46,
+      "ga_fitness": 100206.17929228533,
+      "ga_seconds": 3.3544243999931496,
+      "ga_generations": 100,
+      "ga_evaluations": 9834,
+      "ga_unique_evaluations": 6384,
+      "mutation_trials": 4401,
+      "lethal_mutations": 3314,
+      "mutation_fallbacks": 145,
+      "ga_mean_valid_fraction": 0.9334653465346535,
+      "ga_seed": 98042,
+      "ucs_found": true,
+      "ucs_status": "found",
+      "optimum_cost": 40,
+      "ucs_actions": [
+        14,
+        0,
+        2,
+        12,
+        5,
+        3,
+        1,
+        7,
+        4,
+        6
+      ],
+      "ucs_action_count": 10,
+      "ucs_seconds": 1.6619502999965334,
+      "ucs_expanded": 10693,
+      "ucs_generated": 66357,
+      "ucs_max_frontier": 4315,
+      "ucs_limit_seconds": 120,
+      "ucs_limit_expansions": 2000000,
+      "ucs_max_depth": 1000000000
+    },
+    {
+      "case_id": 99,
+      "initial_code": 2006,
+      "initial_grid": [
+        [
+          1.0,
+          1.0
+        ],
+        [
+          0.0,
+          1.0
+        ],
+        [
+          0.0,
+          1.0
+        ],
+        [
+          1.0,
+          0.0
+        ]
+      ],
+      "ga_found": true,
+      "ga_status": "found",
+      "ga_cost": 49,
+      "ga_actions": [
+        8,
+        3,
+        1,
+        5,
+        15,
+        14,
+        0,
+        2,
+        7,
+        4,
+        6
+      ],
+      "ga_action_count": 11,
+      "ga_min_conflict": 0,
+      "ga_cost_at_min_conflict": 49,
+      "ga_fitness": 100203.58210840929,
+      "ga_seconds": 3.77535139999236,
+      "ga_generations": 100,
+      "ga_evaluations": 11322,
+      "ga_unique_evaluations": 7639,
+      "mutation_trials": 5641,
+      "lethal_mutations": 4613,
+      "mutation_fallbacks": 247,
+      "ga_mean_valid_fraction": 0.904950495049505,
+      "ga_seed": 99042,
+      "ucs_found": true,
+      "ucs_status": "found",
+      "optimum_cost": 41,
+      "ucs_actions": [
+        14,
+        5,
+        3,
+        1,
+        8,
+        0,
+        2,
+        4,
+        14,
+        7,
+        6
+      ],
+      "ucs_action_count": 11,
+      "ucs_seconds": 4.926910399997723,
+      "ucs_expanded": 26731,
+      "ucs_generated": 180446,
+      "ucs_max_frontier": 11097,
+      "ucs_limit_seconds": 120,
+      "ucs_limit_expansions": 2000000,
+      "ucs_max_depth": 1000000000
+    },
+    {
+      "case_id": 100,
+      "initial_code": 1339,
+      "initial_grid": [
+        [
+          0.5,
+          1.0
+        ],
+        [
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          1.0
+        ],
+        [
+          0.5,
+          0.0
+        ]
+      ],
+      "ga_found": true,
+      "ga_status": "found",
+      "ga_cost": 48,
+      "ga_actions": [
+        3,
+        5,
+        1,
+        3,
+        0,
+        10,
+        7,
+        2,
+        4,
+        6
+      ],
+      "ga_action_count": 10,
+      "ga_min_conflict": 0,
+      "ga_cost_at_min_conflict": 48,
+      "ga_fitness": 100204.42288127105,
+      "ga_seconds": 3.1855056999920635,
+      "ga_generations": 100,
+      "ga_evaluations": 10485,
+      "ga_unique_evaluations": 6747,
+      "mutation_trials": 4782,
+      "lethal_mutations": 3741,
+      "mutation_fallbacks": 237,
+      "ga_mean_valid_fraction": 0.8992079207920791,
+      "ga_seed": 100042,
+      "ucs_found": true,
+      "ucs_status": "found",
+      "optimum_cost": 41,
+      "ucs_actions": [
+        0,
+        10,
+        2,
+        12,
+        5,
+        4,
+        14,
+        3,
+        1,
+        7,
+        6
+      ],
+      "ucs_action_count": 11,
+      "ucs_seconds": 2.5207007999997586,
+      "ucs_expanded": 15111,
+      "ucs_generated": 95171,
+      "ucs_max_frontier": 5492,
+      "ucs_limit_seconds": 120,
+      "ucs_limit_expansions": 2000000,
+      "ucs_max_depth": 1000000000
+    }
+  ]
+}

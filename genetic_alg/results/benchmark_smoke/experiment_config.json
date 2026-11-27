@@ -1,0 +1,32 @@
+{
+  "model_version": "continuous-flow-v2-full-is-1",
+  "rows": 4,
+  "cols": 2,
+  "count": 3,
+  "sampling_seed": 42,
+  "initial_codes": [
+    5239,
+    913,
+    205
+  ],
+  "ga_config": {
+    "population_size": 50,
+    "chromosome_length": 18,
+    "generations": 100,
+    "crossover_rate": 0.85,
+    "mutation_rate": 0.3,
+    "elitism": 2,
+    "immigrant_fraction": 0.1,
+    "crossover_method": "one_point",
+    "mutation_method": "replace",
+    "cost_transform": "log",
+    "conflict_mode": "occupied",
+    "seed": 42,
+    "max_seconds": null,
+    "target_cost": null,
+    "evolution_mode": "classroom",
+    "mutation_attempts": 10
+  },
+  "ga_seed_rule": "sampling_seed + 1000 * case_id",
+  "reference": "original sandgrid UCS"
+}
